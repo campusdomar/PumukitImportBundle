@@ -17,7 +17,7 @@ Open a command console, enter your project directory and execute the
 following command to add this repo:
 
 ```bash
-$ composer config repositories.pumukitimportbundle vcs http://gitlab.teltek.es/pumukit2/pumukitimportbundle.git
+$ composer config repositories.pumukitimportbundle vcs http://gitlab.teltek.es/mrey/pumukitimportbundle.git
 ```
 
 Step 2: Download the Bundle
