@@ -107,38 +107,6 @@
         <gl></gl> 
         <en></en> 
       </line2>
-      <place id="1">
-        <coorgeo></coorgeo>
-        <cod>other</cod>
-        <name>
-          <es><![CDATA[Otros]]></es>
-          <gl><![CDATA[Otros]]></gl>
-          <en><![CDATA[Otros]]></en>
-        </name>
-        <address>
-          <es><![CDATA[Otros]]></es>
-          <gl><![CDATA[Otros]]></gl>
-          <en><![CDATA[Otros]]></en>
-        </address>
-        <precinct id="1">
-          <defaultsel>false</defaultsel>
-          <name>
-            <es><![CDATA[otros]]></es>
-            <gl><![CDATA[otros]]></gl>
-            <en><![CDATA[otros]]></en>
-          </name>
-          <equipment>
-            <es></es>
-            <gl></gl>
-            <en></en>
-          </equipment>
-          <comment>
-            <es><![CDATA[Recincto por defecto]]></es>
-            <gl><![CDATA[Recincto por defecto]]></gl>
-            <en><![CDATA[Recincto por defecto]]></en>
-          </comment>
-        </precinct>
-      </place>
       <genre id="1">
         <cod>1</cod>
         <defaultsel>false</defaultsel> 
@@ -521,38 +489,6 @@
           <en><![CDATA[Conferencia]]></en>
         </name>
       </genre>
-      <place id="1">
-        <coorgeo></coorgeo>
-        <cod>other</cod>
-        <name>
-          <es><![CDATA[Otros]]></es>
-          <gl><![CDATA[Outros]]></gl>
-          <en><![CDATA[Other]]></en>
-        </name>
-        <address>
-          <es><![CDATA[Otros]]></es>
-          <gl><![CDATA[Outros]]></gl>
-          <en><![CDATA[Other]]></en>
-        </address>
-        <precinct id="1">
-          <defaultsel>false</defaultsel>
-          <name>
-            <es><![CDATA[otros]]></es>
-            <gl><![CDATA[otros]]></gl>
-            <en><![CDATA[otros]]></en>
-          </name>
-          <equipment>
-            <es></es>
-            <gl></gl>
-            <en></en>
-          </equipment>
-          <comment>
-            <es><![CDATA[Recincto por defecto]]></es>
-            <gl><![CDATA[Recincto por defecto]]></gl>
-            <en><![CDATA[Recincto por defecto]]></en>
-          </comment>
-        </precinct>
-      </place>
       <line2>
         <es><![CDATA[ ]]></es> 
         <gl><![CDATA[ ]]></gl> 
@@ -565,6 +501,22 @@
         <en><![CDATA[a]]></en> 
       </subserialTitle>
       <mmGrounds>
+        <ground rank= "0" id="49">
+          <cod>T6-3</cod>
+          <name>
+            <es><![CDATA[Facultad]]></es>
+            <gl><![CDATA[Facultade]]></gl>
+          </name>
+          <groundType id="3">
+            <name>Lugares</name>
+            <display>true</display>
+            <rank>1</rank>
+            <description>
+              <es><![CDATA[Lugares]]></es>
+              <gl><![CDATA[Lugares]]></gl>
+            </description>
+          </groundType>
+        </ground>
       </mmGrounds>
       <mmPersons>
         <role rank="1" id="1">

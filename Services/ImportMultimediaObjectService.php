@@ -173,9 +173,6 @@ class ImportMultimediaObjectService extends ImportCommonService
                 case "genre":
                     $multimediaObject = $this->importTagService->setGenreTag($fieldValue, $multimediaObject);
                     break;
-                case "place":
-                    $multimediaObject = $this->importTagService->setPrecinctTag($fieldValue, $multimediaObject);
-                    break;
                 case "mmGrounds":
                     $multimediaObject = $this->importTagService->setGroundTags($fieldValue, $multimediaObject);
                     break;
@@ -256,9 +253,6 @@ class ImportMultimediaObjectService extends ImportCommonService
                     break;
                 case "genre":
                     $prototype = $this->importTagService->setGenreTag($fieldValue, $prototype);
-                    break;
-                case "place":
-                    $prototype = $this->importTagService->setPrecinctTag($fieldValue, $prototype);
                     break;
                 case "mmTemplateGrounds":
                     $prototype = $this->importTagService->setGroundTags($fieldValue, $prototype);

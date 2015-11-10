@@ -15,24 +15,12 @@ class ImportTagService extends ImportCommonService
     private $tagService;
     private $locales;
 
-    private $placeTagCustomField = "address:texti18n geographicalcoordinates:text";
-    private $precinctTagCustomField = "equipment:texti18n comment:texti18n";
 
-    private $placeTagPropertiesRenameFields = array(
-                                                    "setSimpleProperty" => array("coorgeo" => "geographicalcoordinates"),
-                                                    "setArrayProperty" => array("address" => "address")
-                                                    );
-
-    private $precinctTagPropertiesRenameFields = array(
-                                                       "setArrayProperty" => array(
-                                                                                   "equipment" => "equipment",
-                                                                                   "comment" => "comment"
-                                                                                   )
-                                                       );
-
+    private $placesMetatagCode = "Lugares";
     private $metatagCodes = array(
                                   "Directriz" => "DIRECTRIZ",
-                                  "Unesco" => "UNESCO"
+                                  "Unesco" => "UNESCO",
+                                  "Lugares" => "PLACES"
                                   );
 
     private $directrizTagRenameCodes = array(
@@ -92,26 +80,6 @@ class ImportTagService extends ImportCommonService
     }
 
     /**
-     * Set precinct tag
-     *
-     * @param array $placeArray
-     * @param MultimediaObject $multimediaObject
-     *
-     * @return MultimediaObject
-     */
-    public function setPrecinctTag($placeArray, $multimediaObject)
-    {
-        $precinctTag = $this->getExistingPrecinctTag($placeArray);
-        if (null == $precinctTag) {
-            $precinctTag = $this->createPrecinctTag($placeArray);
-        }
-
-        $multimediaObject = $this->addTagToMultimediaObject($precinctTag, $multimediaObject);
-
-        return $multimediaObject;
-    }
-
-    /**
      * Set ground tags
      *
      * @param array $groundsArray
@@ -150,6 +118,9 @@ class ImportTagService extends ImportCommonService
             $metatagCode = $groundTypeArray["name"];
             if ((null == $metatagCode) || (!array_key_exists($metatagCode, $this->metatagCodes))) {
                 throw new \Exception("Trying to add an inexisting tag with code '".$tagCode."' and a not valid parent tag with code '".$metatagCode."'");
+            }
+            if (($this->placesMetatagCode === $metatagCode) && (array_key_exists($this->placesMetatagCode, $this->metatagCodes))) {
+                $tag = $this->createTag($groundArray, $this->metatagCodes[$this->placesMetatagCode], true, true);
             }
         }
 
@@ -300,11 +271,16 @@ class ImportTagService extends ImportCommonService
         return $tag;
     }
 
-    private function createTag($tagArray, $prefix='', $setParent=true)
+    private function createTag($tagArray, $prefix='', $setParent=true, $useCode=false)
     {
         $tag = new Tag();
 
-        $tagCode = $this->getTagCode($tagArray, $prefix);
+        if ($useCode) {
+            $tagCode = $this->getGroundTagCode($tagArray);
+        } else {
+            $tagCode = $this->getTagCode($tagArray, $prefix);
+        }
+
         $tag->setCod($tagCode);
         if (array_key_exists("name", $tagArray)) {
             if (!empty(array_filter($tagArray["name"]))) {
@@ -373,35 +349,12 @@ class ImportTagService extends ImportCommonService
         return $multimediaObject;
     }
 
-    private function getExistingPrecinctTag($placeArray)
-    {
-        $precinctArray = $this->getPrecinctArray($placeArray);
-        $placeTagCode = $this->getTagCode($placeArray, "PLACE");
-        $tagCode = $this->getTagCode($precinctArray, $placeTagCode."PRECINCT");
-        $tag = $this->repo->findOneByCod($tagCode);
-
-        return $tag;
-    }
-
-    private function getPrecinctArray($placeArray)
-    {
-        $precinctArray = array();
-        if (array_key_exists("precinct", $placeArray)) {
-            $precinctArray = $placeArray["precinct"];
-        } else {
-            throw new \Exception("Trying to add a non exisiting precinct");
-        }
-
-        return $precinctArray;
-    }
-
     /**
      * Get tag code
      *
      * NOTE: Building 'cod' Tag field
      * - Genre: 'id' and 'cod' are equals in most cases
-     * - Place: 'cod' is not set in most cases
-     * Conclusion: We take name[GENRE, PLACE] + 'id' for building unique 'cod'
+     * Conclusion: We take name[GENRE] + 'id' for building unique 'cod'
      */
     private function getTagCode($tagArray=array(), $prefix="")
     {
@@ -419,13 +372,7 @@ class ImportTagService extends ImportCommonService
         if (null == $prefix) {
             throw new \Exception("Trying to add Tag without unique code (null prefix)");
         }
-        if ('PLACE' === $prefix) {
-            $tagCode = $prefix . sprintf("%04d", $attributes["id"]);
-        } elseif ((0 === strpos($prefix, 'PLACE')) && (0 < strpos($prefix, 'PRECINCT'))) {
-            $tagCode = $prefix . sprintf("%03d", $attributes["id"]);
-        } else {
-            $tagCode = $prefix . $attributes["id"];
-        }
+        $tagCode = $prefix . $attributes["id"];
 
         return $tagCode;
     }
@@ -470,26 +417,6 @@ class ImportTagService extends ImportCommonService
         }
 
         return $tagCode;
-    }
-
-    private function createPrecinctTag($placeArray)
-    {
-        $placeTag = $this->getExistingTag($placeArray, "PLACE");
-        if (null == $placeTag) {
-            $placeTag = $this->createTag($placeArray, "PLACE");
-            $placeTag = $this->completeTagProperties($placeTag, $placeArray, $this->placeTagPropertiesRenameFields, $this->placeTagCustomField);
-        }
-
-        $precinctArray = $this->getPrecinctArray($placeArray);
-
-        $precinctTag = $this->createTag($precinctArray, $placeTag->getCod()."PRECINCT", false);
-        $precinctTag = $this->completeTagProperties($precinctTag, $precinctArray, $this->precinctTagPropertiesRenameFields, $this->precinctTagCustomField);
-        $precinctTag->setParent($placeTag);
-
-        $this->dm->persist($precinctTag);
-        $this->dm->flush();
-
-        return $precinctTag;
     }
 
     private function completeTagProperties(Tag $tag, $tagArray=array(), $tagPropertiesRenameFields=array(), $customField=null)

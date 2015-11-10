@@ -59,8 +59,8 @@ class ImportTagServiceTest extends WebTestCase
         $xmlArray = $this->importXMLFile($xmlFile);
         $multimediaObject = $this->importTagService->setGenreTag($xmlArray, $multimediaObject);
 
-        $this->assertEquals(5, count($this->tagRepo->findAll()));
-        $this->assertEquals(5, count($multimediaObject->getTags()));
+        $this->assertEquals(3, count($this->tagRepo->findAll()));
+        $this->assertEquals(3, count($multimediaObject->getTags()));
 
         $tagCodes = array();
         foreach ($multimediaObject->getTags() as $tag) {
@@ -74,7 +74,7 @@ class ImportTagServiceTest extends WebTestCase
         $this->assertEquals($i18nTitle, $genre22Tag->getI18nTitle());
     }
 
-    public function testSetPrecinctTag()
+    public function testSetPlaceTag()
     {
         $rootTag = $this->initRootTag();
 
@@ -83,37 +83,25 @@ class ImportTagServiceTest extends WebTestCase
 
         $this->assertEquals(0, count($multimediaObject->getTags()));
 
-        $xmlFile = $this->resourcesDir.'/precincttag.xml';
+        $xmlFile = $this->resourcesDir.'/placetag.xml';
         $xmlArray = $this->importXMLFile($xmlFile);
-        $multimediaObject = $this->importTagService->setPrecinctTag($xmlArray, $multimediaObject);
+        $multimediaObject = $this->importTagService->setGroundTags($xmlArray, $multimediaObject);
 
-        $this->assertEquals(4, count($this->tagRepo->findAll()));
-        $this->assertEquals(4, count($multimediaObject->getTags()));
+        $this->assertEquals(3, count($this->tagRepo->findAll()));
+        $this->assertEquals(3, count($multimediaObject->getTags()));
 
         $tagCodes = array();
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PLACE0001PRECINCT001", "PLACE0001", "PLACE", "ROOT");
+        $codes = array("T6-3", "PLACES", "ROOT");
         $this->assertEquals($codes, $tagCodes);
 
-        $precinct1Tag = $this->tagRepo->findOneByCod("PLACE0001PRECINCT01");
+        $placeTag = $this->tagRepo->findOneByCod("T6-3");
 
-        $i18nTitle = array("es" => "", "gl" => "otros", "en" => "otros");
-        $comment = array("es" => "Recinto por defecto", "gl" => "", "en" => "Recinto por defecto");
+        $i18nTitle = array("es" => "Facultad", "gl" => "Facultade", "en" => "");
 
-        $this->assertEquals($i18nTitle, $precinct1Tag->getI18nTitle());
-        $this->assertEquals($comment, $precinct1Tag->getProperty("comment"));
-
-        $place1Tag = $this->tagRepo->findOneByCod("PLACE0001");
-
-        $i18nTitle = array("es" => "", "gl" => "Otros", "en" => "Otros");
-        $address = array("es" => "Universidad de Vigo", "gl" => "Universidade de Vigo", "en" => "");
-        $geographicalcoordinates = "42.1723237,-8.6930793,15z";
-
-        $this->assertEquals($i18nTitle, $place1Tag->getI18nTitle());
-        $this->assertEquals($address, $place1Tag->getProperty("address"));
-        $this->assertEquals($geographicalcoordinates, $place1Tag->getProperty("geographicalcoordinates"));
+        $this->assertEquals($i18nTitle, $placeTag->getI18nTitle());
     }
 
     public function testSetGroundTags()
@@ -200,7 +188,7 @@ class ImportTagServiceTest extends WebTestCase
         $xmlArray = $this->importXMLFile($xmlFile);
         $multimediaObject = $this->importTagService->setPublicationChannelTags($xmlArray, $multimediaObject);
 
-        $this->assertEquals(6, count($multimediaObject->getTags()));
+        $this->assertEquals(3, count($multimediaObject->getTags()));
 
         $tagCodes = array();
         foreach ($multimediaObject->getTags() as $tag) {
@@ -223,13 +211,13 @@ class ImportTagServiceTest extends WebTestCase
         $xmlArray = $this->importXMLFile($xmlFile);
         $multimediaObject = $this->importTagService->setPublishingDecisionTags($xmlArray, $multimediaObject);
 
-        $this->assertEquals(8, count($multimediaObject->getTags()));
+        $this->assertEquals(3, count($multimediaObject->getTags()));
 
         $tagCodes = array();
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PUDENEW", "PUBDECISIONS", "ROOT", "PUDEAUTO", "PUDEMAINCONF", "PUDEPROMO", "PUDEPRESS", "PUDEIMPACT");
+        $codes = array("PUDENEW", "PUBDECISIONS", "ROOT");
         $this->assertEquals($codes, $tagCodes);
     }
 
@@ -252,7 +240,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PUDEPROMO", "PUBDECISIONS", "ROOT");
+        $codes = array("PUDENEW", "PUBDECISIONS", "ROOT");
         $this->assertEquals($codes, $tagCodes);
     }
 

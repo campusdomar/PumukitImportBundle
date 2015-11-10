@@ -88,13 +88,12 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
 
         $this->assertEquals(MultimediaObject::STATUS_BLOQ, $multimediaObject->getStatus());
 
-        $this->assertEquals(8, count($multimediaObject->getTags()));
+        $this->assertEquals(7, count($multimediaObject->getTags()));
         $this->assertTrue($multimediaObject->containsTagWithCod("ROOT"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PUBCHANNELS"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PUCHWEBTV"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE0001"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE0001PRECINCT01"));
+        $this->assertTrue($multimediaObject->containsTagWithCod("PLACES"));
+        $this->assertTrue($multimediaObject->containsTagWithCod("T6-3"));
         $this->assertTrue($multimediaObject->containsTagWithCod("GENRE"));
         $this->assertTrue($multimediaObject->containsTagWithCod("GENRE1"));
 
@@ -142,7 +141,7 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $opencastId = "a93f5411-822b-4a84-a4e4-d6619fe86fbe";
         $this->assertEquals($opencastId, $multimediaObject->getProperty("opencast"));
 
-        $opencastLink = "http://engage14.campusdomar.es/engage/ui/watch.html?id=%id%";
+        $opencastLink = "http://engage14.pumukit.es/engage/ui/watch.html?id=%id%";
         $this->assertEquals($opencastLink, $multimediaObject->getProperty("opencasturl"));
 
         $opencastInvert = false;
@@ -174,7 +173,7 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
 
         $this->assertEquals(MultimediaObject::STATUS_PROTOTYPE, $multimediaObject->getStatus());
 
-        $this->assertEquals(13, count($multimediaObject->getTags()));
+        $this->assertEquals(12, count($multimediaObject->getTags()));
         $this->assertTrue($multimediaObject->containsTagWithCod("ROOT"));
         $this->assertTrue($multimediaObject->containsTagWithCod("UNESCO"));
         $this->assertTrue($multimediaObject->containsTagWithCod("U220000"));
@@ -184,9 +183,8 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $this->assertTrue($multimediaObject->containsTagWithCod("DIRECTRIZ"));
         $this->assertTrue($multimediaObject->containsTagWithCod("Dscience"));
         $this->assertFalse($multimediaObject->containsTagWithCod("Dtechnical"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE0001"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE0001PRECINCT01"));
+        $this->assertTrue($multimediaObject->containsTagWithCod("PLACES"));
+        $this->assertTrue($multimediaObject->containsTagWithCod("T6-3"));
         $this->assertTrue($multimediaObject->containsTagWithCod("GENRE"));
         $this->assertTrue($multimediaObject->containsTagWithCod("GENRE1"));
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmGrounds>
+  <ground rank= "0" id="49">
+    <cod>T6-3</cod>
+    <name>
+      <es><![CDATA[Facultad]]></es>
+      <gl><![CDATA[Facultade]]></gl>
+    </name>
+    <groundType id="3">
+      <name>Lugares</name>
+      <display>true</display>
+      <rank>1</rank>
+      <description>
+        <es><![CDATA[Lugares]]></es>
+        <gl><![CDATA[Lugares]]></gl>
+      </description>
+    </groundType>
+  </ground>
+</mmGrounds>

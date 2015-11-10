@@ -71,7 +71,7 @@ class ImportSeriesServiceTest extends WebTestCase
 
         $this->assertEquals(MultimediaObject::STATUS_PROTOTYPE, $prototype->getStatus());
 
-        $this->assertEquals(13, count($prototype->getTags()));
+        $this->assertEquals(12, count($prototype->getTags()));
         $this->assertTrue($prototype->containsTagWithCod("ROOT"));
         $this->assertTrue($prototype->containsTagWithCod("UNESCO"));
         $this->assertTrue($prototype->containsTagWithCod("U220000"));
@@ -81,9 +81,8 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->assertTrue($prototype->containsTagWithCod("DIRECTRIZ"));
         $this->assertTrue($prototype->containsTagWithCod("Dscience"));
         $this->assertFalse($prototype->containsTagWithCod("Dtechnical"));
-        $this->assertTrue($prototype->containsTagWithCod("PLACE"));
-        $this->assertTrue($prototype->containsTagWithCod("PLACE0001"));
-        $this->assertTrue($prototype->containsTagWithCod("PLACE0001PRECINCT01"));
+        $this->assertTrue($prototype->containsTagWithCod("PLACES"));
+        $this->assertTrue($prototype->containsTagWithCod("T6-3"));
         $this->assertTrue($prototype->containsTagWithCod("GENRE"));
         $this->assertTrue($prototype->containsTagWithCod("GENRE1"));
         $this->assertFalse($prototype->containsTagWithCod("CHANNELS"));
@@ -138,9 +137,8 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->assertTrue($multimediaObject->containsTagWithCod("ROOT"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PUBCHANNELS"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PUCHWEBTV"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE0001"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACE0001PRECINCT01"));
+        $this->assertTrue($multimediaObject->containsTagWithCod("PLACES"));
+        $this->assertTrue($multimediaObject->containsTagWithCod("T6-3"));
         $this->assertTrue($multimediaObject->containsTagWithCod("GENRE"));
         $this->assertTrue($multimediaObject->containsTagWithCod("GENRE1"));
         $this->assertFalse($multimediaObject->containsTagWithCod("UNESCO"));
