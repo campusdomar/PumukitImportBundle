@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<links>
+  <link rank="1" id="9">
+    <url><![CDATA[http://external-url.com/link1]]></url>
+    <name>
+      <es><![CDATA[Enlace uno]]></es>
+      <gl><![CDATA[Ligazón un]]></gl>
+      <en><![CDATA[Link one]]></en>
+    </name>
+  </link>
+  <link rank="2" id="24">
+    <url><![CDATA[http://external-url.com/link2]]></url>
+    <name>
+      <es><![CDATA[Enlace dos]]></es>
+      <gl><![CDATA[Ligazón dous]]></gl>
+      <en><![CDATA[Link two]]></en>
+    </name>
+  </link>
+</links>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file rank="1" id="9652">
+    <file><![CDATA[__realpath__/videos/track01.mp4]]></file>
+    <description>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </description>            
+    <perfil id="11">
+      <name>MASTER-H264</name>    
+    </perfil>
+    <url></url>    
+    <format id="1">
+      <name>wmv</name>
+      <defaultsel>true</defaultsel>
+    </format>
+    <codec id="6">
+      <name>wmv9</name>    
+      <defaultsel>true</defaultsel>
+    </codec>
+    <mimetype id="2">
+      <name>asx</name>    
+      <defaultsel>true</defaultsel>
+      <type>video/x-ms-asf</type>    
+    </mimetype>
+    <resolution id="2">
+      <hor>720</hor>    
+      <defaultsel>true</defaultsel>
+      <ver>576</ver>    
+    </resolution>
+    <bitrate>1 Mbps</bitrate>    
+    <framerate>25</framerate>    
+    <channels>1</channels>    
+    <audio></audio>    
+    <duration>660</duration>    
+    <numview>3</numview>    
+    <puntsum>0</puntsum>    
+    <puntnum>0</puntnum>    
+    <size>384898546</size>    
+    <resolutionhor>720</resolutionhor>    
+    <resolutionver>576</resolutionver>    
+    <display>false</display>
+    <language>
+      <cod>ES</cod>    
+      <defaultsel>true</defaultsel>
+      <name>
+        <es><![CDATA[Castellano]]></es>
+        <gl><![CDATA[Castellano]]></gl>
+        <en><![CDATA[Castellano]]></en>
+      </name>
+    </language>
+    <tickets>
+    </tickets>      
+  </file>
+  <file rank="2" id="9663">
+    <file><![CDATA[__realpath__/videos/track02.mp4]]></file>
+    <description>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </description>            
+    <perfil id="9">
+      <name>MP4</name>    
+    </perfil>
+    <url><![CDATA[http://dls.pumukit.es/pumukit/429/10045.mp4]]></url>    
+    <format id="1">
+      <name>wmv</name>
+      <defaultsel>true</defaultsel>
+    </format>
+    <codec id="6">
+      <name>wmv9</name>    
+      <defaultsel>true</defaultsel>
+    </codec>
+    <mimetype id="2">
+      <name>asx</name>    
+      <defaultsel>true</defaultsel>
+      <type>video/x-ms-asf</type>    
+    </mimetype>
+    <resolution id="2">
+      <hor>720</hor>    
+      <defaultsel>true</defaultsel>
+      <ver>576</ver>    
+    </resolution>
+    <bitrate>1Mbps</bitrate>    
+    <framerate>25</framerate>    
+    <channels>1</channels>    
+    <audio></audio>    
+    <duration>660</duration>    
+    <numview>21</numview>    
+    <puntsum>0</puntsum>    
+    <puntnum>0</puntnum>    
+    <size>93345144</size>    
+    <resolutionhor>720</resolutionhor>    
+    <resolutionver>576</resolutionver>    
+    <display>false</display>
+    <language>
+      <cod>ES</cod>    
+      <defaultsel>true</defaultsel>
+      <name>
+        <es><![CDATA[Castellano]]></es>
+        <gl><![CDATA[Castellano]]></gl>
+        <en><![CDATA[Castellano]]></en>
+      </name>
+    </language>
+    <tickets>
+    </tickets>      
+  </file>
+  <file rank="3" id="9790">
+    <file><![CDATA[__realpath__/videos/track03.mp4]]></file>
+    <description>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </description>            
+    <perfil id="11">
+      <name>MASTER-H264</name>    
+    </perfil>
+    <url></url>    
+    <format id="1">
+      <name>wmv</name>
+      <defaultsel>true</defaultsel>
+    </format>
+    <codec id="6">
+      <name>wmv9</name>    
+      <defaultsel>true</defaultsel>
+    </codec>
+    <mimetype id="2">
+      <name>asx</name>    
+      <defaultsel>true</defaultsel>
+      <type>video/x-ms-asf</type>    
+    </mimetype>
+    <resolution id="2">
+      <hor>720</hor>    
+      <defaultsel>true</defaultsel>
+      <ver>576</ver>    
+    </resolution>
+    <bitrate>1 Mbps</bitrate>    
+    <framerate>25</framerate>    
+    <channels>1</channels>    
+    <audio></audio>    
+    <duration>1947</duration>    
+    <numview>5</numview>    
+    <puntsum>0</puntsum>    
+    <puntnum>0</puntnum>    
+    <size>829185546</size>    
+    <resolutionhor>1280</resolutionhor>    
+    <resolutionver>720</resolutionver>    
+    <display>false</display>
+    <language>
+      <cod>ES</cod>    
+      <defaultsel>true</defaultsel>
+      <name>
+        <es><![CDATA[Castellano]]></es>
+        <gl><![CDATA[Castellano]]></gl>
+        <en><![CDATA[Castellano]]></en>
+      </name>
+    </language>
+    <tickets>
+    </tickets>      
+  </file>
+  <file rank="4" id="9813">
+    <file><![CDATA[__realpath__/videos/track04.mp4]]></file>
+    <description>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </description>            
+    <perfil id="11">
+      <name>MASTER-H264</name>    
+    </perfil>
+    <url></url>    
+    <format id="1">
+      <name>wmv</name>
+      <defaultsel>true</defaultsel>
+    </format>
+    <codec id="6">
+      <name>wmv9</name>    
+      <defaultsel>true</defaultsel>
+    </codec>
+    <mimetype id="2">
+      <name>asx</name>    
+      <defaultsel>true</defaultsel>
+      <type>video/x-ms-asf</type>    
+    </mimetype>
+    <resolution id="2">
+      <hor>720</hor>    
+      <defaultsel>true</defaultsel>
+      <ver>576</ver>    
+    </resolution>
+    <bitrate>1 Mbps</bitrate>    
+    <framerate>25</framerate>    
+    <channels>1</channels>    
+    <audio></audio>    
+    <duration>2594</duration>    
+    <numview>8</numview>    
+    <puntsum>0</puntsum>    
+    <puntnum>0</puntnum>    
+    <size>1172135446</size>    
+    <resolutionhor>1280</resolutionhor>    
+    <resolutionver>720</resolutionver>    
+    <display>false</display>
+    <language>
+      <cod>ES</cod>    
+      <defaultsel>true</defaultsel>
+      <name>
+        <es><![CDATA[Castellano]]></es>
+        <gl><![CDATA[Castellano]]></gl>
+        <en><![CDATA[Castellano]]></en>
+      </name>
+    </language>
+    <tickets>
+    </tickets>      
+  </file>
+  <file rank="5" id="9815">
+    <file><![CDATA[__realpath__/videos/track05.mp4]]></file>
+    <description>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </description>            
+    <perfil id="19">
+      <name>podcast_video_HD</name>    
+    </perfil>
+    <url><![CDATA[http://dls.pumukit.es/pumukit/429/10202.mp4]]></url>    
+    <format id="1">
+      <name>wmv</name>
+      <defaultsel>true</defaultsel>
+    </format>
+    <codec id="6">
+      <name>wmv9</name>    
+      <defaultsel>true</defaultsel>
+    </codec>
+    <mimetype id="2">
+      <name>asx</name>    
+      <defaultsel>true</defaultsel>
+      <type>video/x-ms-asf</type>    
+    </mimetype>
+    <resolution id="2">
+      <hor>720</hor>    
+      <defaultsel>true</defaultsel>
+      <ver>576</ver>    
+    </resolution>
+    <bitrate>1000</bitrate>    
+    <framerate>25</framerate>    
+    <channels>2</channels>    
+    <audio></audio>    
+    <duration>2594</duration>    
+    <numview>13</numview>    
+    <puntsum>0</puntsum>    
+    <puntnum>0</puntnum>    
+    <size>152431272</size>    
+    <resolutionhor>640</resolutionhor>    
+    <resolutionver>360</resolutionver>    
+    <display>false</display>
+    <language>
+      <cod>ES</cod>    
+      <defaultsel>true</defaultsel>
+      <name>
+        <es><![CDATA[Castellano]]></es>
+        <gl><![CDATA[Castellano]]></gl>
+        <en><![CDATA[Castellano]]></en>
+      </name>
+    </language>
+    <tickets>
+    </tickets>      
+  </file>
+  <file rank="6" id="9817">
+    <file><![CDATA[__realpath__/videos/track06.mp4]]></file>
+    <description>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </description>            
+    <perfil id="9">
+      <name>MP4</name>    
+    </perfil>
+    <url><![CDATA[http://dls.pumukit.es/pumukit/429/10199.mp4]]></url>    
+    <format id="1">
+      <name>wmv</name>
+      <defaultsel>true</defaultsel>
+    </format>
+    <codec id="6">
+      <name>wmv9</name>    
+      <defaultsel>true</defaultsel>
+    </codec>
+    <mimetype id="2">
+      <name>asx</name>    
+      <defaultsel>true</defaultsel>
+      <type>video/x-ms-asf</type>    
+    </mimetype>
+    <resolution id="2">
+      <hor>720</hor>    
+      <defaultsel>true</defaultsel>
+      <ver>576</ver>    
+    </resolution>
+    <bitrate>1Mbps</bitrate>    
+    <framerate>25</framerate>    
+    <channels>1</channels>    
+    <audio></audio>    
+    <duration>2594</duration>    
+    <numview>52</numview>    
+    <puntsum>0</puntsum>    
+    <puntnum>0</puntnum>    
+    <size>367530209</size>    
+    <resolutionhor>1280</resolutionhor>    
+    <resolutionver>720</resolutionver>    
+    <display>true</display>
+    <language>
+      <cod>ES</cod>    
+      <defaultsel>true</defaultsel>
+      <name>
+        <es><![CDATA[Castellano]]></es>
+        <gl><![CDATA[Castellano]]></gl>
+        <en><![CDATA[Castellano]]></en>
+      </name>
+    </language>
+    <tickets>
+    </tickets>      
+  </file>
+</files>

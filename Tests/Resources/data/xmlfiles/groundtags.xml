@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmGrounds>
+  <ground rank= "0" id="7">
+    <cod>U250000</cod>
+    <name>
+      <es><![CDATA[Ciencias de la Tierra y del Cosmos]]></es>
+      <gl><![CDATA[Ciencias da Terra e do Cosmos]]></gl>
+      <en><![CDATA[Earth and Cosmos science]]></en>
+    </name>
+    <groundType id="1">
+      <name>Unesco</name>
+      <display>true</display>
+      <rank>1</rank>
+      <description>
+        <es><![CDATA[Area de conocimento da UNESCO]]></es>
+        <gl><![CDATA[Area de conocimento da UNESCO]]></gl>
+        <en><![CDATA[Area de conocimento da UNESCO]]></en>
+      </description>
+    </groundType>
+  </ground>
+  <ground rank= "0" id="6">
+    <cod>U240000</cod>
+    <name>
+      <es><![CDATA[Ciencias de la Vida]]></es>
+      <gl><![CDATA[Ciencias da Vida]]></gl>
+      <en><![CDATA[Life science]]></en>
+    </name>
+    <groundType id="1">
+      <name>Unesco</name>
+      <display>true</display>
+      <rank>1</rank>
+      <description>
+        <es><![CDATA[Area de conocimento da UNESCO]]></es>
+        <gl><![CDATA[Area de conocimento da UNESCO]]></gl>
+        <en><![CDATA[Area de conocimento da UNESCO]]></en>
+      </description>
+    </groundType>
+  </ground>
+  <ground rank= "0" id="31">
+    <cod>Dtecnologia</cod>
+    <name>
+      <es><![CDATA[Ciencias tecnologicas]]></es>
+      <gl><![CDATA[Ciencias tecnoloxicas]]></gl>
+      <en><![CDATA[Technical sciences]]></en>
+    </name>
+    <groundType id="2">
+      <name>Directriz</name>
+      <display>true</display>
+      <rank>2</rank>
+      <description>
+        <es><![CDATA[Area Directriz]]></es>
+        <gl><![CDATA[Area Directriz]]></gl>
+        <en><![CDATA[Area Directriz]]></en>
+      </description>
+    </groundType>
+  </ground>
+  <ground rank= "0" id="29">
+    <cod>Dciencia</cod>
+    <name>
+      <es><![CDATA[Ciencias Experimentales]]></es>
+      <gl><![CDATA[Ciencias Experimentais]]></gl>
+      <en><![CDATA[Experimental sciences]]></en>
+    </name>
+    <groundType id="2">
+      <name>Directriz</name>
+      <display>true</display>
+      <rank>2</rank>
+      <description>
+        <es><![CDATA[Area Directriz]]></es>
+        <gl><![CDATA[Area Directriz]]></gl>
+        <en><![CDATA[Area Directriz]]></en>
+      </description>
+    </groundType>
+  </ground>
+</mmGrounds>

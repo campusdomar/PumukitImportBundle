@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file rank="1" id="9652">
+    <file><![CDATA[__realpath__/videos/track01.mp4]]></file>
+    <description>
+      <es>Vídeo 1</es>
+      <gl>O vídeo un</gl>
+      <en></en>
+    </description>            
+    <perfil id="11">
+      <name>MASTER-H264</name>    
+    </perfil>
+    <url></url>    
+    <format id="1">
+      <name>wmv</name>
+      <defaultsel>true</defaultsel>
+    </format>
+    <codec id="6">
+      <name>wmv9</name>    
+      <defaultsel>true</defaultsel>
+    </codec>
+    <mimetype id="2">
+      <name>asx</name>    
+      <defaultsel>true</defaultsel>
+      <type>video/x-ms-asf</type>    
+    </mimetype>
+    <resolution id="2">
+      <hor>720</hor>    
+      <defaultsel>true</defaultsel>
+      <ver>576</ver>    
+    </resolution>
+    <bitrate>1 Mbps</bitrate>    
+    <framerate>25</framerate>    
+    <channels>1</channels>    
+    <audio></audio>    
+    <duration>660</duration>    
+    <numview>20</numview>    
+    <puntsum>0</puntsum>    
+    <puntnum>0</puntnum>    
+    <size>384898546</size>    
+    <resolutionhor>720</resolutionhor>    
+    <resolutionver>576</resolutionver>    
+    <display>false</display>
+    <language>
+      <cod>ES</cod>    
+      <defaultsel>true</defaultsel>
+      <name>
+        <es><![CDATA[Castellano]]></es>
+        <gl><![CDATA[Castellano]]></gl>
+        <en><![CDATA[Castellano]]></en>
+      </name>
+    </language>
+    <tickets>
+    </tickets>      
+  </file>
+</files>

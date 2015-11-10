@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mms>
+  <mm rank="1" id="278">
+    <statusId>1</statusId> 
+    <publicationChannels>
+      <publicationChannel name="WebTV" enable="true" status="1" />
+      <publicationChannel name="ARCA" enable="true" status="0" />
+    </publicationChannels>
+    <publishingDecisions>
+    </publishingDecisions>
+    <announce>false</announce> 
+    <mail>mm@mail.com</mail> 
+    <copyright>UVIGO-Tv</copyright> 
+    <recordDate>2011-07-19 14:43:00</recordDate> 
+    <publicDate>2011-07-19 14:43:00</publicDate> 
+    <title>
+      <es></es>
+      <gl><![CDATA[novo]]></gl>
+      <en><![CDATA[new]]></en>
+    </title> 
+    <subtitle>
+      <es><![CDATA[subtítulo]]></es>
+      <gl><![CDATA[subtítulo]]></gl>
+      <en></en>
+    </subtitle>
+    <keyword>
+      <es><![CDATA[llave1, llave2]]></es>
+      <gl><![CDATA[chave1, chave2]]></gl>
+      <en></en>
+    </keyword>
+    <description>
+      <es><![CDATA[descripción]]></es>
+      <gl><![CDATA[descripción]]></gl>
+      <en></en>
+    </description>
+    <broadcast id="1">
+      <name>pub</name> 
+      <passwd></passwd> 
+      <defaultsel>true</defaultsel> 
+      <broadcastType id="1">
+        <name>pub</name>
+        <defaultsel>true</defaultsel> 
+      </broadcastType> 
+      <description> 
+        <es><![CDATA[Público]]></es>
+        <gl><![CDATA[Público]]></gl>
+        <en><![CDATA[Public]]></en>
+      </description> 
+    </broadcast> 
+    <genre id="1">
+      <cod>1</cod>
+      <defaultsel>false</defaultsel> 
+      <name>
+        <es><![CDATA[Conferencia]]></es>
+        <gl><![CDATA[Conferencia]]></gl>
+        <en><![CDATA[Conferencia]]></en>
+      </name>
+    </genre>
+    <place id="1">
+      <coorgeo></coorgeo>
+      <cod>other</cod>
+      <name>
+        <es><![CDATA[Otros]]></es>
+        <gl><![CDATA[Outros]]></gl>
+        <en><![CDATA[Other]]></en>
+      </name>
+      <address>
+        <es><![CDATA[Otros]]></es>
+        <gl><![CDATA[Outros]]></gl>
+        <en><![CDATA[Other]]></en>
+      </address>
+      <precinct id="1">
+        <defaultsel>false</defaultsel>
+        <name>
+          <es><![CDATA[otros]]></es>
+          <gl><![CDATA[otros]]></gl>
+          <en><![CDATA[otros]]></en>
+        </name>
+        <equipment>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </equipment>
+        <comment>
+          <es><![CDATA[Recincto por defecto]]></es>
+          <gl><![CDATA[Recincto por defecto]]></gl>
+          <en><![CDATA[Recincto por defecto]]></en>
+        </comment>
+      </precinct>
+    </place>
+    <line2>
+      <es><![CDATA[ ]]></es> 
+      <gl><![CDATA[ ]]></gl> 
+      <en><![CDATA[ ]]></en> 
+    </line2>
+    <subserial>true</subserial>
+    <subserialTitle>
+      <es><![CDATA[a]]></es> 
+      <gl><![CDATA[a]]></gl> 
+      <en></en> 
+    </subserialTitle>
+    <mmGrounds>
+    </mmGrounds>
+    <mmPersons>
+      <role rank="1" id="1">
+        <cod>actor</cod>
+        <xml>actor</xml>
+        <display>true</display>
+        <name>
+          <es><![CDATA[Actor]]></es>
+          <gl><![CDATA[Actor]]></gl>
+          <en><![CDATA[Actor]]></en>
+        </name>
+        <text>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </text>
+        <persons>
+          <person id="1111">
+            <name>Isabel Riveiro Alarcón</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Instituto Español de Oceanografía]]></es>
+              <gl></gl>
+              <en></en>
+            </firm>
+            <post>
+              <es><![CDATA[Investigadora]]></es>
+              <gl></gl>
+              <en></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+        </persons>
+      </role>   
+      <role rank="3" id="3">
+        <cod>postp</cod>
+        <xml>postpro</xml>
+        <display>false</display>
+        <name>
+          <es><![CDATA[Postproducción]]></es>
+          <gl><![CDATA[Postproducción]]></gl>
+          <en><![CDATA[Postproducción]]></en>
+        </name>
+        <text>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </text>
+        <persons>
+          <person id="1295">
+            <name>Enrique Leirachá</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus do mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico ]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+        </persons>
+      </role>   
+      <role rank="4" id="4">
+        <cod>rea</cod>
+        <xml>realizador</xml>
+        <display>false</display>
+        <name>
+          <es><![CDATA[Realizador]]></es>
+          <gl><![CDATA[Realizador]]></gl>
+          <en><![CDATA[Realizador]]></en>
+        </name>
+        <text>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </text>
+        <persons>
+          <person id="1295">
+            <name>Enrique Leirachá</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus do mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico ]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+        </persons>
+      </role>   
+      <role rank="5" id="5">
+        <cod>pub</cod>
+        <xml>Publicador</xml>
+        <display>false</display>
+        <name>
+          <es><![CDATA[Publicador]]></es>
+          <gl><![CDATA[Publicador]]></gl>
+          <en><![CDATA[Publicador]]></en>
+        </name>
+        <text>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </text>
+        <persons>
+          <person id="1295">
+            <name>Enrique Leirachá</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus do mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico ]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+        </persons>
+      </role>   
+      <role rank="7" id="7">
+        <cod>sig</cod>
+        <xml>actor</xml>
+        <display>true</display>
+        <name>
+          <es><![CDATA[Signante]]></es>
+          <gl><![CDATA[Signante]]></gl>
+          <en><![CDATA[signer]]></en>
+        </name>
+        <text>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </text>
+        <persons>
+          <person id="1173">
+            <name>Alba Puentes García</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Universidad de Vigo]]></es>
+              <gl><![CDATA[Universidad de Vigo]]></gl>
+              <en><![CDATA[University of Vigo]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Signante]]></es>
+              <gl><![CDATA[Signante]]></gl>
+              <en><![CDATA[Signante]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+          <person id="1174">
+            <name>Ruth Lamas Ferreiro</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Universidad de Vigo]]></es>
+              <gl><![CDATA[Universidad de Vigo]]></gl>
+              <en><![CDATA[University of Vigo]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Signante]]></es>
+              <gl><![CDATA[Signante]]></gl>
+              <en></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+        </persons>
+      </role>   
+    </mmPersons>
+    <mmPics>
+      <pic rank="1" id="461">
+        <url><![CDATA[/uploads/pic/Serial/33/Video/278/110916162526.jpg]]></url>    
+      </pic>
+    </mmPics>
+    <files>
+      <file rank="1" id="492">
+        <file><![CDATA[__realpath__/videos/track01.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="7">
+          <name>MASTER-copy</name>    
+        </perfil>
+        <url></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="4">
+          <name>mpeg-2</name>    
+          <defaultsel>false</defaultsel>
+        </codec>
+        <mimetype id="1">
+          <name>none</name>    
+          <defaultsel>false</defaultsel>
+          <type></type>    
+        </mimetype>
+        <resolution id="1">
+          <hor>1280</hor>    
+          <defaultsel>false</defaultsel>
+          <ver>768</ver>    
+        </resolution>
+        <bitrate>??</bitrate>    
+        <framerate>0</framerate>    
+        <channels>1</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>0</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>280467419</size>    
+        <resolutionhor>1280</resolutionhor>    
+        <resolutionver>720</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="2" id="493">
+        <file><![CDATA[__realpath__/videos/track02.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="13">
+          <name>podcast_audio</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/518.mp3]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate>128K</bitrate>    
+        <framerate>0</framerate>    
+        <channels>2</channels>    
+        <audio>1</audio>    
+        <duration>274</duration>    
+        <numview>0</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>4391654</size>    
+        <resolutionhor>0</resolutionhor>    
+        <resolutionver>0</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="3" id="494">
+        <file><![CDATA[__realpath__/videos/track03.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="12">
+          <name>podcast_video</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/519.mp4]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate>1200</bitrate>    
+        <framerate>25</framerate>    
+        <channels>2</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>0</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>41899039</size>    
+        <resolutionhor>640</resolutionhor>    
+        <resolutionver>480</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="4" id="525">
+        <file><![CDATA[__realpath__/videos/track04.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="9">
+          <name>MP4</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/550.flv]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate>1Mbps</bitrate>    
+        <framerate>25</framerate>    
+        <channels>1</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>2</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>38527340</size>    
+        <resolutionhor>0</resolutionhor>    
+        <resolutionver>0</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="5" id="836">
+        <file><![CDATA[__realpath__/videos/track05.mp4]]></file>
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="9">
+          <name>MP4</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/871.mp4]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate></bitrate>    
+        <framerate>25</framerate>    
+        <channels>1</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>2</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>38466653</size>    
+        <resolutionhor>1280</resolutionhor>    
+        <resolutionver>720</resolutionver>    
+        <display>true</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+    </files>
+    <materials>
+      <material rank="1" id="58">
+        <name>
+          <es><![CDATA[material]]></es>
+          <gl><![CDATA[material]]></gl>
+          <en><![CDATA[material]]></en>
+        </name>
+        <url><![CDATA[/uploads/material/Video/3599/zpatron_uno.avs]]></url>    
+        <display>false</display>
+        <mattype id="13">
+          <name>
+            <es><![CDATA[material]]></es>
+            <gl><![CDATA[material]]></gl>
+            <en><![CDATA[material]]></en>
+          </name>
+          <type>Avs</type>
+          <defaultsel>false</defaultsel>
+          <mimetype>Avsp</mimetype>
+        </mattype>
+      </material>
+      <material rank="2" id="59">
+        <name>
+          <es><![CDATA[material]]></es>
+          <gl><![CDATA[material]]></gl>
+          <en><![CDATA[material]]></en>
+        </name>
+        <url><![CDATA[/uploads/material/Video/3599/zpatron_uno.avs]]></url>    
+        <display>false</display>
+        <mattype id="13">
+          <name>
+            <es><![CDATA[material]]></es>
+            <gl><![CDATA[material]]></gl>
+            <en><![CDATA[material]]></en>
+          </name>
+          <type>Avs</type>
+          <defaultsel>false</defaultsel>
+          <mimetype>Avsp</mimetype>
+        </mattype>
+      </material>
+      <material rank="3" id="60">
+        <name>
+          <es><![CDATA[material]]></es>
+          <gl><![CDATA[material]]></gl>
+          <en><![CDATA[material]]></en>
+        </name>
+        <url><![CDATA[/uploads/material/Video/3599/zpatron_uno.avs]]></url>    
+        <display>false</display>
+        <mattype id="13">
+          <name>
+            <es><![CDATA[material]]></es>
+            <gl><![CDATA[material]]></gl>
+            <en><![CDATA[material]]></en>
+          </name>
+          <type>Avs</type>
+          <defaultsel>false</defaultsel>
+          <mimetype>Avsp</mimetype>
+        </mattype>
+      </material>
+    </materials>
+    <links>
+      <link rank="1" id="9">
+        <url><![CDATA[http://engage.pumukit.es/paellaengage/ui/watch.html?id=3a7bf443-45d0-44a1-a156-36dccc638597]]></url>    
+        <name>
+          <es><![CDATA[Beta HTML5 Player mini-paella ]]></es>
+          <gl><![CDATA[Beta HTML5 Player mini-paella ]]></gl>
+          <en><![CDATA[Beta HTML5 Player mini-paella ]]></en>
+        </name>
+      </link>
+      <link rank="2" id="24">
+        <url><![CDATA[http://static.pumukit.es/HTML5player/?id=3a7bf443-45d0-44a1-a156-36dccc638597]]></url>    
+        <name>
+          <es><![CDATA[Beta HTML5 Player full-paella]]></es>
+          <gl><![CDATA[Beta HTML5 Player full-paella]]></gl>
+          <en><![CDATA[Beta HTML5 Player full-paella]]></en>
+        </name>
+      </link>
+    </links>
+    <opencast>
+      <id>a93f5411-822b-4a84-a4e4-d6619fe86fbe</id>
+      <link><![CDATA[http://engage14.pumukit.es/engage/ui/watch.html?id=%id%]]></link>
+      <invert>false</invert>
+      <numview>3</numview>
+      <duration>950</duration>
+    </opencast>
+  </mm>
+</mms>

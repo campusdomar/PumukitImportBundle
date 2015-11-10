@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmGrounds>
+  <ground rank="0" id="4">
+    <cod>U220000</cod>
+    <name>
+      <es><![CDATA[Física]]></es>
+      <gl><![CDATA[Física]]></gl>
+      <en><![CDATA[Physics]]></en>
+    </name>
+    <groundType id="1">
+      <name>Unesco</name>
+      <display>true</display>
+      <rank>1</rank>
+      <description>
+        <es><![CDATA[Area de conocimento da UNESCO]]></es>
+        <gl><![CDATA[Area de conocimento da UNESCO]]></gl>
+        <en><![CDATA[Area de conocimento da UNESCO]]></en>
+      </description>
+    </groundType>
+  </ground>
+</mmGrounds>

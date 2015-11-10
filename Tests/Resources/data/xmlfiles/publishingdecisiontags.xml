@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<publishingDecisions>
+  <publishingDecision name="Anunciado" />
+  <publishingDecision name="Autónomo" />
+  <publishingDecision name="Grandes Conferencias" />
+  <publishingDecision name="Promocionales y corporativos" />
+  <publishingDecision name="Área de Prensa" />
+  <publishingDecision name="Impacto (Vídeo sensible)" />
+</publishingDecisions>

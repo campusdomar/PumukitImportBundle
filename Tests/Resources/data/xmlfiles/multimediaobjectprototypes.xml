@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmTemplates>
+  <mmTemplate rank="0" id="33">
+    <subserial>false</subserial> 
+    <announce>false</announce> 
+    <mail></mail> 
+    <copyright>UVIGO-Tv</copyright> 
+    <recordDate>2011-07-19 14:43:14</recordDate> 
+    <publicDate>2011-07-19 14:43:14</publicDate> 
+    <statusId>0</statusId>
+    <title>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </title>
+    <subtitle> 
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </subtitle>
+    <keyword> 
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </keyword>
+    <description> 
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </description>
+    <subserialTitle> 
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </subserialTitle>
+    <line2> 
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </line2>
+    <place id="1">
+      <coorgeo></coorgeo>
+      <cod>other</cod>
+      <name>
+        <es><![CDATA[Otros]]></es>
+        <gl><![CDATA[Otros]]></gl>
+        <en><![CDATA[Otros]]></en>
+      </name>
+      <address>
+        <es><![CDATA[Otros]]></es>
+        <gl><![CDATA[Otros]]></gl>
+        <en><![CDATA[Otros]]></en>
+      </address>
+      <precinct id="1">
+        <defaultsel>false</defaultsel>
+        <name>
+          <es><![CDATA[otros]]></es>
+          <gl><![CDATA[otros]]></gl>
+          <en><![CDATA[otros]]></en>
+        </name>
+        <equipment>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </equipment>
+        <comment>
+          <es><![CDATA[Recincto por defecto]]></es>
+          <gl><![CDATA[Recincto por defecto]]></gl>
+          <en><![CDATA[Recincto por defecto]]></en>
+        </comment>
+      </precinct>
+    </place>
+    <genre id="1">
+      <cod>1</cod>
+      <defaultsel>false</defaultsel> 
+      <name>
+        <es><![CDATA[Conferencia]]></es>
+        <gl><![CDATA[Conferencia]]></gl>
+        <en><![CDATA[Conferencia]]></en>
+      </name>
+    </genre> 
+    <broadcast id="1">
+      <name>pub</name> 
+      <passwd></passwd> 
+      <defaultsel>true</defaultsel> 
+      <broadcastType>
+        <name>pub</name>
+        <defaultsel>true</defaultsel> 
+      </broadcastType> 
+      <description> 
+        <es><![CDATA[Público]]></es>
+        <gl><![CDATA[Público]]></gl>
+        <en><![CDATA[Public]]></en>
+      </description> 
+    </broadcast> 
+    <mmTemplatePersons>
+      <role rank="3" id="3">
+        <cod>postp</cod>
+        <xml>postpro</xml>
+        <display>false</display>
+        <name>
+          <es><![CDATA[Postproducción]]></es>
+          <gl><![CDATA[Postproducción]]></gl>
+          <en><![CDATA[Postproducción]]></en>
+        </name>
+        <text>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </text>
+        <persons>
+          <person id="1035">
+            <name>Agustín Martínez</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus del mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+          <person id="1295">
+            <name>Enrique Leirachá</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus do mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico ]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+        </persons>
+      </role>   
+      <role rank="4" id="4">
+        <cod>rea</cod>
+        <xml>realizador</xml>
+        <display>false</display>
+        <name>
+          <es><![CDATA[Realizador]]></es>
+          <gl><![CDATA[Realizador]]></gl>
+          <en><![CDATA[Realizador]]></en>
+        </name>
+        <text>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </text>
+        <persons>
+          <person id="1035">
+            <name>Agustín Martínez</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus del mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+          <person id="1295">
+            <name>Enrique Leirachá</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus do mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico ]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+        </persons>
+      </role>   
+      <role rank="5" id="5">
+        <cod>pub</cod>
+        <xml>Publicador</xml>
+        <display>false</display>
+        <name>
+          <es><![CDATA[Publicador]]></es>
+          <gl><![CDATA[Publicador]]></gl>
+          <en><![CDATA[Publicador]]></en>
+        </name>
+        <text>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </text>
+        <persons>
+          <person id="1035">
+            <name>Agustín Martínez</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus del mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+          <person id="1295">
+            <name>Enrique Leirachá</name>
+            <email></email>
+            <web></web>
+            <phone></phone>
+            <honorific>
+              <es><![CDATA[D.]]></es>
+              <gl><![CDATA[D.]]></gl>
+              <en><![CDATA[Mr.]]></en>
+            </honorific>
+            <firm>
+              <es><![CDATA[Campus del mar]]></es>
+              <gl><![CDATA[Campus do mar]]></gl>
+              <en><![CDATA[Campus del mar]]></en>
+            </firm>
+            <post>
+              <es><![CDATA[Técnico ]]></es>
+              <gl><![CDATA[Técnico ]]></gl>
+              <en><![CDATA[Technical]]></en>
+            </post>
+            <bio>
+              <es></es>
+              <gl></gl>
+              <en></en>
+            </bio>
+          </person>
+        </persons>
+      </role>
+    </mmTemplatePersons>
+    <mmTemplateGrounds>
+      <ground rank="0" id="4">
+        <cod>U220000</cod>
+        <name>
+          <es><![CDATA[Física]]></es>
+          <gl><![CDATA[Física]]></gl>
+          <en><![CDATA[Physics]]></en>
+        </name>
+        <groundType id="1">
+          <name>Unesco</name>
+          <display>true</display>
+          <rank>1</rank>
+          <description>
+            <es><![CDATA[Area de conocimento da UNESCO]]></es>
+            <gl><![CDATA[Area de conocimento da UNESCO]]></gl>
+            <en><![CDATA[Area de conocimento da UNESCO]]></en>
+          </description>
+        </groundType>
+      </ground>
+      <ground rank="0" id="5">
+        <cod>U230000</cod>
+        <name>
+          <es><![CDATA[Química]]></es>
+          <gl><![CDATA[Química]]></gl>
+          <en><![CDATA[Chemistry]]></en>
+        </name>
+        <groundType id="1">
+          <name>Unesco</name>
+          <display>true</display>
+          <rank>1</rank>
+          <description>
+            <es><![CDATA[Area de conocimento da UNESCO]]></es>
+            <gl><![CDATA[Area de conocimento da UNESCO]]></gl>
+            <en><![CDATA[Area de conocimento da UNESCO]]></en>
+          </description>
+        </groundType>
+      </ground>
+      <ground rank="0" id="6">
+        <cod>U240000</cod>
+        <name>
+          <es><![CDATA[Ciencias de la Vida]]></es>
+          <gl><![CDATA[Ciencias da Vida]]></gl>
+          <en><![CDATA[Life science]]></en>
+        </name>
+        <groundType id="1">
+          <name>Unesco</name>
+          <display>true</display>
+          <rank>1</rank>
+          <description>
+            <es><![CDATA[Area de conocimento da UNESCO]]></es>
+            <gl><![CDATA[Area de conocimento da UNESCO]]></gl>
+            <en><![CDATA[Area de conocimento da UNESCO]]></en>
+          </description>
+        </groundType>
+      </ground>
+      <ground rank="0" id="8">
+        <cod>U310000</cod>
+        <name>
+          <es><![CDATA[Ciencias Agronómicas y Veterinarias]]></es>
+          <gl><![CDATA[Ciencias Agronómicas e Veterinarias]]></gl>
+          <en><![CDATA[Agronomist science and Veterinarian]]></en>
+        </name>
+        <groundType id="1">
+          <name>Unesco</name>
+          <display>true</display>
+          <rank>1</rank>
+          <description>
+            <es><![CDATA[Area de conocimento da UNESCO]]></es>
+            <gl><![CDATA[Area de conocimento da UNESCO]]></gl>
+            <en><![CDATA[Area de conocimento da UNESCO]]></en>
+          </description>
+        </groundType>
+      </ground>
+      <ground rank="0" id="29">
+        <cod>Dciencia</cod>
+        <name>
+          <es><![CDATA[Ciencias Experimentales]]></es>
+          <gl><![CDATA[Ciencias Experimentais]]></gl>
+          <en><![CDATA[Experimental sciences]]></en>
+        </name>
+        <groundType id="2">
+          <name>Directriz</name>
+          <display>true</display>
+          <rank>2</rank>
+          <description>
+            <es><![CDATA[Area Directriz]]></es>
+            <gl><![CDATA[Area Directriz]]></gl>
+            <en><![CDATA[Area Directriz]]></en>
+          </description>
+        </groundType>
+      </ground>
+    </mmTemplateGrounds>
+  </mmTemplate>
+</mmTemplates>

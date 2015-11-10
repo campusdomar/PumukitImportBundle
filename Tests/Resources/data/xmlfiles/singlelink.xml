@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<links>
+  <link rank="1" id="9">
+    <url><![CDATA[http://external-url.com/link1]]></url>
+    <name>
+      <es><![CDATA[Enlace uno]]></es>
+      <en><![CDATA[Link one]]></en>
+    </name>
+  </link>
+</links>

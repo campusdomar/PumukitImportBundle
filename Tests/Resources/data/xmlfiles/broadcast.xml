@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<broadcast id="19">
+  <name>broadcast_name</name> 
+  <passwd>broadcast_password</passwd> 
+  <defaultsel>false</defaultsel> 
+  <broadcastType>
+    <name>cor</name>
+    <defaultsel>false</defaultsel> 
+  </broadcastType> 
+  <description> 
+    <es><![CDATA[Difusión en la Universidad]]></es>
+    <gl><![CDATA[Difusión na Universidade]]></gl>
+    <en></en>
+  </description> 
+</broadcast>

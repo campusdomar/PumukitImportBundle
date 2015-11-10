@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mms>
+  <mm rank="1" id="278">
+    <statusId>1</statusId> 
+    <publicationChannels>
+      <publicationChannel name="WebTV" enable="true" status="1" />
+      <publicationChannel name="ARCA" enable="true" status="0" />
+    </publicationChannels>
+    <publishingDecisions>
+    </publishingDecisions>
+    <announce>false</announce> 
+    <mail></mail> 
+    <copyright>UVIGO-Tv</copyright> 
+    <recordDate>2011-07-19 14:43:00</recordDate> 
+    <publicDate>2011-07-19 14:43:00</publicDate> 
+    <title>
+      <es><![CDATA[nuevo]]></es>
+      <gl><![CDATA[nuevo]]></gl>
+      <en><![CDATA[nuevo]]></en>
+    </title> 
+    <subtitle>
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </subtitle>
+    <keyword>
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </keyword>
+    <description>
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </description>
+    <broadcast id="1">
+      <name>pub</name> 
+      <passwd></passwd> 
+      <defaultsel>true</defaultsel> 
+      <broadcastType id="1">
+        <name>pub</name>
+        <defaultsel>true</defaultsel> 
+      </broadcastType> 
+      <description> 
+        <es><![CDATA[Público]]></es>
+        <gl><![CDATA[Público]]></gl>
+        <en><![CDATA[Public]]></en>
+      </description> 
+    </broadcast> 
+    <genre id="1">
+      <cod>1</cod>
+      <defaultsel>false</defaultsel> 
+      <name>
+        <es><![CDATA[Conferencia]]></es>
+        <gl><![CDATA[Conferencia]]></gl>
+        <en><![CDATA[Conferencia]]></en>
+      </name>
+    </genre>
+    <place id="1">
+      <coorgeo></coorgeo>
+      <cod>other</cod>
+      <name>
+        <es><![CDATA[Otros]]></es>
+        <gl><![CDATA[Outros]]></gl>
+        <en><![CDATA[Other]]></en>
+      </name>
+      <address>
+        <es><![CDATA[Otros]]></es>
+        <gl><![CDATA[Outros]]></gl>
+        <en><![CDATA[Other]]></en>
+      </address>
+      <precinct id="1">
+        <defaultsel>false</defaultsel>
+        <name>
+          <es><![CDATA[otros]]></es>
+          <gl><![CDATA[otros]]></gl>
+          <en><![CDATA[otros]]></en>
+        </name>
+        <equipment>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </equipment>
+        <comment>
+          <es><![CDATA[Recincto por defecto]]></es>
+          <gl><![CDATA[Recincto por defecto]]></gl>
+          <en><![CDATA[Recincto por defecto]]></en>
+        </comment>
+      </precinct>
+    </place>
+    <line2>
+      <es><![CDATA[ ]]></es> 
+      <gl><![CDATA[ ]]></gl> 
+      <en><![CDATA[ ]]></en> 
+    </line2>
+    <subserial>true</subserial>
+    <subserialTitle>
+      <es><![CDATA[a]]></es> 
+      <gl><![CDATA[a]]></gl> 
+      <en><![CDATA[a]]></en> 
+    </subserialTitle>
+    <mmGrounds>
+    </mmGrounds>
+    <mmPersons>
+    </mmPersons>
+    <mmPics>
+      <pic rank="1" id="461">
+        <url><![CDATA[/uploads/pic/Serial/33/Video/278/110916162526.jpg]]></url>    
+      </pic>
+    </mmPics>
+    <files>
+      <file rank="1" id="492">
+        <file><![CDATA[__realpath__/videos/track01.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="7">
+          <name>MASTER-copy</name>    
+        </perfil>
+        <url></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="4">
+          <name>mpeg-2</name>    
+          <defaultsel>false</defaultsel>
+        </codec>
+        <mimetype id="1">
+          <name>none</name>    
+          <defaultsel>false</defaultsel>
+          <type></type>    
+        </mimetype>
+        <resolution id="1">
+          <hor>1280</hor>    
+          <defaultsel>false</defaultsel>
+          <ver>768</ver>    
+        </resolution>
+        <bitrate>??</bitrate>    
+        <framerate>0</framerate>    
+        <channels>1</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>0</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>280467419</size>    
+        <resolutionhor>1280</resolutionhor>    
+        <resolutionver>720</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="2" id="493">
+        <file><![CDATA[__realpath__/videos/track02.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="13">
+          <name>podcast_audio</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/518.mp3]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate>128K</bitrate>    
+        <framerate>0</framerate>    
+        <channels>2</channels>    
+        <audio>1</audio>    
+        <duration>274</duration>    
+        <numview>0</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>4391654</size>    
+        <resolutionhor>0</resolutionhor>    
+        <resolutionver>0</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="3" id="494">
+        <file><![CDATA[__realpath__/videos/track03.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="12">
+          <name>podcast_video</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/519.mp4]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate>1200</bitrate>    
+        <framerate>25</framerate>    
+        <channels>2</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>0</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>41899039</size>    
+        <resolutionhor>640</resolutionhor>    
+        <resolutionver>480</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="4" id="525">
+        <file><![CDATA[__realpath__/videos/track04.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="9">
+          <name>MP4</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/550.flv]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate>1Mbps</bitrate>    
+        <framerate>25</framerate>    
+        <channels>1</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>2</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>38527340</size>    
+        <resolutionhor>0</resolutionhor>    
+        <resolutionver>0</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="5" id="836">
+        <file><![CDATA[__realpath__/videos/track05.mp4]]></file>
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="9">
+          <name>MP4</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/871.mp4]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate></bitrate>    
+        <framerate>25</framerate>    
+        <channels>1</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>2</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>38466653</size>    
+        <resolutionhor>1280</resolutionhor>    
+        <resolutionver>720</resolutionver>    
+        <display>true</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+    </files>
+    <materials>
+    </materials>
+    <links>
+    </links>
+  </mm>
+  <mm rank="2" id="880">
+    <statusId>1</statusId> 
+    <publicationChannels>
+      <publicationChannel name="WebTV" enable="true" status="1" />
+      <publicationChannel name="ARCA" enable="true" status="0" />
+    </publicationChannels>
+    <publishingDecisions>
+    </publishingDecisions>
+    <announce>false</announce> 
+    <mail></mail> 
+    <copyright>UVIGO-Tv</copyright> 
+    <recordDate>2011-07-19 14:43:00</recordDate> 
+    <publicDate>2011-07-19 14:43:00</publicDate> 
+    <title>
+      <es><![CDATA[prueba de marcar pub_channel sin master  - [Falta probar que termino bien]]]></es>
+      <gl><![CDATA[prueba de marcar pub_channel sin master  - [Falta probar que termino bien]]]></gl>
+      <en><![CDATA[prueba de marcar pub_channel sin master  - [Falta probar que termino bien]]]></en>
+    </title> 
+    <subtitle>
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </subtitle>
+    <keyword>
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </keyword>
+    <description>
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </description>
+    <broadcast id="1">
+      <name>pub</name> 
+      <passwd></passwd> 
+      <defaultsel>true</defaultsel> 
+      <broadcastType id="1">
+        <name>pub</name>
+        <defaultsel>true</defaultsel> 
+      </broadcastType> 
+      <description> 
+        <es><![CDATA[Público]]></es>
+        <gl><![CDATA[Público]]></gl>
+        <en><![CDATA[Public]]></en>
+      </description> 
+    </broadcast> 
+    <genre id="1">
+      <cod>1</cod>
+      <defaultsel>false</defaultsel> 
+      <name>
+        <es><![CDATA[Conferencia]]></es>
+        <gl><![CDATA[Conferencia]]></gl>
+        <en><![CDATA[Conferencia]]></en>
+      </name>
+    </genre>
+    <place id="1">
+      <coorgeo></coorgeo>
+      <cod>other</cod>
+      <name>
+        <es><![CDATA[Otros]]></es>
+        <gl><![CDATA[Outros]]></gl>
+        <en><![CDATA[Other]]></en>
+      </name>
+      <address>
+        <es><![CDATA[Otros]]></es>
+        <gl><![CDATA[Outros]]></gl>
+        <en><![CDATA[Other]]></en>
+      </address>
+      <precinct id="1">
+        <defaultsel>false</defaultsel>
+        <name>
+          <es><![CDATA[otros]]></es>
+          <gl><![CDATA[otros]]></gl>
+          <en><![CDATA[otros]]></en>
+        </name>
+        <equipment>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </equipment>
+        <comment>
+          <es><![CDATA[Recincto por defecto]]></es>
+          <gl><![CDATA[Recincto por defecto]]></gl>
+          <en><![CDATA[Recincto por defecto]]></en>
+        </comment>
+      </precinct>
+    </place>
+    <line2>
+      <es><![CDATA[ ]]></es> 
+      <gl><![CDATA[ ]]></gl> 
+      <en><![CDATA[ ]]></en> 
+    </line2>
+    <subserial>false</subserial>
+    <subserialTitle>
+      <es></es> 
+      <gl></gl> 
+      <en></en> 
+    </subserialTitle>
+    <mmGrounds>
+    </mmGrounds>
+    <mmPersons>
+    </mmPersons>
+    <mmPics>
+      <pic rank="1" id="1220">
+        <url><![CDATA[/uploads/pic/Serial/33/Video/880/120712164953.jpg]]></url>    
+      </pic>
+    </mmPics>
+    <files>
+      <file rank="1" id="1849">
+        <file><![CDATA[__realpath__/videos/track01.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="11">
+          <name>MASTER-H264</name>    
+        </perfil>
+        <url></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate>1 Mbps</bitrate>    
+        <framerate>25</framerate>    
+        <channels>1</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>0</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>151753900</size>    
+        <resolutionhor>1280</resolutionhor>    
+        <resolutionver>720</resolutionver>    
+        <display>false</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+      <file rank="2" id="1889">
+        <file><![CDATA[__realpath__/videos/track06.mp4]]></file>    
+        <description>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </description>            
+        <perfil id="9">
+          <name>MP4</name>    
+        </perfil>
+        <url><![CDATA[http://dls.pumukit.es/pumukit/33/2057.mp4]]></url>    
+        <format id="1">
+          <name>wmv</name>
+          <defaultsel>true</defaultsel>
+        </format>
+        <codec id="6">
+          <name>wmv9</name>    
+          <defaultsel>true</defaultsel>
+        </codec>
+        <mimetype id="2">
+          <name>asx</name>    
+          <defaultsel>true</defaultsel>
+          <type>video/x-ms-asf</type>    
+        </mimetype>
+        <resolution id="2">
+          <hor>720</hor>    
+          <defaultsel>true</defaultsel>
+          <ver>576</ver>    
+        </resolution>
+        <bitrate>1Mbps</bitrate>    
+        <framerate>25</framerate>    
+        <channels>1</channels>    
+        <audio></audio>    
+        <duration>274</duration>    
+        <numview>0</numview>    
+        <puntsum>0</puntsum>    
+        <puntnum>0</puntnum>    
+        <size>38422518</size>    
+        <resolutionhor>1280</resolutionhor>    
+        <resolutionver>720</resolutionver>    
+        <display>true</display>
+        <language>
+          <cod>ES</cod>    
+          <defaultsel>true</defaultsel>
+          <name>
+            <es><![CDATA[Castellano]]></es>
+            <gl><![CDATA[Castellano]]></gl>
+            <en><![CDATA[Castellano]]></en>
+          </name>
+        </language>
+        <tickets>
+        </tickets>      
+      </file>
+    </files>
+    <materials>
+    </materials>
+    <links>
+    </links>
+  </mm>
+</mms>

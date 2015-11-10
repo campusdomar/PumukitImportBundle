@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<place id="1">
+  <coorgeo>42.1723237,-8.6930793,15z</coorgeo>
+  <cod>other</cod>
+  <name>
+    <es></es>
+    <gl><![CDATA[Otros]]></gl>
+    <en><![CDATA[Otros]]></en>
+  </name>
+  <address>
+    <es><![CDATA[Universidad de Vigo]]></es>
+    <gl><![CDATA[Universidade de Vigo]]></gl>
+    <en></en>
+  </address>
+  <precinct id="1">
+    <defaultsel>false</defaultsel>
+    <name>
+      <es></es>
+      <gl><![CDATA[otros]]></gl>
+      <en><![CDATA[otros]]></en>
+    </name>
+    <equipment>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </equipment>
+    <comment>
+      <es><![CDATA[Recinto por defecto]]></es>
+      <gl></gl>
+      <en><![CDATA[Recinto por defecto]]></en>
+    </comment>
+  </precinct>
+</place>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmPersons>
+  <role rank="1" id="1">
+    <cod>actor</cod>
+    <xml>actor</xml>
+    <display>true</display>
+    <name>
+      <es><![CDATA[Actor]]></es>
+      <gl></gl>
+      <en><![CDATA[Actor]]></en>
+    </name>
+    <text>
+      <es><![CDATA[Texto del actor]]></es>
+      <gl></gl>
+      <en><![CDATA[Actor text]]></en>
+    </text>
+    <persons>
+      <person id="1111">
+        <name>Isabel Riveiro Alarcón</name>
+        <email><![CDATA[isabel.riveiro@mail.com]]></email>
+        <web><![CDATA[http://www.isabelriveiro.com]]></web>
+        <phone>654321789</phone>
+        <honorific>
+          <es></es>
+          <gl>Sra.</gl>
+          <en>Mrs.</en>
+        </honorific>
+        <firm>
+          <es><![CDATA[Instituto Español de Oceanografía]]></es>
+          <gl></gl>
+          <en></en>
+        </firm>
+        <post>
+          <es><![CDATA[Investigadora]]></es>
+          <gl></gl>
+          <en></en>
+        </post>
+        <bio>
+          <es></es>
+          <gl><![CDATA[A biografía de Isabel]]></gl>
+          <en><![CDATA[Isabel biography]]></en>
+        </bio>
+      </person>
+    </persons>
+  </role>   
+</mmPersons>

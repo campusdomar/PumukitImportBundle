@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmPersons>
+  <role rank="1" id="1">
+    <cod>actor</cod>
+    <xml>actor</xml>
+    <display>true</display>
+    <name>
+      <es><![CDATA[Actor]]></es>
+      <gl><![CDATA[Actor]]></gl>
+      <en><![CDATA[Actor]]></en>
+    </name>
+    <text>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </text>
+    <persons>
+      <person id="1111">
+        <name>Isabel Riveiro Alarcón</name>
+        <email></email>
+        <web></web>
+        <phone></phone>
+        <honorific>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </honorific>
+        <firm>
+          <es><![CDATA[Instituto Español de Oceanografía]]></es>
+          <gl></gl>
+          <en></en>
+        </firm>
+        <post>
+          <es><![CDATA[Investigadora]]></es>
+          <gl></gl>
+          <en></en>
+        </post>
+        <bio>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </bio>
+      </person>
+    </persons>
+  </role>   
+  <role rank="3" id="3">
+    <cod>postp</cod>
+    <xml>postpro</xml>
+    <display>false</display>
+    <name>
+      <es><![CDATA[Postproducción]]></es>
+      <gl><![CDATA[Postproducción]]></gl>
+      <en><![CDATA[Postproducción]]></en>
+    </name>
+    <text>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </text>
+    <persons>
+      <person id="1295">
+        <name>Enrique Leirachá</name>
+        <email></email>
+        <web></web>
+        <phone></phone>
+        <honorific>
+          <es><![CDATA[D.]]></es>
+          <gl><![CDATA[D.]]></gl>
+          <en><![CDATA[Mr.]]></en>
+        </honorific>
+        <firm>
+          <es><![CDATA[Campus del mar]]></es>
+          <gl><![CDATA[Campus do mar]]></gl>
+          <en><![CDATA[Campus del mar]]></en>
+        </firm>
+        <post>
+          <es><![CDATA[Técnico ]]></es>
+          <gl><![CDATA[Técnico ]]></gl>
+          <en><![CDATA[Technical]]></en>
+        </post>
+        <bio>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </bio>
+      </person>
+    </persons>
+  </role>   
+  <role rank="4" id="4">
+    <cod>rea</cod>
+    <xml>realizador</xml>
+    <display>false</display>
+    <name>
+      <es><![CDATA[Realizador]]></es>
+      <gl><![CDATA[Realizador]]></gl>
+      <en><![CDATA[Realizador]]></en>
+    </name>
+    <text>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </text>
+    <persons>
+      <person id="1295">
+        <name>Enrique Leirachá</name>
+        <email></email>
+        <web></web>
+        <phone></phone>
+        <honorific>
+          <es><![CDATA[D.]]></es>
+          <gl><![CDATA[D.]]></gl>
+          <en><![CDATA[Mr.]]></en>
+        </honorific>
+        <firm>
+          <es><![CDATA[Campus del mar]]></es>
+          <gl><![CDATA[Campus do mar]]></gl>
+          <en><![CDATA[Campus del mar]]></en>
+        </firm>
+        <post>
+          <es><![CDATA[Técnico ]]></es>
+          <gl><![CDATA[Técnico ]]></gl>
+          <en><![CDATA[Technical]]></en>
+        </post>
+        <bio>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </bio>
+      </person>
+    </persons>
+  </role>   
+  <role rank="5" id="5">
+    <cod>pub</cod>
+    <xml>Publicador</xml>
+    <display>false</display>
+    <name>
+      <es><![CDATA[Publicador]]></es>
+      <gl><![CDATA[Publicador]]></gl>
+      <en><![CDATA[Publicador]]></en>
+    </name>
+    <text>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </text>
+    <persons>
+      <person id="1295">
+        <name>Enrique Leirachá</name>
+        <email></email>
+        <web></web>
+        <phone></phone>
+        <honorific>
+          <es><![CDATA[D.]]></es>
+          <gl><![CDATA[D.]]></gl>
+          <en><![CDATA[Mr.]]></en>
+        </honorific>
+        <firm>
+          <es><![CDATA[Campus del mar]]></es>
+          <gl><![CDATA[Campus do mar]]></gl>
+          <en><![CDATA[Campus del mar]]></en>
+        </firm>
+        <post>
+          <es><![CDATA[Técnico ]]></es>
+          <gl><![CDATA[Técnico ]]></gl>
+          <en><![CDATA[Technical]]></en>
+        </post>
+        <bio>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </bio>
+      </person>
+    </persons>
+  </role>   
+  <role rank="7" id="7">
+    <cod>sig</cod>
+    <xml>actor</xml>
+    <display>true</display>
+    <name>
+      <es><![CDATA[Signante]]></es>
+      <gl><![CDATA[Signante]]></gl>
+      <en><![CDATA[signer]]></en>
+    </name>
+    <text>
+      <es></es>
+      <gl></gl>
+      <en></en>
+    </text>
+    <persons>
+      <person id="1173">
+        <name>Alba Puentes García</name>
+        <email></email>
+        <web></web>
+        <phone></phone>
+        <honorific>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </honorific>
+        <firm>
+          <es><![CDATA[Universidad de Vigo]]></es>
+          <gl><![CDATA[Universidad de Vigo]]></gl>
+          <en><![CDATA[University of Vigo]]></en>
+        </firm>
+        <post>
+          <es><![CDATA[Signante]]></es>
+          <gl><![CDATA[Signante]]></gl>
+          <en><![CDATA[Signante]]></en>
+        </post>
+        <bio>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </bio>
+      </person>
+      <person id="1174">
+        <name>Ruth Lamas Ferreiro</name>
+        <email></email>
+        <web></web>
+        <phone></phone>
+        <honorific>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </honorific>
+        <firm>
+          <es><![CDATA[Universidad de Vigo]]></es>
+          <gl><![CDATA[Universidad de Vigo]]></gl>
+          <en><![CDATA[University of Vigo]]></en>
+        </firm>
+        <post>
+          <es><![CDATA[Signante]]></es>
+          <gl><![CDATA[Signante]]></gl>
+          <en></en>
+        </post>
+        <bio>
+          <es></es>
+          <gl></gl>
+          <en></en>
+        </bio>
+      </person>
+    </persons>
+  </role>   
+</mmPersons>

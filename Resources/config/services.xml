@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="pumukit_import.opencast" class="Pumukit\ImportBundle\Services\ImportOpencastService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+        </service>
+        <service id="pumukit_import.broadcast" class="Pumukit\ImportBundle\Services\ImportBroadcastService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+        </service>
+        <service id="pumukit_import.tag" class="Pumukit\ImportBundle\Services\ImportTagService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+            <argument type="service" id="pumukitschema.tag" />
+            <argument>%pumukit2.locales%</argument>
+        </service>
+        <service id="pumukit_import.pic" class="Pumukit\ImportBundle\Services\ImportPicService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+        </service>
+        <service id="pumukit_import.link" class="Pumukit\ImportBundle\Services\ImportLinkService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+        </service>
+        <service id="pumukit_import.material" class="Pumukit\ImportBundle\Services\ImportMaterialService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+        </service>
+        <service id="pumukit_import.track" class="Pumukit\ImportBundle\Services\ImportTrackService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+            <argument type="service" id="pumukit.inspection" />
+        </service>
+        <service id="pumukit_import.people" class="Pumukit\ImportBundle\Services\ImportPeopleService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+            <argument type="service" id="pumukitschema.person" />
+        </service>
+        <service id="pumukit_import.multimediaobject" class="Pumukit\ImportBundle\Services\ImportMultimediaObjectService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+            <argument type="service" id="pumukitschema.factory" />
+            <argument type="service" id="pumukitschema.tag" />
+            <argument type="service" id="pumukit_import.broadcast" />
+            <argument type="service" id="pumukit_import.tag" />
+            <argument type="service" id="pumukit_import.material" />
+            <argument type="service" id="pumukit_import.track" />
+            <argument type="service" id="pumukit_import.link" />
+            <argument type="service" id="pumukit_import.people" />
+            <argument type="service" id="pumukit_import.pic" />
+            <argument type="service" id="pumukit_import.opencast" />
+        </service>
+        <service id="pumukit_import.series" class="Pumukit\ImportBundle\Services\ImportSeriesService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+            <argument type="service" id="pumukitschema.factory" />
+            <argument type="service" id="pumukit_import.multimediaobject" />
+            <argument type="service" id="pumukit_import.pic" />
+            <argument type="service" id="pumukit_import.opencast" />
+        </service>
+    </services>
+</container>

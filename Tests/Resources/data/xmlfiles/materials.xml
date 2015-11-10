@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<materials>
+  <material rank="1" id="58">
+    <name>
+      <es><![CDATA[material]]></es>
+      <gl><![CDATA[material]]></gl>
+      <en><![CDATA[material]]></en>
+    </name>
+    <url><![CDATA[/uploads/material/Video/3599/zpatron_uno.avs]]></url>    
+    <display>false</display>
+    <mattype id="13">
+      <name>
+        <es><![CDATA[material]]></es>
+        <gl><![CDATA[material]]></gl>
+        <en><![CDATA[material]]></en>
+      </name>
+      <type>Avs</type>
+      <defaultsel>false</defaultsel>
+      <mimetype>Avsp</mimetype>
+    </mattype>
+  </material>
+  <material rank="2" id="59">
+    <name>
+      <es><![CDATA[material]]></es>
+      <gl><![CDATA[material]]></gl>
+      <en><![CDATA[material]]></en>
+    </name>
+    <url><![CDATA[/uploads/material/Video/3599/zpatron_uno.avs]]></url>    
+    <display>false</display>
+    <mattype id="13">
+      <name>
+        <es><![CDATA[material]]></es>
+        <gl><![CDATA[material]]></gl>
+        <en><![CDATA[material]]></en>
+      </name>
+      <type>Avs</type>
+      <defaultsel>false</defaultsel>
+      <mimetype>Avsp</mimetype>
+    </mattype>
+  </material>
+  <material rank="3" id="60">
+    <name>
+      <es><![CDATA[material]]></es>
+      <gl><![CDATA[material]]></gl>
+      <en><![CDATA[material]]></en>
+    </name>
+    <url><![CDATA[/uploads/material/Video/3599/zpatron_uno.avs]]></url>    
+    <display>false</display>
+    <mattype id="13">
+      <name>
+        <es><![CDATA[material]]></es>
+        <gl><![CDATA[material]]></gl>
+        <en><![CDATA[material]]></en>
+      </name>
+      <type>Avs</type>
+      <defaultsel>false</defaultsel>
+      <mimetype>Avsp</mimetype>
+    </mattype>
+  </material>
+</materials>
