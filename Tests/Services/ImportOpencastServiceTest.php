@@ -63,7 +63,7 @@ class ImportOpencastServiceTest extends WebTestCase
         $opencastId = "a93f5411-822b-4a84-a4e4-d6619fe86fbe";
         $this->assertEquals($opencastId, $multimediaObject->getProperty("opencast"));
 
-        $opencastLink = "http://engage14.campusdomar.es/engage/ui/watch.html?id=%id%";
+        $opencastLink = "http://engage14.pumukit.es/engage/ui/watch.html?id=%id%";
         $this->assertEquals($opencastLink, $multimediaObject->getProperty("opencasturl"));
 
         $opencastInvert = false;

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <publicationChannels>
   <publicationChannel name="WebTV" enable="true" status="1" />
-  <publicationChannel name="ARCA" enable="true" status="1" />
 </publicationChannels>

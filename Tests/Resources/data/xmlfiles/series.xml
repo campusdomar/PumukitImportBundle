@@ -470,7 +470,6 @@
       <statusId>1</statusId> 
       <publicationChannels>
         <publicationChannel name="WebTV" enable="true" status="1" />
-        <publicationChannel name="ARCA" enable="true" status="0" />
       </publicationChannels>
       <publishingDecisions>
       </publishingDecisions>

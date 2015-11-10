@@ -64,7 +64,7 @@ class ImportLinkServiceTest extends WebTestCase
         $link = $multimediaObject->getLinks()[0];
 
         $url = "http://external-url.com/link1";
-        $i18nName = array("es" => "Enlace uno", "gl" => "Ligazón un", "en" => "Link one");
+        $i18nName = array("es" => "Enlace uno", "en" => "Link one");
 
         $this->assertEquals($url, $link->getUrl());
         $this->assertEquals($i18nName, $link->getI18nName());

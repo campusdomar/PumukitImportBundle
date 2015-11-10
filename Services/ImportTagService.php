@@ -49,8 +49,7 @@ class ImportTagService extends ImportCommonService
                                            );
 
     private $publicationChannelTagRenameCodes = array(
-                                                      "WebTV" => "PUCHWEBTV",
-                                                      "ARCA" => "PUCHARCA"
+                                                      "WebTV" => "PUCHWEBTV"
                                                       );
 
     private $publishingDecisionTagRenameCodes = array(

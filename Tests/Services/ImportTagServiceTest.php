@@ -94,7 +94,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PLACE0001PRECINCT01", "PLACE0001", "PLACE", "ROOT");
+        $codes = array("PLACE0001PRECINCT001", "PLACE0001", "PLACE", "ROOT");
         $this->assertEquals($codes, $tagCodes);
 
         $precinct1Tag = $this->tagRepo->findOneByCod("PLACE0001PRECINCT01");
@@ -135,7 +135,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("ROOT", "U250000", "UNESCO", "U240000", "Dtechnical", "DIRECTRIZ", "Dscience");
+        $codes = array("U250000", "UNESCO", "ROOT", "U240000", "Dtechnical", "DIRECTRIZ", "Dscience");
         $this->assertEquals($codes, $tagCodes);
     }
 
@@ -206,7 +206,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PUCHWEBTV", "PUBCHANNELS", "ROOT", "PUCHARCA");
+        $codes = array("PUCHWEBTV", "PUBCHANNELS", "ROOT");
         $this->assertEquals($codes, $tagCodes);
     }
 

@@ -138,7 +138,6 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->assertTrue($multimediaObject->containsTagWithCod("ROOT"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PUBCHANNELS"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PUCHWEBTV"));
-        $this->assertFalse($multimediaObject->containsTagWithCod("PUCHARCA"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PLACE"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PLACE0001"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PLACE0001PRECINCT01"));
