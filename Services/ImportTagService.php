@@ -419,64 +419,6 @@ class ImportTagService extends ImportCommonService
         return $tagCode;
     }
 
-    private function completeTagProperties(Tag $tag, $tagArray=array(), $tagPropertiesRenameFields=array(), $customField=null)
-    {
-        foreach ($tagPropertiesRenameFields as $setField => $propertiesRenameFields) {
-            foreach ($propertiesRenameFields as $field => $value) {
-                $tag = $this->$setField($tag, $tagArray, $field, $propertiesRenameFields);
-            }
-        }
-
-        if (null != $customField) {
-            $tag->setProperty("customfield", $customField);
-        }
-
-        $this->dm->persist($tag);
-        $this->dm->flush();
-
-        return $tag;
-    }
-
-    private function setSimpleProperty(Tag $tag, $tagArray=array(), $field="", $propertiesFields=array())
-    {
-        if (array_key_exists($field, $tagArray)) {
-            $value = $tagArray[$field];
-            if (null != $value) {
-                $tag = $this->setProperty($tag, $field, $propertiesFields, $value);
-            }
-        }
-
-        return $tag;
-    }
-
-    private function setArrayProperty(Tag $tag, $tagArray=array(), $field="", $propertiesFields=array())
-    {
-        if (array_key_exists($field, $tagArray)) {
-            $value = $tagArray[$field];
-            if (!(empty(array_filter($value)))) {
-                foreach ($value as $key => $val) {
-                    if (null == $val) {
-                        $value[$key] = "";
-                    }
-                }
-                $tag = $this->setProperty($tag, $field, $propertiesFields, $value);
-            }
-        }
-
-        return $tag;
-    }
-
-    private function setProperty(Tag $tag, $field="", $propertiesFields=array(), $value)
-    {
-        if (array_key_exists($field, $propertiesFields)) {
-            $tag->setProperty($propertiesFields[$field], $value);
-        } else {
-            $tag->setProperty($field, $value);
-        }
-
-        return $tag;
-    }
-
     private function getPublicationChannelAddTag($publicationChannelArray=array())
     {
         $addTag = false;
