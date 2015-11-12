@@ -1,6 +1,14 @@
 # Migration Execution Guide
 
-Follow the next steps to import the metadata exported from PuMuKIT1.7
+Follow the next steps to import into PuMuKIT2.1 the metadata exported from PuMuKIT1.7
+
+## Connect to your PuMuKIT2.1 server
+
+```bash
+$ ssh user@pumukit2.1-server
+```
+
+where `user` is your access user and `pumukit2.1-server` your PuMuKIT2.1 host.
 
 
 ## Delete database if any collection was previously added
@@ -14,7 +22,7 @@ $ mongo
 ```
 
 
-## Init Tags of all installed bundles if haven't done previously
+## Init Tags of all installed bundles
 
 
 Go to root Pumukit2 folder
@@ -35,7 +43,7 @@ If you want to activate one of these publication for importing data, follow the 
 ## Exec command
 
 
-Go to root PuMuKIT2 folder and execute the import command, changing ROUTE by the route path where the XML files are.
+Go to root PuMuKIT2 folder and execute the import command, changing ROUTE by the route path where the XML files are (the PuMuKIT1.7 exported files).
 
 ```
 $ cd /path/to/pumukit2
