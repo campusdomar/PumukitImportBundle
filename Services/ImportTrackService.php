@@ -12,14 +12,9 @@ class ImportTrackService
     private $dm;
     private $inspectionService;
 
-    private $downloadProfile = 'descarga';
-
-    private $sbsProfile = 'BroadCast SbS';
-
     private $displayProfiles = array(
-                                     'MP4',
-                                     'descarga',
-                                     'BroadCast SbS'
+                                     'x264-mp4',
+                                     'mp3'
                                      );
 
     private $renameLanguages = array('ls' => 'lse');
@@ -75,12 +70,6 @@ class ImportTrackService
             $track->addTag('pumukit1id:' . $pumukit1Id);
         }
         $track->addTag('profile:' . $profileName);
-        if ($this->sbsProfile === $profileName) {
-            $track->addTag('sbs');
-        }
-        if ($this->downloadProfile === $profileName) {
-            $track->addTag('download');
-        }
 
         $auxPosition = strpos(strtolower($profileName), "master");
         if ((0 <= $auxPosition) && (false !== $auxPosition)) {
