@@ -4,6 +4,7 @@ namespace Pumukit\ImportBundle\Tests\Services;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Process\Process;
+use Pumukit\SchemaBundle\Document\MultimediaObject;
 
 class ImportOpencastServiceTest extends WebTestCase
 {
@@ -58,7 +59,7 @@ class ImportOpencastServiceTest extends WebTestCase
         $allMultimediaObjects = $this->mmobjRepo->findAll();
         $this->assertEquals(2, count($allMultimediaObjects));
 
-        $multimediaObject = $allMultimediaObjects[1];
+        $multimediaObject = $this->mmobjRepo->findOneByStatus(MultimediaObject::STATUS_BLOQ);
 
         $opencastId = "a93f5411-822b-4a84-a4e4-d6619fe86fbe";
         $this->assertEquals($opencastId, $multimediaObject->getProperty("opencast"));
