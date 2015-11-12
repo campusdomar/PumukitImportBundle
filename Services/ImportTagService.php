@@ -36,7 +36,10 @@ class ImportTagService extends ImportCommonService
                                            );
 
     private $publicationChannelTagRenameCodes = array(
-                                                      "WebTV" => "PUCHWEBTV"
+                                                      "WebTV" => "PUCHWEBTV",
+                                                      "ARCA" => "PUCHARCA",
+                                                      "iTunesU" => "PUCHPODCAST",
+                                                      "YouTubeEDU" => "PUCHYOUTUBE"
                                                       );
 
     private $ignoredPublicationChannels = array(
