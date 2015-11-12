@@ -15,7 +15,6 @@ class ImportTagService extends ImportCommonService
     private $tagService;
     private $locales;
 
-
     private $placesMetatagCode = "Lugares";
     private $metatagCodes = array(
                                   "Directriz" => "DIRECTRIZ",
@@ -40,22 +39,34 @@ class ImportTagService extends ImportCommonService
                                                       "WebTV" => "PUCHWEBTV"
                                                       );
 
+    private $ignoredPublicationChannels = array(
+                                                "ARCA" => "ignore_arca",
+                                                "GoogleVideoSiteMap" => "ignore_google",
+                                                "iTunesU" => "ignore_itunesu",
+                                                "YouTubeEDU" => "ignore_youtube"
+                                                );
+
     private $publishingDecisionTagRenameCodes = array(
-                                                      "Anunciado" => "PUDENEW"
+                                                      "Announce" => "PUDENEW",
+                                                      "Editorial1" => "PUDEPD1",
+                                                      "Editorial2" => "PUDEPD2",
+                                                      "Editorial3" => "PUDEPD3"
                                                       );
 
     /**
      * Constructor
      *
      * @param DocumentManager $documentManager
-     * @param TagService $tagService
-     * @param array $locales
+     * @param TagService      $tagService
+     * @param array           $locales
+     * @param array           $publicationChannelsToIgnore
      */
-    public function __construct(DocumentManager $documentManager, TagService $tagService, $locales=array())
+    public function __construct(DocumentManager $documentManager, TagService $tagService, $locales=array(), $publicationChannelsToIgnore=array())
     {
         $this->dm = $documentManager;
         $this->tagService = $tagService;
         $this->locales = $locales;
+        $this->publicationChannelsToIgnore = $publicationChannelsToIgnore;
         $this->repo = $this->dm->getRepository("PumukitSchemaBundle:Tag");
     }
 
@@ -188,7 +199,8 @@ class ImportTagService extends ImportCommonService
         if ($addTag) {
             $tag = $this->getExistingPublicationChannelTag($publicationChannelArray);
             if (null == $tag) {
-                throw new \Exception("There is no publication channel tag to add. Please init Pumukit tags.");
+                $name = $this->getTagValue($publicationChannelArray, "name");
+                throw new \Exception("There is no publication channel tag with name '".$name."' to add. Please init Pumukit tags.");
             }
             $multimediaObject = $this->addTagToMultimediaObject($tag, $multimediaObject);
         }
@@ -232,7 +244,8 @@ class ImportTagService extends ImportCommonService
     {
         $tag = $this->getExistingPublishingDecisionTag($publishingDecisionArray);
         if (null == $tag) {
-            throw new \Exception("There is no publication channel tag to add. Please init Pumukit tags.");
+            $name = $this->getTagValue($publishingDecisionArray, "name");
+            throw new \Exception("There is no publishing decision tag with name '".$name."' to add. Please init Pumukit tags.");
         }
         $multimediaObject = $this->addTagToMultimediaObject($tag, $multimediaObject);
 
@@ -422,6 +435,13 @@ class ImportTagService extends ImportCommonService
     private function getPublicationChannelAddTag($publicationChannelArray=array())
     {
         $addTag = false;
+
+        $name = $this->getTagValue($publicationChannelArray, "name");
+        if (array_key_exists($name, $this->ignoredPublicationChannels)) {
+            if ($this->publicationChannelsToIgnore[$this->ignoredPublicationChannels[$name]]) {
+                return false;
+            }
+        }
 
         $status = $this->getTagValue($publicationChannelArray, "status");
         $enable = $this->getTagValue($publicationChannelArray, "enable");
