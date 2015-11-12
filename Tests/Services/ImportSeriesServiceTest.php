@@ -111,6 +111,7 @@ class ImportSeriesServiceTest extends WebTestCase
         $email = "series@mail.com";
         $template = "date";
         $pumukit1id = "481";
+        $pumukit1magic = "aab3238922bcc25a6f606eb525ffdc56";
 
         $this->assertEquals($copyright, $series->getCopyright());
         $this->assertEquals($publicDate, $series->getPublicDate());
@@ -124,6 +125,7 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->assertEquals($email, $series->getProperty("email"));
         $this->assertEquals($template, $series->getProperty("template"));
         $this->assertEquals($pumukit1id, $series->getProperty("pumukit1id"));
+        $this->assertEquals($pumukit1magic, $series->getProperty("pumukit1magic"));
 
         $this->assertEquals(3, count($prototype->getRoles()));
         $this->assertEquals(2, count($prototype->getPeople()));
