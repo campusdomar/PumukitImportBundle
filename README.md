@@ -6,6 +6,15 @@ For contribution to the documentation you can find it on [Resources/doc](Resourc
 Installation
 ============
 
+Before installing any bundle is necessary to login to your GitHub account. You have different ways of doing it. We recommend to use:
+
+```
+$ curl -u "username" https://api.github.com
+```
+
+For more options, visit: [https://developer.github.com/v3/#authentication](https://developer.github.com/v3/#authentication)
+
+
 Steps 1 and 2 requires you to have Composer installed globally, as explained
 in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
 of the Composer documentation.
@@ -40,3 +49,8 @@ Install the bundle by executing the following line command. This command updates
 $ cd /path/to/pumukit2/
 $ php app/console pumukit:install:bundle Pumukit/ImportBundle/PumukitImportBundle
 ```
+
+Step 4: Execute the scripts
+---------------------------
+
+Follow the steps at [Resources/doc/FullInstallationGuide.md](https://gitlab.teltek.es/mrey/pumukitimportbundle/blob/master/Resources/doc/FullInstallationGuide.md).
