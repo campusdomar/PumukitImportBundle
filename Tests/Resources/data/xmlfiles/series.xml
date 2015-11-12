@@ -8,7 +8,7 @@
   <title>
     <es></es>
     <gl><![CDATA[Título da serie]]></gl>
-    <en><![CDATA[Acuicultura:]]></en>
+    <en><![CDATA[Series Title]]></en>
   </title>
   <subtitle> 
     <es><![CDATA[Subtítulo]]></es>
@@ -427,6 +427,22 @@
               <es><![CDATA[Area Directriz]]></es>
               <gl><![CDATA[Area Directriz]]></gl>
               <en><![CDATA[Area Directriz]]></en>
+            </description>
+          </groundType>
+        </ground>
+        <ground rank= "0" id="49">
+          <cod>T6-3</cod>
+          <name>
+            <es><![CDATA[Facultad]]></es>
+            <gl><![CDATA[Facultade]]></gl>
+          </name>
+          <groundType id="3">
+            <name>Lugares</name>
+            <display>true</display>
+            <rank>1</rank>
+            <description>
+              <es><![CDATA[Lugares]]></es>
+              <gl><![CDATA[Lugares]]></gl>
             </description>
           </groundType>
         </ground>

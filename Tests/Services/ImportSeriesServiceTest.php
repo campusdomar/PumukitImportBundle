@@ -97,12 +97,12 @@ class ImportSeriesServiceTest extends WebTestCase
 
         $copyright = "UVIGO-TV";
         $publicDate = new \Datetime("2015-04-17 09:12:00");
-        $i18nTitle = array("es" => "", "gl" => "Acuicultura: Trends in research in aquaculture", "en" => "Acuicultura: Trends in research in aquaculture");
+        $i18nTitle = array("es" => "", "gl" => "Título da serie", "en" => "Series Title");
         $i18nSubtitle = array("es" => "Subtítulo", "gl" => "", "en" => "Subtitle");
         $i18nKeyword = array("es" => "llave1, llave2", "gl" => "chave1, chave2", "en" => "key1, key2");
         $i18nDescription = array(
-                                 "es" => "Normalmente, cada doctorando se preocupa de estar al día de las novedades científicas de su línea de investigación, pero ignoran qué se está estudiando -y con qué herramientas- en otros ámbitos, algo que le proporcionaría una visión general de la evolución de la investigación en Acuicultura. Aprovechamos la oportunidad que nos brinda DO*MAR para cubrir esta laguna con un curso avanzado estructurado en charlas impartidas por los investigadores principales de algunos de los grupos de investigación en diversas áreas de interés.",
-                                 "gl" => "Normalmente, cada doctorando preocupase de estar o día das novedades científicas da súa líña de investigación, pero ignoran qué se está a estudar- e con que ferramentas- noutros ambitos, algo que lle proporcionaría unha visión xeral da evolución da investigación en Acuicultura. Aproveitamos a oportunidade que nos brinda DO*MAR para cubrir esta laguna con un curso avanzado estructurado en charlas impartidas polos investigadores principais de algúns dos grupos de investigación en diversas áreas de interés.",
+                                 "es" => "Descripción de la serie.",
+                                 "gl" => "Descripción da serie.",
                                  "en" => ""
                                  );
         $i18nHeader = array("es" => "Cabecera", "gl" => "", "en" => "Header");
@@ -128,12 +128,11 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->assertEquals(3, count($prototype->getRoles()));
         $this->assertEquals(2, count($prototype->getPeople()));
 
-        $multimediaObjects = $this->mmobjRepo->findAll();
-        $multimediaObject = $multimediaObjects[1];
+        $multimediaObject = $this->mmobjRepo->findOneByStatus(MultimediaObject::STATUS_BLOQ);
 
         $this->assertEquals(MultimediaObject::STATUS_BLOQ, $multimediaObject->getStatus());
 
-        $this->assertEquals(10, count($multimediaObject->getTags()));
+        $this->assertEquals(7, count($multimediaObject->getTags()));
         $this->assertTrue($multimediaObject->containsTagWithCod("ROOT"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PUBCHANNELS"));
         $this->assertTrue($multimediaObject->containsTagWithCod("PUCHWEBTV"));
@@ -167,10 +166,10 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->assertEquals(5, count($multimediaObject->getRoles()));
         $this->assertEquals(4, count($multimediaObject->getPeople()));
 
-        $opencastId = "a93f5411-822b-4a84-a4e4-d6619fe86fbe";
+        $opencastId = "opencast_id";
         $this->assertEquals($opencastId, $multimediaObject->getProperty("opencast"));
 
-        $opencastLink = "http://engage14.campusdomar.es/engage/ui/watch.html?id=%id%";
+        $opencastLink = "http://engage.opencast.es/engage/ui/watch.html?id=%id%";
         $this->assertEquals($opencastLink, $multimediaObject->getProperty("opencasturl"));
 
         $opencastInvert = false;
@@ -182,7 +181,7 @@ class ImportSeriesServiceTest extends WebTestCase
         $duration = 950;
         $this->assertEquals($duration, $multimediaObject->getDuration());
 
-        $opencastIdSeries = "319b6a62-7da1-4681-9752-93f2791c5f3a";
+        $opencastIdSeries = "opencast_id";
         $this->assertEquals($opencastIdSeries, $series->getProperty("opencast"));
     }
 
