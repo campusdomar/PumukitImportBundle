@@ -23,10 +23,6 @@ class PumukitImportExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('pumukit_import.ignore', $config);
-        $container->setParameter('pumukit_import.ignore_arca', $config['ignore_arca']);
-        $container->setParameter('pumukit_import.ignore_google', $config['ignore_google']);
-        $container->setParameter('pumukit_import.ignore_itunesu', $config['ignore_itunesu']);
-        $container->setParameter('pumukit_import.ignore_youtube', $config['ignore_youtube']);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
