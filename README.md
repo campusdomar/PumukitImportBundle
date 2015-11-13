@@ -53,4 +53,4 @@ $ php app/console pumukit:install:bundle Pumukit/ImportBundle/PumukitImportBundl
 Step 4: Execute the scripts
 ---------------------------
 
-Follow the steps at [Resources/doc/FullInstallationGuide.md](https://gitlab.teltek.es/mrey/pumukitimportbundle/blob/master/Resources/doc/FullInstallationGuide.md).
+Follow the steps at [Resources/doc/ImportExecutionGuide.md](Resources/doc/ImportExecutionGuide.md).

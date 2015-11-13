@@ -1,4 +1,4 @@
-# Migration Execution Guide
+# Import Execution Guide
 
 Follow the next steps to import into PuMuKIT2.1 the metadata exported from PuMuKIT1.7
 
@@ -32,7 +32,7 @@ $ php app/console pumukit:init:repo tag --force
 
 If you have used ARCA, GoogleVideoSiteMap, iTunesU or YouTubeEDU channels in your PuMuKIT1.7 server, you can still use them in PuMuKIT2.1, except for GoogleVideoSiteMap.
 
-If you want to activate one of these publication channels for importing data, follow the steps at [Resources/doc/AllowPublicationChannelsGuide.md](https://gitlab.teltek.es/mrey/pumukitimportbundle/blob/master/Resources/doc/AllowPublicationChannelsGuide.md).
+If you want to activate one of these publication channels for importing data, follow the steps at [Resources/doc/AllowPublicationChannelsGuide.md](Resources/doc/AllowPublicationChannelsGuide.md).
 
 ## Exec command
 
