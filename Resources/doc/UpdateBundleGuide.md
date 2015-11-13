@@ -1,5 +1,7 @@
 # Update Guide
 
+*This page is updated to the PuMuKIT 2.1.0*
+
 Steps to update the Import Bundle.
 
 ```bash

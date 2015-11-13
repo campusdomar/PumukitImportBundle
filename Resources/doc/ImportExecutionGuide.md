@@ -1,5 +1,7 @@
 # Import Execution Guide
 
+*This page is updated to the PuMuKIT 2.1.0*
+
 Follow the next steps to import into PuMuKIT2.1 the metadata exported from PuMuKIT1.7
 
 ## Connect to your PuMuKIT2.1 server
