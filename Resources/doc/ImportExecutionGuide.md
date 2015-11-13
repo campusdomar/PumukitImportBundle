@@ -4,6 +4,17 @@
 
 Follow the next steps to import into PuMuKIT2.1 the metadata exported from PuMuKIT1.7
 
+## System requirements
+
+Make sure your PuMuKIT2 server achieve the system requirements
+
+Configure your `web/storage/` and `web/uploads/` directories to be mounted on your PuMuKIT share in a way PuMuKIT1 and PuMuKIT2 servers have access to the multimedia files.
+
+## PuMuKIT1.7 metadata exportation
+
+Make sure you have exported the PuMuKIT1.7 metadata following the [PuMuKIT1-data-export steps](https://github.com/campusdomar/PuMuKIT1-data-export/blob/master/README.md)
+and place the `export` directory at an accessible route.
+
 ## Connect to your PuMuKIT2.1 server
 
 ```bash
