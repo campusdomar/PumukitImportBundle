@@ -1,9 +1,9 @@
 {
-    "name": "teltek/pmk2-import-bundle",
+    "name": "campusdomar/pmk2-import-bundle",
     "type": "symfony-bundle",
     "description": "Import bundle for Symfony2 to import Series data from PuMuKIT v1.7, exported previously in XML files",
-    "keywords": ["import", "symfony2", "bundle", "pumukit", "teltek"],
-    "homepage": "https://gitlab.teltek.es/mrey/PumukitImportBundle",
+    "keywords": ["import", "symfony2", "bundle", "pumukit", "campusdomar"],
+    "homepage": "https://github.com/campusdomar/PuMuKIT2-import-bundle",
     "license": "Copyright",
     "authors": [
         {
@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php":                      ">=5.3.3"
+        "php": ">=5.3.3"
     },
     "autoload": {
         "psr-4": {

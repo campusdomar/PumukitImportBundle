@@ -26,7 +26,7 @@ Open a command console, enter your project directory and execute the
 following command to add this repo:
 
 ```bash
-$ composer config repositories.pumukitimportbundle vcs http://gitlab.teltek.es/mrey/pumukitimportbundle.git
+$ composer config repositories.pumukitimportbundle vcs https://github.com/campusdomar/PuMuKIT2-import-bundle
 ```
 
 Step 2: Download the Bundle
@@ -36,7 +36,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```bash
-$ composer require teltek/pmk2-import-bundle dev-master
+$ composer require campusdomar/pmk2-import-bundle dev-master
 ```
 
 Step 3: Install the Bundle
