@@ -83,4 +83,4 @@ Admin permissions: ROLE_SUPER_ADMIN
 
 Go to back-office and create the live channels your had in PuMuKIT1.7.
 
-Route: /admin/live
+Route: `/admin/live`
