@@ -41,6 +41,13 @@ $ cd /path/to/pumukit2
 $ php app/console pumukit:init:repo tag --force
 ```
 
+## Add Custom Tags
+
+In case you have created custom categories in PuMuKIT 1.7, you need to add them to PuMuKIT 2.1 as Tags.
+Go to the back-office and create manually those new Tags.
+
+Route: `/admin/tag`
+
 ## Allow Publication Channels
 
 If you have used ARCA, GoogleVideoSiteMap, iTunesU or YouTubeEDU channels in your PuMuKIT1.7 server, you can still use them in PuMuKIT2.1, except for GoogleVideoSiteMap.
