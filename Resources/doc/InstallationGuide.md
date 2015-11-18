@@ -47,7 +47,17 @@ $ cd /path/to/pumukit2/
 $ php app/console pumukit:install:bundle Pumukit/ImportBundle/PumukitImportBundle
 ```
 
-Step 4: Execute the importation
+Step 4: Clear cache
+-------------------
+
+Clear cache in development and production environments
+
+```bash
+$ php app/console cache:clear
+$ php app/console cache:clear --env=prod
+```
+
+Step 5: Execute the importation
 -------------------------------
 
 Follow the steps at [ImportExecutionGuide.md](ImportExecutionGuide.md).
