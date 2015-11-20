@@ -1,6 +1,6 @@
 # Allow Publication Channels Guide
 
-*This page is updated to the PuMuKIT-import-bundle 1.0.0 and to the PuMuKIT 2.1.0*
+*This page is updated to the PuMuKIT-import-bundle 1.0.x and to the PuMuKIT 2.1.0*
 
 If you have used ARCA, GoogleVideoSiteMap, iTunesU or YouTubeEDU channels in your PuMuKIT1.7 server, you can still use them in PuMuKIT2.1, except for GoogleVideoSiteMap.
 
@@ -34,7 +34,7 @@ pumukit_import:
 
 1.- Install the YoutubeBundle:
 
-Follow the steps at its [Installation guide](https://github.com/teltek/PuMuKIT2-youtube-bundle/blob/1.0.0/README.md).
+Follow the steps at its [Installation guide](https://github.com/teltek/PuMuKIT2-youtube-bundle/blob/1.0.x/README.md).
 
 2.- Enable the import data of the YouTubeEDU Channel at `app/config/parameters.yml` file of your PuMuKIT2.1 project:
 

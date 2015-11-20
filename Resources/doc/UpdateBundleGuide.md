@@ -1,6 +1,6 @@
 # Update Guide
 
-*This page is updated to the PuMuKIT-import-bundle 1.0.0 and to the PuMuKIT 2.1.0*
+*This page is updated to the PuMuKIT-import-bundle 1.0.x and to the PuMuKIT 2.1.0*
 
 Steps to update the Import Bundle.
 

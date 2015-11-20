@@ -1,7 +1,7 @@
 Installation Guide
 ==================
 
-*This page is updated to the PuMuKIT-import-bundle 1.0.0 and to the PuMuKIT 2.1.0*
+*This page is updated to the PuMuKIT-import-bundle 1.0.x and to the PuMuKIT 2.1.0*
 
 Before installing any bundle is necessary to login to your GitHub account. You have different ways of doing it. We recommend to use:
 
@@ -33,7 +33,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```bash
-$ composer require campusdomar/pmk2-import-bundle 1.0.0
+$ composer require campusdomar/pmk2-import-bundle 1.0.x-dev
 ```
 
 Step 3: Install the Bundle
