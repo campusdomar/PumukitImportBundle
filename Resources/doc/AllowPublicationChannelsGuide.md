@@ -34,7 +34,7 @@ pumukit_import:
 
 1.- Install the YoutubeBundle:
 
-Follow the steps at its [Installation guide](https://github.com/teltek/PuMuKIT2-youtube-bundle/blob/master/README.md).
+Follow the steps at its [Installation guide](https://github.com/teltek/PuMuKIT2-youtube-bundle/blob/1.0.0/README.md).
 
 2.- Enable the import data of the YouTubeEDU Channel at `app/config/parameters.yml` file of your PuMuKIT2.1 project:
 

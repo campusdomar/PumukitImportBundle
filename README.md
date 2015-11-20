@@ -3,7 +3,7 @@ PuMuKIT2 Import Bundle
 
 Bundle based on [Symfony](http://symfony.com/) to work with the [PuMuKIT2 Video Platform](https://github.com/campusdomar/PuMuKIT2/blob/2.1.x/README.md).
 
-This bundle allows to import the series metadata exported from the [PuMuKIT1-data-export repository](https://github.com/campusdomar/PuMuKIT1-data-export/blob/master/README.md) into the PuMuKIT2 database.
+This bundle allows to import the series metadata exported from the [PuMuKIT1-data-export repository](https://github.com/campusdomar/PuMuKIT1-data-export/blob/1.0.0/README.md) into the PuMuKIT2 database.
 
 
 Documentation
