@@ -12,7 +12,7 @@ Configure your `web/storage/` and `web/uploads/` directories to be mounted on yo
 
 ## PuMuKIT1.7 metadata exportation
 
-Make sure you have exported the PuMuKIT1.7 metadata following the [PuMuKIT1-data-export steps](https://github.com/campusdomar/PuMuKIT1-data-export/blob/1.0.x/README.md)
+Make sure you have exported the PuMuKIT1.7 metadata following the [PuMuKIT1-data-export steps](https://github.com/campusdomar/PuMuKIT1-data-export/blob/1.0.0/README.md)
 and place the `export` directory at an accessible route.
 
 ## Connect to your PuMuKIT2.1 server
