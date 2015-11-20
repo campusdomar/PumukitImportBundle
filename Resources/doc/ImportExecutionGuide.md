@@ -1,6 +1,6 @@
 # Import Execution Guide
 
-*This page is updated to the PuMuKIT 2.1.0*
+*This page is updated to the PuMuKIT-import-bundle 1.0.0 and to the PuMuKIT 2.1.0*
 
 Follow the next steps to import into PuMuKIT2.1 the metadata exported from PuMuKIT1.7
 

@@ -1,6 +1,6 @@
 # Allow Publication Channels Guide
 
-*This page is updated to the PuMuKIT 2.1.0*
+*This page is updated to the PuMuKIT-import-bundle 1.0.0 and to the PuMuKIT 2.1.0*
 
 If you have used ARCA, GoogleVideoSiteMap, iTunesU or YouTubeEDU channels in your PuMuKIT1.7 server, you can still use them in PuMuKIT2.1, except for GoogleVideoSiteMap.
 
