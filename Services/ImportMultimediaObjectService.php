@@ -129,6 +129,7 @@ class ImportMultimediaObjectService extends ImportCommonService
     public function setMultimediaObjects($mmsArray, $series)
     {
         foreach ($mmsArray as $mms) {
+
             if (array_key_exists("0", $mms)) {
                 foreach ($mms as $mmArray) {
                     $series = $this->setMultimediaObject($mmArray, $series);
@@ -159,6 +160,11 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->dm->persist($series);
         $this->dm->flush();
         foreach ($mmArray as $fieldName => $fieldValue) {
+
+            if (is_array($fieldValue) && 1 == count($fieldValue) && isset($fieldValue[0]) && "" == trim($fieldValue[0])) {
+                continue;
+            }
+
             if (array_key_exists($fieldName, $this->multimediaObjectRenameFields)) {
                 $setField = $this->multimediaObjectRenameFields[$fieldName];
                 $multimediaObject = $this->setFieldWithValue($setField, $fieldValue, $multimediaObject);
@@ -174,7 +180,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                     $multimediaObject = $this->importTagService->setGenreTag($fieldValue, $multimediaObject);
                     break;
                 case "mmGrounds":
-                    $multimediaObject = $this->importTagService->setGroundTags($fieldValue, $multimediaObject);
+                    //$multimediaObject = $this->importTagService->setGroundTags($fieldValue, $multimediaObject);
                     break;
                 case "announce":
                     $multimediaObject = $this->importTagService->setAnnounceTag($fieldValue, $multimediaObject);

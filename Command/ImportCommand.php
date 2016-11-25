@@ -119,8 +119,7 @@ EOT
                 throw new \Exception($errstr, $errno);
             });
             $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
-
-            $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+            $xmlArray = $this->arrayClean($xml);
 
             $series = $this->importSeriesService->setImportedSeries($xmlArray);
             if ($series instanceof Series) {
@@ -138,5 +137,32 @@ EOT
         }
 
         return $errors;
+    }
+
+    /**
+     * Convert XML into an array and cleans wrong keys
+     * @param $xml
+     * @return mixed
+     */
+    private function arrayClean($xml)
+    {
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+
+        $this->recursive_unset($xmlArray, "comment");
+
+        return $xmlArray;
+    }
+
+    /**
+     * @param $array
+     * @param $unwanted_key
+     */
+    function recursive_unset(&$array, $unwanted_key) {
+        unset($array[$unwanted_key]);
+        foreach ($array as &$value) {
+            if (is_array($value)) {
+                $this->recursive_unset($value, $unwanted_key);
+            }
+        }
     }
 }
