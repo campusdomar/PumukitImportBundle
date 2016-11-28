@@ -180,7 +180,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                     $multimediaObject = $this->importTagService->setGenreTag($fieldValue, $multimediaObject);
                     break;
                 case "mmGrounds":
-                    //$multimediaObject = $this->importTagService->setGroundTags($fieldValue, $multimediaObject);
+                    $multimediaObject = $this->importTagService->setGroundTags($fieldValue, $multimediaObject);
                     break;
                 case "announce":
                     $multimediaObject = $this->importTagService->setAnnounceTag($fieldValue, $multimediaObject);
