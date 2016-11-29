@@ -14,7 +14,8 @@ class ImportTrackService
 
     private $displayProfiles = array(
                                      'x264-mp4',
-                                     'mp3'
+                                     'mp3',
+                                     'mp4'
                                      );
 
     private $renameLanguages = array('ls' => 'lse');
