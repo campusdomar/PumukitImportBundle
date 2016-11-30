@@ -30,7 +30,7 @@ class ImportPicService
     public function setPics($picsArray=array(), $resource)
     {
         foreach ($picsArray as $pics) {
-            if (array_key_exists("0", $pics)) {
+            if (is_array($pics) && array_key_exists("0", $pics)) {
                 foreach ($pics as $picArray) {
                     $resource = $this->setPic($picArray, $resource);
                 }
@@ -45,7 +45,7 @@ class ImportPicService
 
     private function setPic($picArray=array(), $resource)
     {
-        if (array_key_exists("url", $picArray)) {
+        if (is_array($picArray) && array_key_exists("url", $picArray)) {
             if (null != $picArray["url"]) {
                 $pic = new Pic();
                 $pic->setUrl($picArray["url"]);
