@@ -30,13 +30,15 @@ class ImportPicService
     public function setPics($picsArray=array(), $resource)
     {
         foreach ($picsArray as $pics) {
-            if (is_array($pics) && array_key_exists("0", $pics)) {
-                foreach ($pics as $picArray) {
+            if(is_array($pics)) {
+                if (array_key_exists("0", $pics)) {
+                    foreach ($pics as $picArray) {
+                        $resource = $this->setPic($picArray, $resource);
+                    }
+                } else {
+                    $picArray = $pics;
                     $resource = $this->setPic($picArray, $resource);
                 }
-            } else {
-                $picArray = $pics;
-                $resource = $this->setPic($picArray, $resource);
             }
         }
 

@@ -20,6 +20,9 @@ class ImportTrackService
 
     private $renameLanguages = array('ls' => 'lse');
 
+    private $prefixProperty = array("uuid");
+    private $prefix = "pumukit1";
+
     /**
      * Constructor
      *
@@ -111,6 +114,11 @@ class ImportTrackService
         $multimediaObject->addTrack($track);
 
         $multimediaObject->setNumview($multimediaObject->getNumview() + $this->getTrackNumview($trackArray));
+
+
+        if(isset($trackArray["properties"])) {
+            $this->setProperties($trackArray["properties"], $track);
+        }
 
         return $multimediaObject;
     }
@@ -238,5 +246,19 @@ class ImportTrackService
         }
 
         return $numview;
+    }
+
+    public function setProperties($propertiesArray, $track)
+    {
+        foreach($propertiesArray as $key => $value) {
+            if(!empty($value)) {
+                if(in_array($key, $this->prefixProperty)) {
+                    $key = $this->prefix . $key;
+                }
+                $track->setProperty($key, $value);
+            }
+        }
+
+        return $track;
     }
 }

@@ -6,6 +6,7 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use Pumukit\SchemaBundle\Document\Series;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
 use Pumukit\SchemaBundle\Document\Pic;
+use Pumukit\YoutubeBundle\Document\Youtube;
 use Pumukit\SchemaBundle\Services\FactoryService;
 use Pumukit\SchemaBundle\Services\TagService;
 use Pumukit\ImportBundle\Services\ImportBroadcastService;
@@ -61,6 +62,10 @@ class ImportMultimediaObjectService extends ImportCommonService
                                            "line2" => "setI18nLine2"
                                            );
 
+    private $prefixProperty = array("dep","offDate","precinct_id","mm_person_mail");
+    private $isYoutubeProperty = "youtube";
+    private $prefix = "pumukit1";
+
     /**
      * Constructor
      *
@@ -91,6 +96,7 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->importOpencastService = $importOpencastService;
         $this->repo = $this->dm->getRepository("PumukitSchemaBundle:MultimediaObject");
         $this->tagRepo = $this->dm->getRepository("PumukitSchemaBundle:Tag");
+        $this->youtubeRepo = $this->dm->getRepository('PumukitYoutubeBundle:Youtube');
     }
 
     /**
@@ -218,6 +224,9 @@ class ImportMultimediaObjectService extends ImportCommonService
                 case "mail":
                     $multimediaObject = $this->setEmailProperty($fieldValue, $multimediaObject);
                     break;
+                case "properties":
+                    $multimediaObject = $this->setProperties($fieldValue, $multimediaObject);
+                    break;
                 }
             }
         }
@@ -337,5 +346,69 @@ class ImportMultimediaObjectService extends ImportCommonService
         }
 
         return $resource;
+    }
+
+    private function setProperties($properties, $multimediaObject)
+    {
+        if(is_array($properties)) {
+            foreach ($properties as $key => $property) {
+
+                if(!empty($property)) {
+                    if(in_array($key, $this->prefixProperty)) {
+                        $key = $this->prefix . $key;
+                    }
+
+                    $multimediaObject->setProperty($key, $property);
+
+                    if (strpos($key,$this->isYoutubeProperty) !== false) {
+                        $this->addYoutube($key,$property,$multimediaObject);
+                    }
+                }
+            }
+        }
+
+        return $multimediaObject;
+    }
+
+    private function addYoutube($key, $property, $multimediaObject)
+    {
+        switch ($key) {
+            case "youtube_id":
+                $youtube = new Youtube();
+                $youtube->setMultimediaObjectId($multimediaObject->getId());
+                $youtube->setYoutubeId($property);
+                $youtube->setPlaylists(array());
+                $youtube->setForce(false);
+                $youtube->setMultimediaObjectUpdateDate(new \DateTime('now'));
+                $youtube->setSyncMetadataDate(new \DateTime('now'));
+
+                $this->dm->persist($youtube);
+                $multimediaObject->setProperty('youtube', $youtube->getId());
+                $this->dm->persist($multimediaObject);
+
+                break;
+            case "youtube_link":
+                $youtube = $this->youtubeRepo->find($multimediaObject->getProperty('youtube'));
+                $youtube->setLink($property);
+                $multimediaObject->setProperty('youtubeurl', $property);
+                break;
+            case "youtube_embed":
+                $youtube = $this->youtubeRepo->find($multimediaObject->getProperty('youtube'));
+
+                $property = $property["iframe"]["@attributes"];
+                $embed = '<iframe class="' . $property["class"] . '" type="' . $property["type"] . '" width="' . $property["width"] . '" height="' . $property["height"] . '" src="' . $property["src"] . '" frameborder="' . $property["frameborder"] . '"></iframe>';
+                $youtube->setEmbed($embed);
+                $multimediaObject->setProperty('youtube_embed', $embed);
+                $this->dm->persist($multimediaObject);
+                break;
+            case "youtube_status":
+                $youtube = $this->youtubeRepo->find($multimediaObject->getProperty('youtube'));
+                if($youtube) {
+                    $youtube->setStatus($property);
+                }
+                break;
+        }
+
+        return $multimediaObject;
     }
 }
