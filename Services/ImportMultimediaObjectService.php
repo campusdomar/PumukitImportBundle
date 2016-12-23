@@ -62,7 +62,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                                            "line2" => "setI18nLine2"
                                            );
 
-    private $prefixProperty = array("dep","offDate","precinct_id","mm_person_mail");
+    private $prefixProperty = array("dep","precinct_id","mm_person_mail");
     private $isYoutubeProperty = "youtube";
     private $prefix = "pumukit1";
 
