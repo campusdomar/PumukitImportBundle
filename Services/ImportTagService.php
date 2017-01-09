@@ -37,6 +37,7 @@ class ImportTagService extends ImportCommonService
 
     private $publicationChannelTagRenameCodes = array(
                                                       "WebTV" => "PUCHWEBTV",
+                                                      "Moodle" => "PUCHMOODLE",
                                                       "ARCA" => "PUCHARCA",
                                                       "iTunesU" => "PUCHPODCAST",
                                                       "YouTubeEDU" => "PUCHYOUTUBE"
@@ -175,13 +176,20 @@ class ImportTagService extends ImportCommonService
     public function setPublicationChannelTags($publicationChannelsArray=array(), $multimediaObject)
     {
         foreach ($publicationChannelsArray as $publicationChannels) {
-            if (array_key_exists("0", $publicationChannels)) {
-                foreach ($publicationChannels as $publicationChannelArray) {
+
+            if(is_array($publicationChannels)) {
+
+                if (array_key_exists("0", $publicationChannels)) {
+                    foreach ($publicationChannels as $publicationChannelArray) {
+                        $multimediaObject = $this->setPublicationChannelTag(
+                            $publicationChannelArray,
+                            $multimediaObject
+                        );
+                    }
+                } else {
+                    $publicationChannelArray = $publicationChannels;
                     $multimediaObject = $this->setPublicationChannelTag($publicationChannelArray, $multimediaObject);
                 }
-            } else {
-                $publicationChannelArray = $publicationChannels;
-                $multimediaObject = $this->setPublicationChannelTag($publicationChannelArray, $multimediaObject);
             }
         }
 
@@ -199,7 +207,9 @@ class ImportTagService extends ImportCommonService
     public function setPublicationChannelTag($publicationChannelArray=array(), $multimediaObject)
     {
         $addTag = $this->getPublicationChannelAddTag($publicationChannelArray);
+
         if ($addTag) {
+
             $tag = $this->getExistingPublicationChannelTag($publicationChannelArray);
             if (null == $tag) {
                 $name = $this->getTagValue($publicationChannelArray, "name");

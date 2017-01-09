@@ -39,6 +39,8 @@ class ImportPeopleService extends ImportCommonService
                                         "bio" => "setI18nBio"
                                         );
 
+    private $roleRenameOldValue = array("propi" => "owner", "old" => "expired_owner");
+
     /**
      * Constructor
      *
@@ -109,7 +111,12 @@ class ImportPeopleService extends ImportCommonService
         if ((null == $roleArray) && (!array_key_exists("cod", $roleArray))) {
             throw new \Exception("Trying to add Role without code (non exisiting cod)");
         }
-        $roleCode = $roleArray["cod"];
+
+        if(array_key_exists($roleArray["cod"], $this->roleRenameOldValue)) {
+            $roleCode = $this->roleRenameOldValue[$roleArray["cod"]];
+        } else {
+            $roleCode = $roleArray["cod"];
+        }
         if (null == $roleCode) {
             throw new \Exception("Trying to add Role without unique code (null cod)");
         }
