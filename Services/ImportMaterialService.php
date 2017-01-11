@@ -14,7 +14,7 @@ class ImportMaterialService extends ImportCommonService
                                           );
 
     private $mattypeSetFields = array(
-				      "mimetype" => "setMimeType"
+				      "type" => "setMimeType"
 				      );
 
     /**
@@ -84,7 +84,7 @@ class ImportMaterialService extends ImportCommonService
 
     private function getDisplay($materialArray)
     {
-        $display = false;
+        $display = true;
         if (array_key_exists("display", $materialArray)) {
             $displayString = $materialArray["display"];
             switch ($displayString) {

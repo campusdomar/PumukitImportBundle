@@ -41,7 +41,7 @@ class ImportMultimediaObjectService extends ImportCommonService
 
     private $multimediaObjectRenameFields = array(
         "statusId" => "setStatus",
-        "copyright" => "setCopyright",
+        "copyright" => "setLicense",
         "recordDate" => "setRecordDate",
         "publicDate" => "setPublicDate",
         "title" => "setI18nTitle",
@@ -52,7 +52,7 @@ class ImportMultimediaObjectService extends ImportCommonService
     );
 
     private $prototypeRenameFields = array(
-        "copyright" => "setCopyright",
+        "copyright" => "setLicense",
         "recordDate" => "setRecordDate",
         "publicDate" => "setPublicDate",
         "title" => "setI18nTitle",

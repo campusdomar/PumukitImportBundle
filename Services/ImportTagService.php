@@ -46,8 +46,7 @@ class ImportTagService extends ImportCommonService
     private $ignoredPublicationChannels = array(
                                                 "ARCA" => "ignore_arca",
                                                 "GoogleVideoSiteMap" => "ignore_google",
-                                                "iTunesU" => "ignore_itunesu",
-                                                "YouTubeEDU" => "ignore_youtube"
+                                                "iTunesU" => "ignore_itunesu"
                                                 );
 
     private $publishingDecisionTagRenameCodes = array(
@@ -209,7 +208,6 @@ class ImportTagService extends ImportCommonService
         $addTag = $this->getPublicationChannelAddTag($publicationChannelArray);
 
         if ($addTag) {
-
             $tag = $this->getExistingPublicationChannelTag($publicationChannelArray);
             if (null == $tag) {
                 $name = $this->getTagValue($publicationChannelArray, "name");
@@ -422,6 +420,7 @@ class ImportTagService extends ImportCommonService
     private function getPublicationChannelTagCode($tagArray=array())
     {
         $tagCode = $this->getTagValue($tagArray, "name");
+
         if (array_key_exists($tagCode, $this->publicationChannelTagRenameCodes)) {
             $tagCode = $this->publicationChannelTagRenameCodes[$tagCode];
         }
