@@ -2,25 +2,24 @@
 
 namespace Pumukit\ImportBundle\Services;
 
-use Doctrine\ODM\MongoDB\DocumentManager;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
 use Pumukit\SchemaBundle\Document\Material;
 
 class ImportMaterialService extends ImportCommonService
 {
     private $materialRenameFields = array(
-                                          "name" => "setI18nName",
-                                          "url" => "setUrl"
+                                          'name' => 'setI18nName',
+                                          'url' => 'setUrl',
                                           );
 
     private $mattypeSetFields = array(
-				      "type" => "setMimeType"
-				      );
+                      'type' => 'setMimeType',
+                      );
 
     /**
-     * Set Materials
+     * Set Materials.
      *
-     * @param array $materialsArray
+     * @param array            $materialsArray
      * @param MultimediaObject $multimediaObject
      *
      * @return MultimediaObject
@@ -28,7 +27,7 @@ class ImportMaterialService extends ImportCommonService
     public function setMaterials($materialsArray, $multimediaObject)
     {
         foreach ($materialsArray as $materials) {
-            if (array_key_exists("0", $materials)) {
+            if (array_key_exists('0', $materials)) {
                 foreach ($materials as $materialArray) {
                     $multimediaObject = $this->setMaterial($materialArray, $multimediaObject);
                 }
@@ -42,14 +41,14 @@ class ImportMaterialService extends ImportCommonService
     }
 
     /**
-     * Set Material
+     * Set Material.
      *
-     * @param array $materialArray
+     * @param array            $materialArray
      * @param MultimediaObject $multimediaObject
      *
      * @return MultimediaObject
      */
-    public function setMaterial($materialArray=array(), $multimediaObject)
+    public function setMaterial($materialArray, $multimediaObject)
     {
         $material = $this->createMaterial($materialArray);
         $multimediaObject->addMaterial($material);
@@ -57,7 +56,7 @@ class ImportMaterialService extends ImportCommonService
         return $multimediaObject;
     }
 
-    private function createMaterial($materialArray=array())
+    private function createMaterial($materialArray = array())
     {
         $material = new Material();
         $material = $this->setFields($materialArray, $this->materialRenameFields, $material);
@@ -66,7 +65,7 @@ class ImportMaterialService extends ImportCommonService
         return $material;
     }
 
-    private function completeMaterialFields($materialArray=array(), $material)
+    private function completeMaterialFields($materialArray, $material)
     {
         $display = $this->getDisplay($materialArray);
         $material->setHide(!$display);
@@ -85,13 +84,13 @@ class ImportMaterialService extends ImportCommonService
     private function getDisplay($materialArray)
     {
         $display = true;
-        if (array_key_exists("display", $materialArray)) {
-            $displayString = $materialArray["display"];
+        if (array_key_exists('display', $materialArray)) {
+            $displayString = $materialArray['display'];
             switch ($displayString) {
-            case "true":
+            case 'true':
                 $display = true;
                 break;
-            case "false":
+            case 'false':
                 $display = false;
                 break;
             }
@@ -103,16 +102,16 @@ class ImportMaterialService extends ImportCommonService
     private function getMattype($materialArray)
     {
         $mattype = array();
-        if (array_key_exists("mattype", $materialArray)) {
-            $mattype = $materialArray["mattype"];
+        if (array_key_exists('mattype', $materialArray)) {
+            $mattype = $materialArray['mattype'];
         }
 
         return $mattype;
     }
 
-    private function getFieldFromMattype($field="", $mattype=array())
+    private function getFieldFromMattype($field = '', $mattype = array())
     {
-        $value = "";
+        $value = '';
         if (array_key_exists($field, $mattype)) {
             $value = $mattype[$field];
         }

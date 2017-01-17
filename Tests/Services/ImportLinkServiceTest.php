@@ -14,18 +14,18 @@ class ImportLinkServiceTest extends WebTestCase
 
     public function __construct()
     {
-        $options = array("environment" => "test");
+        $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
         $kernel->boot();
 
         $this->dm = $kernel->getContainer()
-            ->get("doctrine_mongodb")->getManager();
+            ->get('doctrine_mongodb')->getManager();
         $this->mmobjRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:MultimediaObject");
+            ->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->importLinkService = $kernel->getContainer()
-            ->get("pumukit_import.link");
+            ->get('pumukit_import.link');
         $this->factoryService = $kernel->getContainer()
-            ->get("pumukitschema.factory");
+            ->get('pumukitschema.factory');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
     }
 
@@ -63,21 +63,21 @@ class ImportLinkServiceTest extends WebTestCase
 
         $link = $multimediaObject->getLinks()[0];
 
-        $url = "http://external-url.com/link1";
-        $i18nName = array("es" => "Enlace uno", "en" => "Link one");
+        $url = 'http://external-url.com/link1';
+        $i18nName = array('es' => 'Enlace uno', 'en' => 'Link one');
 
         $this->assertEquals($url, $link->getUrl());
         $this->assertEquals($i18nName, $link->getI18nName());
     }
 
-    private function importXMLFile($filePath=null, $multimediaObject)
+    private function importXMLFile($filePath, $multimediaObject)
     {
-        $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+        $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($xml === false) {
-            throw new \Exception("Not valid XML file: ".$filePath);
+            throw new \Exception('Not valid XML file: '.$filePath);
         }
 
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
         $multimediaObject = $this->importLinkService->setLinks($xmlArray, $multimediaObject);
 

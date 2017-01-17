@@ -6,9 +6,6 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use Pumukit\SchemaBundle\Document\Series;
 use Pumukit\SchemaBundle\Document\SeriesType;
 use Pumukit\SchemaBundle\Services\FactoryService;
-use Pumukit\ImportBundle\Services\ImportMultimediaObjectService;
-use Pumukit\ImportBundle\Services\ImportPicService;
-use Pumukit\ImportBundle\Services\ImportOpencastService;
 
 class ImportSeriesService extends ImportCommonService
 {
@@ -28,36 +25,35 @@ class ImportSeriesService extends ImportCommonService
 
     // NOTE 1: fields not filled: secret (filled in construct function), license, locale
     private $seriesRenameFields = array(
-                                        "announce" => "setAnnounce",
-                                        "publicDate" => "setPublicDate",
-                                        "title" => "setI18nTitle",
-                                        "subtitle" => "setI18nSubtitle",
-                                        "description" => "setI18nDescription",
-                                        "header" => "setI18nHeader",
-                                        "footer" => "setI18nFooter",
-                                        "copyright" => "setCopyright",
-                                        "keyword" => "setI18nKeyword",
-                                        "line2" => "setI18nLine2"
+                                        'announce' => 'setAnnounce',
+                                        'publicDate' => 'setPublicDate',
+                                        'title' => 'setI18nTitle',
+                                        'subtitle' => 'setI18nSubtitle',
+                                        'description' => 'setI18nDescription',
+                                        'header' => 'setI18nHeader',
+                                        'footer' => 'setI18nFooter',
+                                        'copyright' => 'setCopyright',
+                                        'keyword' => 'setI18nKeyword',
+                                        'line2' => 'setI18nLine2',
                                         );
 
     // NOTE 1: not set automatically (series)
     // NOTE 2: not set (locale, id)
     // NOTE 3: not used (defaultsel)
     private $seriesTypeRenameFields = array(
-                                            "cod" => "setCod",
-                                            "name" => "setI18nName",
-                                            "description" => "setI18nDescription",
+                                            'cod' => 'setCod',
+                                            'name' => 'setI18nName',
+                                            'description' => 'setI18nDescription',
                                             );
 
-
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param DocumentManager $documentManager
-     * @param FactoryService $factoryService
+     * @param DocumentManager               $documentManager
+     * @param FactoryService                $factoryService
      * @param ImportMultimediaObjectService $importMultimediaObjectService
-     * @param ImportPicService $importPicService
-     * @param ImportOpencastService $importOpencastService
+     * @param ImportPicService              $importPicService
+     * @param ImportOpencastService         $importOpencastService
      */
     public function __construct(DocumentManager $documentManager, FactoryService $factoryService, ImportMultimediaObjectService $importMultimediaObjectService, ImportPicService $importPicService, ImportOpencastService $importOpencastService)
     {
@@ -66,16 +62,17 @@ class ImportSeriesService extends ImportCommonService
         $this->importMultimediaObjectService = $importMultimediaObjectService;
         $this->importPicService = $importPicService;
         $this->importOpencastService = $importOpencastService;
-        $this->seriesTypeRepo = $this->dm->getRepository("PumukitSchemaBundle:SeriesType");
+        $this->seriesTypeRepo = $this->dm->getRepository('PumukitSchemaBundle:SeriesType');
     }
 
     /**
-     * Set imported series
+     * Set imported series.
      *
-     * @param array           $xmlArray
+     * @param array $xmlArray
+     *
      * @return Series $series
      */
-    public function setImportedSeries($xmlArray=array())
+    public function setImportedSeries($xmlArray = array())
     {
         $series = $this->factoryService->createSeries();
         foreach ($xmlArray as $fieldName => $fieldValue) {
@@ -84,34 +81,34 @@ class ImportSeriesService extends ImportCommonService
                 $series = $this->setFieldWithValue($setField, $fieldValue, $series);
             } else {
                 switch ($fieldName) {
-                    case "version":
+                    case 'version':
                         $series = $this->setImportInfo($fieldValue, $series);
                         break;
-                    case "id":
-                        $series = $this->setFieldProperty("pumukit1id", $fieldValue, $series);
+                    case 'id':
+                        $series = $this->setFieldProperty('pumukit1id', $fieldValue, $series);
                         break;
-                    case "hash":
-                        $series = $this->setFieldProperty("pumukit1magic", $fieldValue, $series);
+                    case 'hash':
+                        $series = $this->setFieldProperty('pumukit1magic', $fieldValue, $series);
                         break;
-                    case "pics":
+                    case 'pics':
                         $series = $this->importPicService->setPics($fieldValue, $series);
                         break;
-                    case "serialTemplate":
+                    case 'serialTemplate':
                         $series = $this->setTemplate($fieldValue, $series);
                         break;
-                    case "serialType":
+                    case 'serialType':
                         $series = $this->setSeriesType($fieldValue, $series);
                         break;
-                    case "mmTemplates":
+                    case 'mmTemplates':
                         $series = $this->importMultimediaObjectService->setMultimediaObjectPrototype($fieldValue, $series);
                         break;
-                    case "mms":
+                    case 'mms':
                         $series = $this->importMultimediaObjectService->setMultimediaObjects($fieldValue, $series);
                         break;
-                    case "opencast":
+                    case 'opencast':
                         $series = $this->importOpencastService->setOpencastInSeries($fieldValue, $series);
                         break;
-                    case "mail":
+                    case 'mail':
                         $series = $this->setEmailProperty($fieldValue, $series);
                         break;
                 }
@@ -131,15 +128,15 @@ class ImportSeriesService extends ImportCommonService
         if (null != $fieldValue) {
             $resource->setProperty($fieldName, $fieldValue);
         }
-        
+
         return $resource;
     }
 
     private function setImportInfo($fieldValue, $series)
     {
-        $date = new \Datetime("now");
-        $value = "Imported with XML version ".$fieldValue." on date ".$date->format("d-m-Y H:i:s");
-        $series = $this->setFieldProperty("import", $value, $series);
+        $date = new \Datetime('now');
+        $value = 'Imported with XML version '.$fieldValue.' on date '.$date->format('d-m-Y H:i:s');
+        $series = $this->setFieldProperty('import', $value, $series);
 
         return $series;
     }
@@ -147,10 +144,10 @@ class ImportSeriesService extends ImportCommonService
     private function setTemplate($fieldValue, $series)
     {
         if (!empty(array_filter($fieldValue))) {
-            if (array_key_exists("name", $fieldValue)) {
-                $name = $fieldValue["name"];
+            if (array_key_exists('name', $fieldValue)) {
+                $name = $fieldValue['name'];
                 if (null != $name) {
-                    $series->setProperty("template", $name);
+                    $series->setProperty('template', $name);
                 }
             }
         }
@@ -165,19 +162,18 @@ class ImportSeriesService extends ImportCommonService
             $seriesType = $this->createSeriesType($fieldValue);
         }
 
-
         $series->setSeriesType($seriesType);
 
         return $series;
     }
 
-    private function getExistingSeriesType($fieldValue=array())
+    private function getExistingSeriesType($fieldValue = array())
     {
         $seriesType = null;
         $i18nName = null;
 
-        if (array_key_exists("name", $fieldValue)) {
-            $i18nName = $fieldValue["name"];
+        if (array_key_exists('name', $fieldValue)) {
+            $i18nName = $fieldValue['name'];
         }
 
         if (!empty(array_filter($i18nName))) {
@@ -196,7 +192,7 @@ class ImportSeriesService extends ImportCommonService
         return $seriesType;
     }
 
-    private function createSeriesType($fieldValue=array())
+    private function createSeriesType($fieldValue = array())
     {
         $seriesType = new SeriesType();
 
@@ -211,7 +207,7 @@ class ImportSeriesService extends ImportCommonService
     private function setEmailProperty($email, $series)
     {
         if (null != $email) {
-            $series->setProperty("email", $email);
+            $series->setProperty('email', $email);
         }
 
         return $series;

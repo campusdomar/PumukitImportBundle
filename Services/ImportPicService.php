@@ -10,7 +10,7 @@ class ImportPicService
     private $dm;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param DocumentManager $documentManager
      */
@@ -20,18 +20,18 @@ class ImportPicService
     }
 
     /**
-     * Set pics
+     * Set pics.
      *
-     * @param array   $picsArray
-     * @param Object  $resource
-     * 
-     * @return Object $resource
+     * @param array  $picsArray
+     * @param object $resource
+     *
+     * @return object $resource
      */
-    public function setPics($picsArray=array(), $resource)
+    public function setPics($picsArray, $resource)
     {
         foreach ($picsArray as $pics) {
-            if(is_array($pics)) {
-                if (array_key_exists("0", $pics)) {
+            if (is_array($pics)) {
+                if (array_key_exists('0', $pics)) {
                     foreach ($pics as $picArray) {
                         $resource = $this->setPic($picArray, $resource);
                     }
@@ -45,12 +45,12 @@ class ImportPicService
         return $resource;
     }
 
-    private function setPic($picArray=array(), $resource)
+    private function setPic($picArray, $resource)
     {
-        if (is_array($picArray) && array_key_exists("url", $picArray)) {
-            if (null != $picArray["url"]) {
+        if (is_array($picArray) && array_key_exists('url', $picArray)) {
+            if (null != $picArray['url']) {
                 $pic = new Pic();
-                $pic->setUrl($picArray["url"]);
+                $pic->setUrl($picArray['url']);
                 $resource->addPic($pic);
             }
         }

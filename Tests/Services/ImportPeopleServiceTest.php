@@ -16,22 +16,22 @@ class ImportPeopleServiceTest extends WebTestCase
 
     public function __construct()
     {
-        $options = array("environment" => "test");
+        $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
         $kernel->boot();
 
         $this->dm = $kernel->getContainer()
-            ->get("doctrine_mongodb")->getManager();
+            ->get('doctrine_mongodb')->getManager();
         $this->mmobjRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:MultimediaObject");
+            ->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->roleRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:Role");
+            ->getRepository('PumukitSchemaBundle:Role');
         $this->personRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:Person");
+            ->getRepository('PumukitSchemaBundle:Person');
         $this->importPeopleService = $kernel->getContainer()
-            ->get("pumukit_import.people");
+            ->get('pumukit_import.people');
         $this->factoryService = $kernel->getContainer()
-            ->get("pumukitschema.factory");
+            ->get('pumukitschema.factory');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
     }
 
@@ -129,10 +129,10 @@ class ImportPeopleServiceTest extends WebTestCase
 
         $role = $multimediaObject->getRoles()[0];
 
-        $code = "actor";
-        $xml = "actor";
-        $i18nName = array("es" => "Actor", "gl" => "", "en" => "Actor");
-        $i18nText = array("es" => "Texto del actor", "gl" => "", "en" => "Actor text");
+        $code = 'actor';
+        $xml = 'actor';
+        $i18nName = array('es' => 'Actor', 'gl' => '', 'en' => 'Actor');
+        $i18nText = array('es' => 'Texto del actor', 'gl' => '', 'en' => 'Actor text');
 
         $this->assertEquals($code, $role->getCod());
         $this->assertEquals($xml, $role->getXml());
@@ -142,14 +142,14 @@ class ImportPeopleServiceTest extends WebTestCase
 
         $person = $multimediaObject->getPeople()[0];
 
-        $name = "Isabel Riveiro Alarcón";
-        $email = "isabel.riveiro@mail.com";
-        $web = "http://www.isabelriveiro.com";
-        $phone = "654321789";
-        $i18nHonorific = array("es" => "", "gl" => "Sra.", "en" => "Mrs.");
-        $i18nFirm = array("es" => "Instituto Español de Oceanografía", "gl" => "", "en" => "");
-        $i18nPost = array("es" => "Investigadora", "gl" => "", "en" => "");
-        $i18nBio = array("es" => "", "gl" => "A biografía de Isabel", "en" => "Isabel biography");
+        $name = 'Isabel Riveiro Alarcón';
+        $email = 'isabel.riveiro@mail.com';
+        $web = 'http://www.isabelriveiro.com';
+        $phone = '654321789';
+        $i18nHonorific = array('es' => '', 'gl' => 'Sra.', 'en' => 'Mrs.');
+        $i18nFirm = array('es' => 'Instituto Español de Oceanografía', 'gl' => '', 'en' => '');
+        $i18nPost = array('es' => 'Investigadora', 'gl' => '', 'en' => '');
+        $i18nBio = array('es' => '', 'gl' => 'A biografía de Isabel', 'en' => 'Isabel biography');
 
         $this->assertEquals($name, $person->getName());
         $this->assertEquals($email, $person->getEmail());
@@ -161,14 +161,14 @@ class ImportPeopleServiceTest extends WebTestCase
         $this->assertEquals($i18nBio, $person->getI18nBio());
     }
 
-    private function importXMLFile($filePath=null, $multimediaObject)
+    private function importXMLFile($filePath, $multimediaObject)
     {
-        $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+        $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($xml === false) {
-            throw new \Exception("Not valid XML file: ".$filePath);
+            throw new \Exception('Not valid XML file: '.$filePath);
         }
 
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
         $multimediaObject = $this->importPeopleService->setPeople($xmlArray, $multimediaObject);
 

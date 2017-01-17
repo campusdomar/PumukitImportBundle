@@ -9,22 +9,22 @@ class ImportOpencastService extends ImportCommonService
     private $dm;
 
     private $multimediaObjectProperties = array(
-                                                "id" => "opencast",
-                                                "link" => "opencasturl",
-                                                "invert" => "opencastinvert",
-                                                "language" => "opencastlanguage"
+                                                'id' => 'opencast',
+                                                'link' => 'opencasturl',
+                                                'invert' => 'opencastinvert',
+                                                'language' => 'opencastlanguage',
                                                 );
 
-    private $lowerFields = array("opencastlanguage");
+    private $lowerFields = array('opencastlanguage');
 
     private $multimediaObjectSetFields = array(
-                                               "duration" => "setDuration"
+                                               'duration' => 'setDuration',
                                                );
 
-    private $seriesProperties = array("id" => "opencast");
+    private $seriesProperties = array('id' => 'opencast');
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param DocumentManager $documentManager
      */
@@ -34,14 +34,14 @@ class ImportOpencastService extends ImportCommonService
     }
 
     /**
-     * Set Opencast in MultimediaObject
+     * Set Opencast in MultimediaObject.
      *
-     * @param array $opencastArray
+     * @param array            $opencastArray
      * @param MultimediaObject $multimediaObject
      *
      * @return MultimediaObject
      */
-    public function setOpencastInMultimediaObject($opencastArray=array(), $multimediaObject)
+    public function setOpencastInMultimediaObject($opencastArray, $multimediaObject)
     {
         $multimediaObject = $this->setOpencastProperties($opencastArray, $this->multimediaObjectProperties, $multimediaObject);
         $multimediaObject = $this->setFields($opencastArray, $this->multimediaObjectSetFields, $multimediaObject);
@@ -52,28 +52,28 @@ class ImportOpencastService extends ImportCommonService
     }
 
     /**
-     * Set Opencast in Series
+     * Set Opencast in Series.
      *
-     * @param array $opencastArray
+     * @param array  $opencastArray
      * @param Series $series
      *
      * @return Series
      */
-    public function setOpencastInSeries($opencastArray=array(), $series)
+    public function setOpencastInSeries($opencastArray, $series)
     {
         $series = $this->setOpencastProperties($opencastArray, $this->seriesProperties, $series);
 
         return $series;
     }
 
-    private function setOpencastProperties($opencastArray=array(), $resourceProperties=array(), $resource)
+    private function setOpencastProperties($opencastArray, $resourceProperties, $resource)
     {
         foreach ($resourceProperties as $field => $property) {
             $value = $this->getOpencastFieldValue($opencastArray, $field);
             if (null != $value) {
-                if ("true" === $value) {
+                if ('true' === $value) {
                     $resource->setProperty($property, true);
-                } elseif ("false" === $value) {
+                } elseif ('false' === $value) {
                     $resource->setProperty($property, false);
                 } elseif (in_array($property, $this->lowerFields)) {
                     $resource->setProperty($property, strtolower($value));
@@ -86,7 +86,7 @@ class ImportOpencastService extends ImportCommonService
         return $resource;
     }
 
-    private function getOpencastFieldValue($opencastArray=array(), $field="")
+    private function getOpencastFieldValue($opencastArray = array(), $field = '')
     {
         $value = null;
         if (array_key_exists($field, $opencastArray)) {
@@ -98,12 +98,12 @@ class ImportOpencastService extends ImportCommonService
         return $value;
     }
 
-    private function getOpencastNumview($opencastArray=array())
+    private function getOpencastNumview($opencastArray = array())
     {
         $numview = 0;
-        if (array_key_exists("numview", $opencastArray)) {
-            if ($opencastArray["numview"]) {
-                $numview = intval($opencastArray["numview"]);
+        if (array_key_exists('numview', $opencastArray)) {
+            if ($opencastArray['numview']) {
+                $numview = intval($opencastArray['numview']);
             }
         }
 

@@ -14,18 +14,18 @@ class ImportMaterialServiceTest extends WebTestCase
 
     public function __construct()
     {
-        $options = array("environment" => "test");
+        $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
         $kernel->boot();
 
         $this->dm = $kernel->getContainer()
-            ->get("doctrine_mongodb")->getManager();
+            ->get('doctrine_mongodb')->getManager();
         $this->mmobjRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:MultimediaObject");
+            ->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->importMaterialService = $kernel->getContainer()
-            ->get("pumukit_import.material");
+            ->get('pumukit_import.material');
         $this->factoryService = $kernel->getContainer()
-            ->get("pumukitschema.factory");
+            ->get('pumukitschema.factory');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
     }
 
@@ -63,9 +63,9 @@ class ImportMaterialServiceTest extends WebTestCase
 
         $material = $multimediaObject->getMaterials()[0];
 
-        $i18nName = array("es" => "material", "gl" => "material", "en" => "");
-        $url = "/uploads/material/Video/3599/zpatron_uno.avs";
-        $mimetype = "Avsp";
+        $i18nName = array('es' => 'material', 'gl' => 'material', 'en' => '');
+        $url = '/uploads/material/Video/3599/zpatron_uno.avs';
+        $mimetype = 'Avsp';
 
         $this->assertEquals($i18nName, $material->getI18nName());
         $this->assertEquals($url, $material->getUrl());
@@ -73,14 +73,14 @@ class ImportMaterialServiceTest extends WebTestCase
         $this->assertTrue($material->getHide());
     }
 
-    private function importXMLFile($filePath=null, $multimediaObject)
+    private function importXMLFile($filePath, $multimediaObject)
     {
-        $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+        $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($xml === false) {
-            throw new \Exception("Not valid XML file: ".$filePath);
+            throw new \Exception('Not valid XML file: '.$filePath);
         }
 
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
         $multimediaObject = $this->importMaterialService->setMaterials($xmlArray, $multimediaObject);
 

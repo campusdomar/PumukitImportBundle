@@ -14,18 +14,18 @@ class ImportPicServiceTest extends WebTestCase
 
     public function __construct()
     {
-        $options = array("environment" => "test");
+        $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
         $kernel->boot();
 
         $this->dm = $kernel->getContainer()
-            ->get("doctrine_mongodb")->getManager();
+            ->get('doctrine_mongodb')->getManager();
         $this->mmobjRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:MultimediaObject");
+            ->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->importPicService = $kernel->getContainer()
-            ->get("pumukit_import.pic");
+            ->get('pumukit_import.pic');
         $this->factoryService = $kernel->getContainer()
-            ->get("pumukitschema.factory");
+            ->get('pumukitschema.factory');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
     }
 
@@ -69,7 +69,7 @@ class ImportPicServiceTest extends WebTestCase
         $seriesPics = $series->getPics();
         $this->assertEquals(1, count($seriesPics));
 
-        $seriesPicUrl = "/uploads/pic/Serial/409/Captura_de_pantalla_2014-12-24_a_la_s__14.15.36.png";
+        $seriesPicUrl = '/uploads/pic/Serial/409/Captura_de_pantalla_2014-12-24_a_la_s__14.15.36.png';
         $this->assertEquals($seriesPicUrl, $seriesPics[0]->getUrl());
 
         $mmPicsXmlFile = $this->resourcesDir.'/singlemmpic.xml';
@@ -78,18 +78,18 @@ class ImportPicServiceTest extends WebTestCase
         $mmPics = $multimediaObject->getPics();
         $this->assertEquals(1, count($mmPics));
 
-        $mmPicUrl = "/uploads/pic/Serial/429/Video/3601/plasticos.jpg";
+        $mmPicUrl = '/uploads/pic/Serial/429/Video/3601/plasticos.jpg';
         $this->assertEquals($mmPicUrl, $mmPics[0]->getUrl());
     }
 
-    private function importXMLFile($filePath=null, $resource)
+    private function importXMLFile($filePath, $resource)
     {
-        $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+        $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($xml === false) {
-            throw new \Exception("Not valid XML file: ".$filePath);
+            throw new \Exception('Not valid XML file: '.$filePath);
         }
 
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
         $resource = $this->importPicService->setPics($xmlArray, $resource);
 

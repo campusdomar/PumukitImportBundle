@@ -15,18 +15,18 @@ class ImportTrackServiceTest extends WebTestCase
 
     public function __construct()
     {
-        $options = array("environment" => "test");
+        $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
         $kernel->boot();
 
         $this->dm = $kernel->getContainer()
-            ->get("doctrine_mongodb")->getManager();
+            ->get('doctrine_mongodb')->getManager();
         $this->mmobjRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:MultimediaObject");
+            ->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->importTrackService = $kernel->getContainer()
-            ->get("pumukit_import.track");
+            ->get('pumukit_import.track');
         $this->factoryService = $kernel->getContainer()
-            ->get("pumukitschema.factory");
+            ->get('pumukitschema.factory');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
         $this->dataDir = realpath(__DIR__.'/../Resources/data');
     }
@@ -68,15 +68,15 @@ class ImportTrackServiceTest extends WebTestCase
 
         $track = $multimediaObject->getTracks()[0];
 
-        $pumukit1Id = "pumukit1id:9652";
-        $profile = "profile:MASTER-H264";
-        $master = "master";
+        $pumukit1Id = 'pumukit1id:9652';
+        $profile = 'profile:MASTER-H264';
+        $master = 'master';
         $tags = array($pumukit1Id, $profile, $master);
 
-        $fakePath = "__realpath__/videos/track01.mp4";
-        $path = str_replace("__realpath__", $this->dataDir, $fakePath);
-        $language = "es";
-        $description = array("es" => "Vídeo 1", "gl" => "O vídeo un", "en" => "");
+        $fakePath = '__realpath__/videos/track01.mp4';
+        $path = str_replace('__realpath__', $this->dataDir, $fakePath);
+        $language = 'es';
+        $description = array('es' => 'Vídeo 1', 'gl' => 'O vídeo un', 'en' => '');
         $numview = 20;
 
         $this->assertEquals($tags, $track->getTags());
@@ -89,14 +89,14 @@ class ImportTrackServiceTest extends WebTestCase
         $this->assertEquals($numview, $multimediaObject->getNumview());
     }
 
-    private function importXMLFile($filePath=null, $multimediaObject)
+    private function importXMLFile($filePath, $multimediaObject)
     {
-        $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+        $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($xml === false) {
-            throw new \Exception("Not valid XML file: ".$filePath);
+            throw new \Exception('Not valid XML file: '.$filePath);
         }
 
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
         $xmlArray = $this->changeRealpath($xmlArray);
 
@@ -106,22 +106,22 @@ class ImportTrackServiceTest extends WebTestCase
     }
 
     /**
-     * Change realpath
+     * Change realpath.
      *
      * Workaround trick to add realpath to xml and do the test
      */
-    private function changeRealpath($xmlArray=array())
+    private function changeRealpath($xmlArray = array())
     {
         foreach ($xmlArray as $key => $tracks) {
-            if (array_key_exists("0", $tracks)) {
+            if (array_key_exists('0', $tracks)) {
                 foreach ($tracks as $index => $trackArray) {
-                    $fakePath = $trackArray["file"];
-                    $xmlArray[$key][$index]["file"] = str_replace("__realpath__", $this->dataDir, $fakePath);
+                    $fakePath = $trackArray['file'];
+                    $xmlArray[$key][$index]['file'] = str_replace('__realpath__', $this->dataDir, $fakePath);
                 }
             } else {
                 $trackArray = $tracks;
-                $fakePath = $trackArray["file"];
-                $xmlArray[$key]["file"] = str_replace("__realpath__", $this->dataDir, $fakePath);
+                $fakePath = $trackArray['file'];
+                $xmlArray[$key]['file'] = str_replace('__realpath__', $this->dataDir, $fakePath);
             }
         }
 
