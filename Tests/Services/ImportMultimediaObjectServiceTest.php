@@ -21,22 +21,22 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
 
     public function __construct()
     {
-        $options = array("environment" => "test");
+        $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
         $kernel->boot();
 
         $this->dm = $kernel->getContainer()
-            ->get("doctrine_mongodb")->getManager();
+            ->get('doctrine_mongodb')->getManager();
         $this->mmobjRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:MultimediaObject");
+            ->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->tagRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:Tag");
+            ->getRepository('PumukitSchemaBundle:Tag');
         $this->factoryService = $kernel->getContainer()
-            ->get("pumukitschema.factory");
+            ->get('pumukitschema.factory');
         $this->importMultimediaObjectService = $kernel->getContainer()
-            ->get("pumukit_import.multimediaobject");
+            ->get('pumukit_import.multimediaobject');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
-        $this->console = $kernel->getRootDir() . "/../app/console --env=test";
+        $this->console = $kernel->getRootDir().'/../app/console --env=test';
         $this->dataDir = realpath(__DIR__.'/../Resources/data');
         $this->bundles = $kernel->getContainer()->getParameter('kernel.bundles');
     }
@@ -89,33 +89,33 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $this->assertEquals(MultimediaObject::STATUS_BLOQ, $multimediaObject->getStatus());
 
         $this->assertEquals(7, count($multimediaObject->getTags()));
-        $this->assertTrue($multimediaObject->containsTagWithCod("ROOT"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PUBCHANNELS"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PUCHWEBTV"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACES"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("T6-3"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("GENRE"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("GENRE1"));
+        $this->assertTrue($multimediaObject->containsTagWithCod('ROOT'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('PUBCHANNELS'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('PUCHWEBTV'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('PLACES'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('T6-3'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('GENRE'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('GENRE1'));
 
-        $broadcastRepo = $this->dm->getRepository("PumukitSchemaBundle:Broadcast");
+        $broadcastRepo = $this->dm->getRepository('PumukitSchemaBundle:Broadcast');
         $broadcast = $broadcastRepo->createQueryBuilder()
-            ->field("broadcast_type_id")->equals(Broadcast::BROADCAST_TYPE_PUB)
+            ->field('broadcast_type_id')->equals(Broadcast::BROADCAST_TYPE_PUB)
             ->getQuery()
             ->getSingleResult();
         $this->assertEquals($broadcast, $multimediaObject->getBroadcast());
 
-        $copyright = "UVIGO-Tv";
-        $recordDate = new \Datetime("2011-07-19 14:43:00");
-        $publicDate = new \Datetime("2011-07-19 14:43:00");
-        $i18nTitle = array("es" => "", "gl" => "novo", "en" => "new");
-        $i18nSubtitle = array("es" => "subtítulo", "gl" => "subtítulo", "en" => "");
-        $i18nKeyword = array("es" => "llave1, llave2", "gl" => "chave1, chave2", "en" => "");
-        $i18nDescription = array("es" => "descripción", "gl" => "descripción", "en" => "");
-        $subseriesTitle = array("es" => "a", "gl" => "a", "en" => "");
+        $copyright = 'UVIGO-Tv';
+        $recordDate = new \Datetime('2011-07-19 14:43:00');
+        $publicDate = new \Datetime('2011-07-19 14:43:00');
+        $i18nTitle = array('es' => '', 'gl' => 'novo', 'en' => 'new');
+        $i18nSubtitle = array('es' => 'subtítulo', 'gl' => 'subtítulo', 'en' => '');
+        $i18nKeyword = array('es' => 'llave1, llave2', 'gl' => 'chave1, chave2', 'en' => '');
+        $i18nDescription = array('es' => 'descripción', 'gl' => 'descripción', 'en' => '');
+        $subseriesTitle = array('es' => 'a', 'gl' => 'a', 'en' => '');
         $subseries = true;
-        $email = "mm@mail.com";
-        $pumukit1id = "278";
-        $pumukit1rank = "1";
+        $email = 'mm@mail.com';
+        $pumukit1id = '278';
+        $pumukit1rank = '1';
 
         $this->assertEquals($copyright, $multimediaObject->getCopyright());
         $this->assertEquals($recordDate, $multimediaObject->getRecordDate());
@@ -124,11 +124,11 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $this->assertEquals($i18nSubtitle, $multimediaObject->getI18nSubtitle());
         $this->assertEquals($i18nKeyword, $multimediaObject->getI18nKeyword());
         $this->assertEquals($i18nDescription, $multimediaObject->getI18nDescription());
-        $this->assertEquals($subseriesTitle, $multimediaObject->getProperty("subseriestitle"));
-        $this->assertEquals($subseries, $multimediaObject->getProperty("subseries"));
-        $this->assertEquals($email, $multimediaObject->getProperty("email"));
-        $this->assertEquals($pumukit1id, $multimediaObject->getProperty("pumukit1id"));
-        $this->assertEquals($pumukit1rank, $multimediaObject->getProperty("pumukit1rank"));
+        $this->assertEquals($subseriesTitle, $multimediaObject->getProperty('subseriestitle'));
+        $this->assertEquals($subseries, $multimediaObject->getProperty('subseries'));
+        $this->assertEquals($email, $multimediaObject->getProperty('email'));
+        $this->assertEquals($pumukit1id, $multimediaObject->getProperty('pumukit1id'));
+        $this->assertEquals($pumukit1rank, $multimediaObject->getProperty('pumukit1rank'));
 
         $this->assertEquals(1, count($multimediaObject->getPics()));
         $this->assertEquals(5, count($multimediaObject->getTracks()));
@@ -138,14 +138,14 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $this->assertEquals(5, count($multimediaObject->getRoles()));
         $this->assertEquals(4, count($multimediaObject->getPeople()));
 
-        $opencastId = "a93f5411-822b-4a84-a4e4-d6619fe86fbe";
-        $this->assertEquals($opencastId, $multimediaObject->getProperty("opencast"));
+        $opencastId = 'a93f5411-822b-4a84-a4e4-d6619fe86fbe';
+        $this->assertEquals($opencastId, $multimediaObject->getProperty('opencast'));
 
-        $opencastLink = "http://engage14.pumukit.es/engage/ui/watch.html?id=%id%";
-        $this->assertEquals($opencastLink, $multimediaObject->getProperty("opencasturl"));
+        $opencastLink = 'http://engage14.pumukit.es/engage/ui/watch.html?id=%id%';
+        $this->assertEquals($opencastLink, $multimediaObject->getProperty('opencasturl'));
 
         $opencastInvert = false;
-        $this->assertEquals($opencastInvert, $multimediaObject->getProperty("invert"));
+        $this->assertEquals($opencastInvert, $multimediaObject->getProperty('invert'));
 
         $numview = 7;
         $this->assertEquals($numview, $multimediaObject->getNumview());
@@ -174,23 +174,23 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $this->assertEquals(MultimediaObject::STATUS_PROTOTYPE, $multimediaObject->getStatus());
 
         $this->assertEquals(12, count($multimediaObject->getTags()));
-        $this->assertTrue($multimediaObject->containsTagWithCod("ROOT"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("UNESCO"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("U220000"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("U230000"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("U240000"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("U310000"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("DIRECTRIZ"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("Dscience"));
-        $this->assertFalse($multimediaObject->containsTagWithCod("Dtechnical"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("PLACES"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("T6-3"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("GENRE"));
-        $this->assertTrue($multimediaObject->containsTagWithCod("GENRE1"));
+        $this->assertTrue($multimediaObject->containsTagWithCod('ROOT'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('UNESCO'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('U220000'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('U230000'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('U240000'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('U310000'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('DIRECTRIZ'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('Dscience'));
+        $this->assertFalse($multimediaObject->containsTagWithCod('Dtechnical'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('PLACES'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('T6-3'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('GENRE'));
+        $this->assertTrue($multimediaObject->containsTagWithCod('GENRE1'));
 
-        $broadcastRepo = $this->dm->getRepository("PumukitSchemaBundle:Broadcast");
+        $broadcastRepo = $this->dm->getRepository('PumukitSchemaBundle:Broadcast');
         $broadcast = $broadcastRepo->createQueryBuilder()
-            ->field("broadcast_type_id")->equals(Broadcast::BROADCAST_TYPE_PUB)
+            ->field('broadcast_type_id')->equals(Broadcast::BROADCAST_TYPE_PUB)
             ->getQuery()
             ->getSingleResult();
         $this->assertEquals($broadcast, $multimediaObject->getBroadcast());
@@ -199,14 +199,14 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $this->assertEquals(2, count($multimediaObject->getPeople()));
     }
 
-    private function importXMLFile($filePath=null, $multimediaObject, $hasFiles=false)
+    private function importXMLFile($filePath, $multimediaObject, $hasFiles = false)
     {
-        $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+        $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($xml === false) {
-            throw new \Exception("Not valid XML file: ".$filePath);
+            throw new \Exception('Not valid XML file: '.$filePath);
         }
 
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
         if ($hasFiles) {
             $xmlArray = $this->changeRealpath($xmlArray);
@@ -217,7 +217,7 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
 
     private function initAllPumukitTags()
     {
-        $pumukitCommand = "php " . $this->console . " pumukit:init:repo tag --force";
+        $pumukitCommand = 'php '.$this->console.' pumukit:init:repo tag --force';
 
         $outPumukit = $this->executeCommand($pumukitCommand);
     }
@@ -234,41 +234,41 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         return $process->getOutput();
     }
 
-    private function changeRealpath($xmlArray=array())
+    private function changeRealpath($xmlArray = array())
     {
         // NOTE: workaround trick to add realpath to xml and do the test
         // TODO: break into smaller functions
         foreach ($xmlArray as $key => $mms) {
-            if (array_key_exists("0", $mms)) {
+            if (array_key_exists('0', $mms)) {
                 foreach ($mms as $mmIndex => $mmArray) {
-                    if (array_key_exists("files", $mmArray)) {
-                        $tracksArray = $mmArray["files"];
+                    if (array_key_exists('files', $mmArray)) {
+                        $tracksArray = $mmArray['files'];
                         foreach ($tracksArray as $trackKey => $tracks) {
-                            if (array_key_exists("0", $tracks)) {
+                            if (array_key_exists('0', $tracks)) {
                                 foreach ($tracks as $trackIndex => $trackArray) {
-                                    $fakePath = $trackArray["file"];
-                                    $xmlArray[$key][$mmIndex]["files"][$trackKey][$trackIndex]["file"] = str_replace("__realpath__", $this->dataDir, $fakePath);
+                                    $fakePath = $trackArray['file'];
+                                    $xmlArray[$key][$mmIndex]['files'][$trackKey][$trackIndex]['file'] = str_replace('__realpath__', $this->dataDir, $fakePath);
                                 }
                             } else {
                                 $trackArray = $tracks;
-                                $fakePath = $trackArray["file"];
-                                $xmlArray[$key][$mmIndex]["files"][$trackKey]["file"] = str_replace("__realpath__", $this->dataDir, $fakePath);
+                                $fakePath = $trackArray['file'];
+                                $xmlArray[$key][$mmIndex]['files'][$trackKey]['file'] = str_replace('__realpath__', $this->dataDir, $fakePath);
                             }
                         }
                     }
                 }
             } else {
-                $tracksArray = $xmlArray[$key]["files"];
+                $tracksArray = $xmlArray[$key]['files'];
                 foreach ($tracksArray as $trackKey => $tracks) {
-                    if (array_key_exists("0", $tracks)) {
+                    if (array_key_exists('0', $tracks)) {
                         foreach ($tracks as $trackIndex => $trackArray) {
-                            $fakePath = $trackArray["file"];
-                            $xmlArray[$key]["files"][$trackKey][$trackIndex]["file"] = str_replace("__realpath__", $this->dataDir, $fakePath);
+                            $fakePath = $trackArray['file'];
+                            $xmlArray[$key]['files'][$trackKey][$trackIndex]['file'] = str_replace('__realpath__', $this->dataDir, $fakePath);
                         }
                     } else {
                         $trackArray = $tracks;
-                        $fakePath = $trackArray["file"];
-                        $xmlArray[$key]["files"][$trackKey]["file"] = str_replace("__realpath__", $this->dataDir, $fakePath);
+                        $fakePath = $trackArray['file'];
+                        $xmlArray[$key]['files'][$trackKey]['file'] = str_replace('__realpath__', $this->dataDir, $fakePath);
                     }
                 }
             }

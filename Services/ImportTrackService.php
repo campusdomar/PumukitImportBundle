@@ -15,18 +15,18 @@ class ImportTrackService
     private $displayProfiles = array(
                                      'x264-mp4',
                                      'mp3',
-                                     'mp4'
+                                     'mp4',
                                      );
 
     private $renameLanguages = array('ls' => 'lse');
 
-    private $prefixProperty = array("uuid");
-    private $prefix = "pumukit1";
+    private $prefixProperty = array('uuid');
+    private $prefix = 'pumukit1';
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param DocumentManager $documentManager
+     * @param DocumentManager          $documentManager
      * @param InspectionFfprobeService $inspectionService
      */
     public function __construct(DocumentManager $documentManager, InspectionFfprobeService $inspectionService)
@@ -36,9 +36,9 @@ class ImportTrackService
     }
 
     /**
-     * Set Tracks
+     * Set Tracks.
      *
-     * @param array $tracksArray
+     * @param array            $tracksArray
      * @param MultimediaObject $multimediaObject
      *
      * @return MultimediaObject
@@ -46,7 +46,7 @@ class ImportTrackService
     public function setTracks($tracksArray, $multimediaObject)
     {
         foreach ($tracksArray as $tracks) {
-            if (array_key_exists("0", $tracks)) {
+            if (array_key_exists('0', $tracks)) {
                 foreach ($tracks as $trackArray) {
                     $multimediaObject = $this->setTrack($trackArray, $multimediaObject);
                 }
@@ -59,23 +59,23 @@ class ImportTrackService
         return $multimediaObject;
     }
 
-    private function setTrack($trackArray=array(), $multimediaObject)
+    private function setTrack($trackArray, $multimediaObject)
     {
         $pumukit1Id = $this->getPumukit1Id($trackArray);
         $pathEnd = $this->getTrackPath($trackArray);
         $profileName = $this->getTrackProfile($trackArray);
 
         if ((null == $pathEnd) || (null == $profileName)) {
-            throw new \Exception("Trying to add Track with null path or null profile name");
+            throw new \Exception('Trying to add Track with null path or null profile name');
         }
 
         $track = new Track();
         if ($pumukit1Id) {
-            $track->addTag('pumukit1id:' . $pumukit1Id);
+            $track->addTag('pumukit1id:'.$pumukit1Id);
         }
-        $track->addTag('profile:' . $profileName);
+        $track->addTag('profile:'.$profileName);
 
-        $auxPosition = strpos(strtolower($profileName), "master");
+        $auxPosition = strpos(strtolower($profileName), 'master');
         if ((0 <= $auxPosition) && (false !== $auxPosition)) {
             $track->addTag('master');
         }
@@ -87,7 +87,7 @@ class ImportTrackService
         $track->setHide($this->getTrackHide($trackArray));
 
         $description = $this->getTrackDescription($trackArray);
-        if (!empty($description)){
+        if (!empty($description)) {
             foreach ($description as $locale => $value) {
                 if (null != $value) {
                     $track->setDescription($value, $locale);
@@ -115,57 +115,56 @@ class ImportTrackService
 
         $multimediaObject->setNumview($multimediaObject->getNumview() + $this->getTrackNumview($trackArray));
 
-
-        if(isset($trackArray["properties"])) {
-            $this->setProperties($trackArray["properties"], $track);
+        if (isset($trackArray['properties'])) {
+            $this->setProperties($trackArray['properties'], $track);
         }
 
         return $multimediaObject;
     }
 
-    private function getPumukit1Id($trackArray=array())
+    private function getPumukit1Id($trackArray = array())
     {
         $pumukit1Id = null;
-        if (array_key_exists("@attributes", $trackArray)) {
-            $attributes = $trackArray["@attributes"];
-            if (array_key_exists("id", $attributes)) {
-                $pumukit1Id = $attributes["id"];
+        if (array_key_exists('@attributes', $trackArray)) {
+            $attributes = $trackArray['@attributes'];
+            if (array_key_exists('id', $attributes)) {
+                $pumukit1Id = $attributes['id'];
             }
         }
 
         return $pumukit1Id;
     }
 
-    private function getTrackPath($trackArray=array())
+    private function getTrackPath($trackArray = array())
     {
         $path = null;
-        if (array_key_exists("file", $trackArray)) {
-            $path = $trackArray["file"];
+        if (array_key_exists('file', $trackArray)) {
+            $path = $trackArray['file'];
         }
 
         return $path;
     }
 
-    private function getTrackProfile($trackArray=array())
+    private function getTrackProfile($trackArray = array())
     {
         $profileName = null;
-        if (array_key_exists("perfil", $trackArray)) {
-            $profileArray = $trackArray["perfil"];
-            if (array_key_exists("name", $profileArray)) {
-                $profileName = $profileArray["name"];
+        if (array_key_exists('perfil', $trackArray)) {
+            $profileArray = $trackArray['perfil'];
+            if (array_key_exists('name', $profileArray)) {
+                $profileName = $profileArray['name'];
             }
         }
 
         return $profileName;
     }
 
-    private function getTrackLanguage($trackArray=array())
+    private function getTrackLanguage($trackArray = array())
     {
         $language = null;
-        if (array_key_exists("language", $trackArray)) {
-            $languageArray = $trackArray["language"];
-            if (array_key_exists("cod", $languageArray)) {
-                $code = strtolower($languageArray["cod"]);
+        if (array_key_exists('language', $trackArray)) {
+            $languageArray = $trackArray['language'];
+            if (array_key_exists('cod', $languageArray)) {
+                $code = strtolower($languageArray['cod']);
                 if (array_key_exists($code, $this->renameLanguages)) {
                     $language = $this->renameLanguages[$code];
                 } else {
@@ -177,11 +176,11 @@ class ImportTrackService
         return $language;
     }
 
-    private function getTrackDescription($trackArray=array())
+    private function getTrackDescription($trackArray = array())
     {
         $description = array();
-        if (array_key_exists("description", $trackArray)) {
-            $descriptionArray = $trackArray["description"];
+        if (array_key_exists('description', $trackArray)) {
+            $descriptionArray = $trackArray['description'];
             if (!empty(array_filter($descriptionArray))) {
                 $description = $descriptionArray;
             }
@@ -190,7 +189,7 @@ class ImportTrackService
         return $description;
     }
 
-    private function getProfileDisplay($profileName="")
+    private function getProfileDisplay($profileName = '')
     {
         $display = false;
         if (in_array($profileName, $this->displayProfiles)) {
@@ -200,11 +199,11 @@ class ImportTrackService
         return $display;
     }
 
-    private function getTrackHide($trackArray=array())
+    private function getTrackHide($trackArray = array())
     {
         $hide = true;
-        if (array_key_exists("display", $trackArray)) {
-            if ("true" == $trackArray["display"]) {
+        if (array_key_exists('display', $trackArray)) {
+            if ('true' == $trackArray['display']) {
                 $hide = false;
             }
         }
@@ -212,12 +211,12 @@ class ImportTrackService
         return $hide;
     }
 
-    private function getTrackUrl($trackArray=array())
+    private function getTrackUrl($trackArray = array())
     {
         $url = null;
-        if (array_key_exists("url", $trackArray)) {
-            if (null != $trackArray["url"]) {
-                $url = $trackArray["url"];
+        if (array_key_exists('url', $trackArray)) {
+            if (null != $trackArray['url']) {
+                $url = $trackArray['url'];
             }
         }
 
@@ -227,8 +226,8 @@ class ImportTrackService
     private function getTrackOnlyAudio($trackArray)
     {
         $onlyAudio = false;
-        if (array_key_exists("audio", $trackArray)) {
-            if ((null != $trackArray["audio"]) && ("1" == $trackArray["audio"])) {
+        if (array_key_exists('audio', $trackArray)) {
+            if ((null != $trackArray['audio']) && ('1' == $trackArray['audio'])) {
                 $onlyAudio = true;
             }
         }
@@ -236,12 +235,12 @@ class ImportTrackService
         return $onlyAudio;
     }
 
-    private function getTrackNumview($trackArray=array())
+    private function getTrackNumview($trackArray = array())
     {
         $numview = 0;
-        if (array_key_exists("numview", $trackArray)) {
-            if ($trackArray["numview"]) {
-                $numview = intval($trackArray["numview"]);
+        if (array_key_exists('numview', $trackArray)) {
+            if ($trackArray['numview']) {
+                $numview = intval($trackArray['numview']);
             }
         }
 
@@ -250,10 +249,10 @@ class ImportTrackService
 
     public function setProperties($propertiesArray, $track)
     {
-        foreach($propertiesArray as $key => $value) {
-            if(!empty($value)) {
-                if(in_array($key, $this->prefixProperty)) {
-                    $key = $this->prefix . $key;
+        foreach ($propertiesArray as $key => $value) {
+            if (!empty($value)) {
+                if (in_array($key, $this->prefixProperty)) {
+                    $key = $this->prefix.$key;
                 }
                 $track->setProperty($key, $value);
             }

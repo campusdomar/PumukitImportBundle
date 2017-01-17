@@ -19,22 +19,22 @@ class ImportTagServiceTest extends WebTestCase
 
     public function __construct()
     {
-        $options = array("environment" => "test");
+        $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
         $kernel->boot();
 
         $this->dm = $kernel->getContainer()
-            ->get("doctrine_mongodb")->getManager();
+            ->get('doctrine_mongodb')->getManager();
         $this->mmobjRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:MultimediaObject");
+            ->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->tagRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:Tag");
+            ->getRepository('PumukitSchemaBundle:Tag');
         $this->importTagService = $kernel->getContainer()
-            ->get("pumukit_import.tag");
+            ->get('pumukit_import.tag');
         $this->factoryService = $kernel->getContainer()
-            ->get("pumukitschema.factory");
+            ->get('pumukitschema.factory');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
-        $this->console = $kernel->getRootDir() . "/../app/console --env=test";
+        $this->console = $kernel->getRootDir().'/../app/console --env=test';
         $this->bundles = $kernel->getContainer()->getParameter('kernel.bundles');
     }
 
@@ -66,11 +66,11 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("GENRE22", "GENRE", "ROOT");
+        $codes = array('GENRE22', 'GENRE', 'ROOT');
         $this->assertEquals($codes, $tagCodes);
 
-        $genre22Tag = $this->tagRepo->findOneByCod("GENRE22");
-        $i18nTitle = array("es" => "Matterhorn", "gl" => "", "en" => "Matterhorn");
+        $genre22Tag = $this->tagRepo->findOneByCod('GENRE22');
+        $i18nTitle = array('es' => 'Matterhorn', 'gl' => '', 'en' => 'Matterhorn');
         $this->assertEquals($i18nTitle, $genre22Tag->getI18nTitle());
     }
 
@@ -94,12 +94,12 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("T6-3", "PLACES", "ROOT");
+        $codes = array('T6-3', 'PLACES', 'ROOT');
         $this->assertEquals($codes, $tagCodes);
 
-        $placeTag = $this->tagRepo->findOneByCod("T6-3");
+        $placeTag = $this->tagRepo->findOneByCod('T6-3');
 
-        $i18nTitle = array("es" => "Facultad", "gl" => "Facultade", "en" => "");
+        $i18nTitle = array('es' => 'Facultad', 'gl' => 'Facultade', 'en' => '');
 
         $this->assertEquals($i18nTitle, $placeTag->getI18nTitle());
     }
@@ -123,7 +123,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("U250000", "UNESCO", "ROOT", "U240000", "Dtechnical", "DIRECTRIZ", "Dscience");
+        $codes = array('U250000', 'UNESCO', 'ROOT', 'U240000', 'Dtechnical', 'DIRECTRIZ', 'Dscience');
         $this->assertEquals($codes, $tagCodes);
     }
 
@@ -146,7 +146,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("U220000", "UNESCO", "ROOT");
+        $codes = array('U220000', 'UNESCO', 'ROOT');
         $this->assertEquals($codes, $tagCodes);
     }
 
@@ -159,11 +159,11 @@ class ImportTagServiceTest extends WebTestCase
 
         $this->assertEquals(0, count($multimediaObject->getTags()));
 
-        $multimediaObject = $this->importTagService->setAnnounceTag("false", $multimediaObject);
+        $multimediaObject = $this->importTagService->setAnnounceTag('false', $multimediaObject);
 
         $this->assertEquals(0, count($multimediaObject->getTags()));
 
-        $multimediaObject = $this->importTagService->setAnnounceTag("true", $multimediaObject);
+        $multimediaObject = $this->importTagService->setAnnounceTag('true', $multimediaObject);
 
         $this->assertEquals(3, count($multimediaObject->getTags()));
 
@@ -171,7 +171,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PUDENEW", "PUBDECISIONS", "ROOT");
+        $codes = array('PUDENEW', 'PUBDECISIONS', 'ROOT');
         $this->assertEquals($codes, $tagCodes);
     }
 
@@ -194,7 +194,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PUCHWEBTV", "PUBCHANNELS", "ROOT");
+        $codes = array('PUCHWEBTV', 'PUBCHANNELS', 'ROOT');
         $this->assertEquals($codes, $tagCodes);
     }
 
@@ -217,7 +217,7 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PUDENEW", "PUBDECISIONS", "ROOT");
+        $codes = array('PUDENEW', 'PUBDECISIONS', 'ROOT');
         $this->assertEquals($codes, $tagCodes);
     }
 
@@ -240,18 +240,18 @@ class ImportTagServiceTest extends WebTestCase
         foreach ($multimediaObject->getTags() as $tag) {
             $tagCodes[] = $tag->getCod();
         }
-        $codes = array("PUDENEW", "PUBDECISIONS", "ROOT");
+        $codes = array('PUDENEW', 'PUBDECISIONS', 'ROOT');
         $this->assertEquals($codes, $tagCodes);
     }
 
-    private function importXMLFile($filePath=null)
+    private function importXMLFile($filePath = null)
     {
-        $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+        $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($xml === false) {
-            throw new \Exception("Not valid XML file: ".$filePath);
+            throw new \Exception('Not valid XML file: '.$filePath);
         }
 
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
         return $xmlArray;
     }
@@ -259,7 +259,7 @@ class ImportTagServiceTest extends WebTestCase
     private function initRootTag()
     {
         $rootTag = new Tag();
-        $rootTag->setCod("ROOT");
+        $rootTag->setCod('ROOT');
         $rootTag->setDisplay(true);
         $rootTag->setMetatag(true);
 
@@ -271,7 +271,7 @@ class ImportTagServiceTest extends WebTestCase
 
     private function initAllPumukitTags()
     {
-        $pumukitCommand = "php " . $this->console . " pumukit:init:repo tag --force";
+        $pumukitCommand = 'php '.$this->console.' pumukit:init:repo tag --force';
 
         $outPumukit = $this->executeCommand($pumukitCommand);
     }

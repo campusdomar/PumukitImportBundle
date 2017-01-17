@@ -5,22 +5,22 @@ namespace Pumukit\ImportBundle\Services;
 class ImportCommonService
 {
     /**
-     * Set Field with value
+     * Set Field with value.
      *
      * @param string       $setField
      * @param string|array $fieldValue
-     * @param Object       $resource
+     * @param object       $resource
      *
-     * @return Object      $resource
+     * @return object $resource
      */
-    protected function setFieldWithValue($setField="", $fieldValue, $resource)
+    protected function setFieldWithValue($setField, $fieldValue, $resource)
     {
-        if ("true" === $fieldValue) {
+        if ('true' === $fieldValue) {
             $resource->$setField(true);
-        } elseif ("false" === $fieldValue) {
+        } elseif ('false' === $fieldValue) {
             $resource->$setField(false);
         } elseif (null != $fieldValue) {
-            if ("array" === gettype($fieldValue)) {
+            if ('array' === gettype($fieldValue)) {
                 if (!empty(array_filter($fieldValue))) {
                     if (0 === strpos($setField, 'setI18n')) {
                         $setLocaleField = str_replace('I18n', '', $setField);
@@ -44,15 +44,14 @@ class ImportCommonService
     }
 
     /**
-     * Set fields
+     * Set fields.
      *
      * @param array  $xmlArray
      * @param array  $setFields
-     * @param Object $resource
-     *
-     * @param Object $resource
+     * @param object $resource
+     * @param object $resource
      */
-    protected function setFields($xmlArray=array(), $setFields=array(), $resource)
+    protected function setFields($xmlArray, $setFields, $resource)
     {
         foreach ($xmlArray as $field => $value) {
             if (array_key_exists($field, $setFields)) {
@@ -66,15 +65,15 @@ class ImportCommonService
 
     /**
      * Set attributes
-     * (id, rank)
+     * (id, rank).
      *
      * @param array  $attributes
      * @param array  $attributesSetFields
-     * @param Object $resource
+     * @param object $resource
      *
-     * @return Object $resource
+     * @return object $resource
      */
-    protected function setAttributes($attributes=array(), $attributesSetFields=array(), $resource)
+    protected function setAttributes($attributes, $attributesSetFields, $resource)
     {
         foreach ($attributes as $field => $value) {
             if (array_key_exists($field, $attributesSetFields)) {

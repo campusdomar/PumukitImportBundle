@@ -3,12 +3,10 @@
 namespace Pumukit\ImportBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Pumukit\SchemaBundle\Document\Series;
 
 class ImportCommand extends ContainerAwareCommand
@@ -22,7 +20,7 @@ class ImportCommand extends ContainerAwareCommand
           ->setDescription('Import PuMuKIT1.7 Series metadata from file to database')
           ->addOption('data', 'd', InputOption::VALUE_REQUIRED, 'Path of the XML file or directory to import')
           ->addOption('force', 'f', InputOption::VALUE_NONE, 'Set this parameter to execute this action')
-          ->setHelp(<<<EOT
+          ->setHelp(<<<'EOT'
                     Command to import PuMuKIT1.7 Series metadata.
 
                     The --data parameter has to be used to add metadata from directory or xml file.
@@ -37,7 +35,7 @@ EOT
     {
         $this->initParameters();
 
-        if (!$input->getOption('force')){
+        if (!$input->getOption('force')) {
             $output->writeln('<error>ATTENTION:</error> This operation should not be executed in a production environment.');
             $output->writeln('');
             $output->writeln('<info>Would modify the database</info>');
@@ -58,7 +56,7 @@ EOT
                 } else {
                     $output->writeln('<error>ATTENTION: There were '.count($errors).' errors during import:</error>');
                     foreach ($errors as $index => $message) {
-                        $output->writeln("<error>ERROR ".$index."</error>");
+                        $output->writeln('<error>ERROR '.$index.'</error>');
                         $output->writeln($message);
                         $output->writeln('');
                     }
@@ -90,7 +88,7 @@ EOT
                 } else {
                     $output->writeln('<error>ATTENTION: There were '.count($errors).' errors during import:</error>');
                     foreach ($errors as $index => $message) {
-                        $output->writeln("<error>ERROR ".$index."</error>");
+                        $output->writeln('<error>ERROR '.$index.'</error>');
                         $output->writeln($message);
                         $output->writeln('');
                     }
@@ -109,29 +107,29 @@ EOT
         $this->importSeriesService = $this->getContainer()->get('pumukit_import.series');
     }
 
-    private function importXMLFile($filePath=null, OutputInterface $output)
+    private function importXMLFile($filePath, OutputInterface $output)
     {
         $errors = array();
         try {
             $output->writeln("Trying to import Series file '".$filePath."' into Pumukit2 ...");
 
-            set_error_handler(function($errno, $errstr, $errfile, $errline) {
+            set_error_handler(function ($errno, $errstr, $errfile, $errline) {
                 throw new \Exception($errstr, $errno);
             });
-            $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+            $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
             $xmlArray = $this->arrayClean($xml);
 
             $series = $this->importSeriesService->setImportedSeries($xmlArray);
             if ($series instanceof Series) {
-                $output->writeln("Imported Series from PuMuKIT1.7 id '".$series->getProperty("pumukit1id")."' into MongoDB id '".$series->getId())."'";
+                $output->writeln("Imported Series from PuMuKIT1.7 id '".$series->getProperty('pumukit1id')."' into MongoDB id '".$series->getId())."'";
             }
-        } catch (\Exception $e){
+        } catch (\Exception $e) {
             restore_error_handler();
             $message = $e->getMessage();
             if (null == $message) {
                 $message = $e->xdebug_message;
             }
-            $outputMessage = 'File: '.$filePath.' Thrown error: '.$message. '. Trace: '. (string)$e;
+            $outputMessage = 'File: '.$filePath.' Thrown error: '.$message.'. Trace: '.(string) $e;
             $output->writeln($outputMessage);
             $errors[] = $outputMessage;
         }
@@ -140,15 +138,17 @@ EOT
     }
 
     /**
-     * Convert XML into an array and cleans wrong keys
+     * Convert XML into an array and cleans wrong keys.
+     *
      * @param $xml
+     *
      * @return mixed
      */
     private function arrayClean($xml)
     {
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
-        $this->recursive_unset($xmlArray, "comment");
+        $this->recursive_unset($xmlArray, 'comment');
 
         return $xmlArray;
     }
@@ -157,7 +157,8 @@ EOT
      * @param $array
      * @param $unwanted_key
      */
-    function recursive_unset(&$array, $unwanted_key) {
+    public function recursive_unset(&$array, $unwanted_key)
+    {
         unset($array[$unwanted_key]);
         foreach ($array as &$value) {
             if (is_array($value)) {

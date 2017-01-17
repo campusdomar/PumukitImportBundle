@@ -3,7 +3,6 @@
 namespace Pumukit\ImportBundle\Tests\Services;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\Process\Process;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
 
 class ImportOpencastServiceTest extends WebTestCase
@@ -19,20 +18,20 @@ class ImportOpencastServiceTest extends WebTestCase
 
     public function __construct()
     {
-        $options = array("environment" => "test");
+        $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
         $kernel->boot();
 
         $this->dm = $kernel->getContainer()
-            ->get("doctrine_mongodb")->getManager();
+            ->get('doctrine_mongodb')->getManager();
         $this->mmobjRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:MultimediaObject");
+            ->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->seriesRepo = $this->dm
-            ->getRepository("PumukitSchemaBundle:Series");
+            ->getRepository('PumukitSchemaBundle:Series');
         $this->factoryService = $kernel->getContainer()
-            ->get("pumukitschema.factory");
+            ->get('pumukitschema.factory');
         $this->importOpencastService = $kernel->getContainer()
-            ->get("pumukit_import.opencast");
+            ->get('pumukit_import.opencast');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
     }
 
@@ -61,14 +60,14 @@ class ImportOpencastServiceTest extends WebTestCase
 
         $multimediaObject = $this->mmobjRepo->findOneByStatus(MultimediaObject::STATUS_BLOQ);
 
-        $opencastId = "a93f5411-822b-4a84-a4e4-d6619fe86fbe";
-        $this->assertEquals($opencastId, $multimediaObject->getProperty("opencast"));
+        $opencastId = 'a93f5411-822b-4a84-a4e4-d6619fe86fbe';
+        $this->assertEquals($opencastId, $multimediaObject->getProperty('opencast'));
 
-        $opencastLink = "http://engage14.pumukit.es/engage/ui/watch.html?id=%id%";
-        $this->assertEquals($opencastLink, $multimediaObject->getProperty("opencasturl"));
+        $opencastLink = 'http://engage14.pumukit.es/engage/ui/watch.html?id=%id%';
+        $this->assertEquals($opencastLink, $multimediaObject->getProperty('opencasturl'));
 
         $opencastInvert = false;
-        $this->assertEquals($opencastInvert, $multimediaObject->getProperty("opencastinvert"));
+        $this->assertEquals($opencastInvert, $multimediaObject->getProperty('opencastinvert'));
 
         $numview = 102 + 3;
         $this->assertEquals($numview, $multimediaObject->getNumview());
@@ -91,18 +90,18 @@ class ImportOpencastServiceTest extends WebTestCase
 
         $series = $allSeries[0];
 
-        $opencastId = "319b6a62-7da1-4681-9752-93f2791c5f3a";
-        $this->assertEquals($opencastId, $series->getProperty("opencast"));
+        $opencastId = '319b6a62-7da1-4681-9752-93f2791c5f3a';
+        $this->assertEquals($opencastId, $series->getProperty('opencast'));
     }
 
-    private function importXMLFile($filePath=null)
+    private function importXMLFile($filePath = null)
     {
-        $xml = simplexml_load_file($filePath, "SimpleXMLElement", LIBXML_NOCDATA);
+        $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
         if ($xml === false) {
-            throw new \Exception("Not valid XML file: ".$filePath);
+            throw new \Exception('Not valid XML file: '.$filePath);
         }
 
-        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), TRUE);
+        $xmlArray = json_decode(json_encode($xml, JSON_HEX_TAG), true);
 
         return $xmlArray;
     }
