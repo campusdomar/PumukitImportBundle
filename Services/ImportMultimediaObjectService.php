@@ -248,7 +248,15 @@ class ImportMultimediaObjectService extends ImportCommonService
             }
         }
 
-        $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
+
+
+        $aPubChannel = array('PUCHWEBTV','PUCHMOODLE','PUCHYOUTUBE');
+        if($multimediaObject->containsAnyTagWithCodes($aPubChannel)) {
+            $multimediaObject->setStatus(MultimediaObject::STATUS_PUBLISHED);
+        } else {
+            $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
+        }
+
         $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
         $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
 
