@@ -59,25 +59,27 @@ class ImportMultimediaObjectService extends ImportCommonService
     private $prefix = 'pumukit1';
 
     /**
-     * Constructor.
+     * ImportMultimediaObjectService constructor.
      *
-     * @param DocumentManager        $documentManager
-     * @param FactoryService         $factoryService
-     * @param TagService             $tagService
-     * @param ImportBroadcastService $importBroadcastService
-     * @param ImportTagService       $importTagService
-     * @param ImportMaterialService  $importMaterialService
-     * @param ImportTrackService     $importTrackService
-     * @param ImportLinkService      $importLinkService
-     * @param ImportPeopleService    $importPeopleService
-     * @param ImportPicService       $importPicService
-     * @param ImportOpencastService  $importOpencastService
+     * @param DocumentManager                $documentManager
+     * @param FactoryService                 $factoryService
+     * @param TagService                     $tagService
+     * @param ImportBroadcastService         $importBroadcastService
+     * @param ImportEmbeddedBroadcastService $importEmbeddedBroadcastService
+     * @param ImportTagService               $importTagService
+     * @param ImportMaterialService          $importMaterialService
+     * @param ImportTrackService             $importTrackService
+     * @param ImportLinkService              $importLinkService
+     * @param ImportPeopleService            $importPeopleService
+     * @param ImportPicService               $importPicService
+     * @param ImportOpencastService          $importOpencastService
      */
     public function __construct(
         DocumentManager $documentManager,
         FactoryService $factoryService,
         TagService $tagService,
         ImportBroadcastService $importBroadcastService,
+        ImportEmbeddedBroadcastService $importEmbeddedBroadcastService,
         ImportTagService $importTagService,
         ImportMaterialService $importMaterialService,
         ImportTrackService $importTrackService,
@@ -90,6 +92,7 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->factoryService = $factoryService;
         $this->tagService = $tagService;
         $this->importBroadcastService = $importBroadcastService;
+        $this->importEmbeddedBroadcastService = $importEmbeddedBroadcastService;
         $this->importTagService = $importTagService;
         $this->importMaterialService = $importMaterialService;
         $this->importTrackService = $importTrackService;
@@ -189,6 +192,9 @@ class ImportMultimediaObjectService extends ImportCommonService
                         break;
                     case 'broadcast':
                         $multimediaObject = $this->importBroadcastService->setBroadcast($fieldValue, $multimediaObject);
+                        break;
+                    case 'embedded_broadcast':
+                        $multimediaObject = $this->importEmbeddedBroadcastService->setEmbeddedBroadcast($fieldValue, $multimediaObject);
                         break;
                     case 'genre':
                         $multimediaObject = $this->importTagService->setGenreTag($fieldValue, $multimediaObject);

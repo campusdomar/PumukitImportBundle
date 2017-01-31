@@ -11,6 +11,9 @@
         <service id="pumukit_import.broadcast" class="Pumukit\ImportBundle\Services\ImportBroadcastService">
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />
         </service>
+        <service id="pumukit_import.embeddedbroadcast" class="Pumukit\ImportBundle\Services\ImportEmbeddedBroadcastService">
+            <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+        </service>
         <service id="pumukit_import.tag" class="Pumukit\ImportBundle\Services\ImportTagService">
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />
             <argument type="service" id="pumukitschema.tag" />
@@ -39,6 +42,7 @@
             <argument type="service" id="pumukitschema.factory" />
             <argument type="service" id="pumukitschema.tag" />
             <argument type="service" id="pumukit_import.broadcast" />
+            <argument type="service" id="pumukit_import.embeddedbroadcast" />
             <argument type="service" id="pumukit_import.tag" />
             <argument type="service" id="pumukit_import.material" />
             <argument type="service" id="pumukit_import.track" />

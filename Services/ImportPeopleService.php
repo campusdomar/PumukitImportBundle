@@ -194,7 +194,7 @@ class ImportPeopleService extends ImportCommonService
         $person = new Person();
         $person = $this->setFields($personArray, $this->personRenameFields, $person);
 
-        if(array_key_exists('properties', $personArray)) {
+        if (array_key_exists('properties', $personArray)) {
             $person->setProperties($personArray['properties']);
         }
         $this->dm->persist($person);
