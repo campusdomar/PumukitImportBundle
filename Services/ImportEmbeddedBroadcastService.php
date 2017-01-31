@@ -4,21 +4,27 @@ namespace Pumukit\ImportBundle\Services;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Pumukit\SchemaBundle\Document\EmbeddedBroadcast;
+use Pumukit\SchemaBundle\Services\GroupService;
+use Pumukit\SchemaBundle\Document\Group;
 
 class ImportEmbeddedBroadcastService extends ImportCommonService
 {
     private $dm;
     private $repo;
+    private $groupRepo;
+    private $groupService;
 
     /**
      * ImportEmbeddedBroadcastService constructor.
-     *
      * @param DocumentManager $documentManager
+     * @param GroupService $groupService
      */
-    public function __construct(DocumentManager $documentManager)
+    public function __construct(DocumentManager $documentManager, GroupService $groupService)
     {
         $this->dm = $documentManager;
         $this->repo = $this->dm->getRepository('PumukitSchemaBundle:EmbeddedBroadcast');
+        $this->groupRepo = $this->dm->getRepository('PumukitSchemaBundle:Group');
+        $this->groupService = $groupService;
     }
 
     /**
@@ -29,30 +35,11 @@ class ImportEmbeddedBroadcastService extends ImportCommonService
      */
     public function setEmbeddedBroadcast($aEmbeddedBroadcast, $multimediaObject)
     {
-        $oEmbeddedBroadcast = $this->getExistingEmbeddedBroadcast($aEmbeddedBroadcast);
-        if (null == $oEmbeddedBroadcast) {
-            $oEmbeddedBroadcast = $this->createBroadcast($aEmbeddedBroadcast);
-        }
+        $oEmbeddedBroadcast = $this->createBroadcast($aEmbeddedBroadcast);
 
         $multimediaObject = $this->setEmbeddedBroadcastToMultimediaObject($oEmbeddedBroadcast, $multimediaObject);
 
         return $multimediaObject;
-    }
-
-    private function getExistingEmbeddedBroadcast($aEmbeddedBroadcast)
-    {
-        $broadcast = null;
-        $name = null;
-
-        if (array_key_exists('name', $aEmbeddedBroadcast)) {
-            $name = $aEmbeddedBroadcast['name'];
-        }
-
-        if (null != $name) {
-            $broadcast = $this->repo->findOneByName($name);
-        }
-
-        return $broadcast;
     }
 
     private function createBroadcast($aEmbeddedBroadcast)
@@ -63,13 +50,23 @@ class ImportEmbeddedBroadcastService extends ImportCommonService
             $oEmbeddedBroadcast->setName($aEmbeddedBroadcast['name']);
         }
 
-        if (array_key_exists('type', $aEmbeddedBroadcast)) {
-            $oEmbeddedBroadcast->setType($aEmbeddedBroadcast['@attributes']['type']);
+        if (array_key_exists('@attributes', $aEmbeddedBroadcast)) {
+            if (array_key_exists('type', $aEmbeddedBroadcast['@attributes'])) {
+                $oEmbeddedBroadcast->setType($aEmbeddedBroadcast['@attributes']['type']);
+            }
         }
 
         if (array_key_exists('groups', $aEmbeddedBroadcast)) {
             foreach ($aEmbeddedBroadcast['groups'] as $sGroup) {
-                $oEmbeddedBroadcast->addGroup($sGroup);
+                $group = $this->groupRepo->findOneBy(array('key' => $sGroup));
+                if(!$group) {
+                    $group = new Group();
+                    $group->setKey($sGroup);
+                    $group->setName($sGroup);
+                    $group->setOrigin('pmk1');
+                    $this->groupService->create($group);
+                }
+                $oEmbeddedBroadcast->addGroup($group);
             }
         }
 

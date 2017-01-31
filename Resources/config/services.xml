@@ -13,6 +13,7 @@
         </service>
         <service id="pumukit_import.embeddedbroadcast" class="Pumukit\ImportBundle\Services\ImportEmbeddedBroadcastService">
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />
+            <argument type="service" id="pumukitschema.group" />
         </service>
         <service id="pumukit_import.tag" class="Pumukit\ImportBundle\Services\ImportTagService">
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />
