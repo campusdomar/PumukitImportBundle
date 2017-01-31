@@ -433,10 +433,10 @@ class ImportMultimediaObjectService extends ImportCommonService
             case 'youtube_embed':
                 $youtube = $this->youtubeRepo->find($multimediaObject->getProperty('youtube'));
 
-                $property = $property['iframe']['@attributes'];
-                $embed = '<iframe class="'.$property['class'].'" type="'.$property['type'].'" width="'.$property['width'].'" height="'.$property['height'].'" src="'.$property['src'].'" frameborder="'.$property['frameborder'].'"></iframe>';
-                $youtube->setEmbed($embed);
-                $multimediaObject->setProperty('youtube_embed', $embed);
+                /*$property = $property['iframe']['@attributes'];
+                $embed = '<iframe class="'.$property['class'].'" type="'.$property['type'].'" width="'.$property['width'].'" height="'.$property['height'].'" src="'.$property['src'].'" frameborder="'.$property['frameborder'].'"></iframe>';*/
+                $youtube->setEmbed($property);
+                $multimediaObject->setProperty('youtube_embed', $property);
                 $this->dm->persist($multimediaObject);
                 break;
             case 'youtube_status':
