@@ -58,15 +58,17 @@ class ImportEmbeddedBroadcastService extends ImportCommonService
 
         if (array_key_exists('groups', $aEmbeddedBroadcast)) {
             foreach ($aEmbeddedBroadcast['groups'] as $sGroup) {
-                $group = $this->groupRepo->findOneBy(array('key' => $sGroup));
-                if(!$group) {
-                    $group = new Group();
-                    $group->setKey($sGroup);
-                    $group->setName($sGroup);
-                    $group->setOrigin('pmk1');
-                    $this->groupService->create($group);
+                if(!is_array($sGroup)) {
+                    $group = $this->groupRepo->findOneBy(array('key' => $sGroup));
+                    if (!$group) {
+                        $group = new Group();
+                        $group->setKey($sGroup);
+                        $group->setName($sGroup);
+                        $group->setOrigin('pmk1');
+                        $this->groupService->create($group);
+                    }
+                    $oEmbeddedBroadcast->addGroup($group);
                 }
-                $oEmbeddedBroadcast->addGroup($group);
             }
         }
 
