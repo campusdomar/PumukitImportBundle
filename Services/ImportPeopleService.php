@@ -66,13 +66,15 @@ class ImportPeopleService extends ImportCommonService
     public function setPeople($peopleArray, $multimediaObject)
     {
         foreach ($peopleArray as $roles) {
-            if (array_key_exists('0', $roles)) {
-                foreach ($roles as $roleArray) {
+            if(is_array($roles)) {
+                if (array_key_exists('0', $roles)) {
+                    foreach ($roles as $roleArray) {
+                        $multimediaObject = $this->setPeopleWithRole($roleArray, $multimediaObject);
+                    }
+                } else {
+                    $roleArray = $roles;
                     $multimediaObject = $this->setPeopleWithRole($roleArray, $multimediaObject);
                 }
-            } else {
-                $roleArray = $roles;
-                $multimediaObject = $this->setPeopleWithRole($roleArray, $multimediaObject);
             }
         }
 

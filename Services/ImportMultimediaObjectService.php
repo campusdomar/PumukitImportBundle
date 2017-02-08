@@ -141,13 +141,15 @@ class ImportMultimediaObjectService extends ImportCommonService
     public function setMultimediaObjects($mmsArray, $series)
     {
         foreach ($mmsArray as $mms) {
-            if (array_key_exists('0', $mms)) {
-                foreach ($mms as $mmArray) {
+            if(is_array($mms)) {
+                if (array_key_exists('0', $mms)) {
+                    foreach ($mms as $mmArray) {
+                        $series = $this->setMultimediaObject($mmArray, $series);
+                    }
+                } else {
+                    $mmArray = $mms;
                     $series = $this->setMultimediaObject($mmArray, $series);
                 }
-            } else {
-                $mmArray = $mms;
-                $series = $this->setMultimediaObject($mmArray, $series);
             }
         }
 
