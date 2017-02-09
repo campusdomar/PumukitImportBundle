@@ -102,7 +102,9 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->importOpencastService = $importOpencastService;
         $this->repo = $this->dm->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->tagRepo = $this->dm->getRepository('PumukitSchemaBundle:Tag');
-        $this->youtubeRepo = $this->dm->getRepository('PumukitYoutubeBundle:Youtube');
+        if(class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
+            $this->youtubeRepo = $this->dm->getRepository('PumukitYoutubeBundle:Youtube');
+        }
     }
 
     /**
@@ -400,8 +402,10 @@ class ImportMultimediaObjectService extends ImportCommonService
                         $multimediaObject->setProperty($key, $property);
                     }
 
-                    if (strpos($key, $this->isYoutubeProperty) !== false) {
-                        $this->addYoutube($key, $property, $multimediaObject);
+                    if(class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
+                        if (strpos($key, $this->isYoutubeProperty) !== false) {
+                            $this->addYoutube($key, $property, $multimediaObject);
+                        }
                     }
                 }
             }
