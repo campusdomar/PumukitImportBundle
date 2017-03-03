@@ -263,12 +263,7 @@ class ImportMultimediaObjectService extends ImportCommonService
             }
         }
 
-        $aPubChannel = array('PUCHWEBTV', 'PUCHMOODLE', 'PUCHYOUTUBE');
-        if ($multimediaObject->containsAnyTagWithCodes($aPubChannel)) {
-            $multimediaObject->setStatus(MultimediaObject::STATUS_PUBLISHED);
-        } else {
-            $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
-        }
+        $multimediaObject = $this->fixStatusWithPublicationChannel($multimediaObject);
 
         $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
         $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
