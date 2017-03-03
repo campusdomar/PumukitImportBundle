@@ -263,7 +263,7 @@ class ImportMultimediaObjectService extends ImportCommonService
             }
         }
 
-        $multimediaObject = $this->fixStatusWithPublicationChannel($multimediaObject);
+        $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
 
         $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
         $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
@@ -462,29 +462,6 @@ class ImportMultimediaObjectService extends ImportCommonService
                     $youtube->setForce($property);
                 }
                 break;
-        }
-
-        return $multimediaObject;
-    }
-
-    private function fixStatusWithPublicationChannel(MultimediaObject $multimediaObject)
-    {
-        $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
-
-        $publishedInAll = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV', 'PUCHMOODLE', 'PUCHYOUTUBE'));
-        $publishedInWebTVAndYoutube = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV', 'PUCHYOUTUBE'));
-        $publishedInWebTVAndMoodle = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV', 'PUCHMOODLE'));
-        $publishedOnlyInYoutube = $multimediaObject->containsAllTagsWithCodes(array('PUCHYOUTUBE'));
-        $publishedOnlyInMoodle = $multimediaObject->containsAllTagsWithCodes(array('PUCHMOODLE'));
-
-        $statusNotPublished = ($multimediaObject->getStatus() !== MultimediaObject::STATUS_PUBLISHED);
-
-        if (($publishedInAll || $publishedInWebTVAndYoutube || $publishedInWebTVAndMoodle) && $statusNotPublished) {
-            $multimediaObject->setStatus(MultimediaObject::STATUS_PUBLISHED);
-            $webTVTag = $this->tagRepo->findOneByCod('PUCHWEBTV');
-            $removeTags = $this->tagService->removeTag($multimediaObject, $webTVTag, false);
-        } elseif (($publishedOnlyInYoutube || $publishedOnlyInMoodle) && $statusNotPublished) {
-            $multimediaObject->setStatus(MultimediaObject::STATUS_PUBLISHED);
         }
 
         return $multimediaObject;
