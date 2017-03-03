@@ -14,7 +14,7 @@ class ImportBroadcastServiceTest extends WebTestCase
     private $factoryService;
     private $resourcesDir;
 
-    public function __construct()
+    public function setUp()
     {
         $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
@@ -31,14 +31,24 @@ class ImportBroadcastServiceTest extends WebTestCase
         $this->factoryService = $kernel->getContainer()
             ->get('pumukitschema.factory');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
-    }
 
-    public function setUp()
-    {
         $this->dm->getDocumentCollection('PumukitSchemaBundle:MultimediaObject')->remove(array());
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Series')->remove(array());
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Broadcast')->remove(array());
         $this->dm->flush();
+    }
+
+    public function tearDown()
+    {
+        $this->dm->close();
+        $this->dm = null;
+        $this->mmobjRepo = null;
+        $this->broadcastRepo = null;
+        $this->importBroadcastService = null;
+        $this->factoryService = null;
+        $this->resourcesDir = null;
+        gc_collect_cycles();
+        parent::tearDown();
     }
 
     public function testSetBroadcast()
