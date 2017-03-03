@@ -109,7 +109,7 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $publicDate = new \Datetime('2011-07-19 14:43:00');
         $i18nTitle = array('es' => '', 'gl' => 'novo', 'en' => 'new');
         $i18nSubtitle = array('es' => 'subtítulo', 'gl' => 'subtítulo', 'en' => '');
-        $i18nKeyword = array('es' => 'llave1, llave2', 'gl' => 'chave1, chave2', 'en' => '');
+        $i18nKeyword = array('es' => 'llave1,llave2', 'gl' => 'chave1,chave2', 'en' => '');
         $i18nDescription = array('es' => 'descripción', 'gl' => 'descripción', 'en' => '');
         $subseriesTitle = array('es' => 'a', 'gl' => 'a', 'en' => '');
         $subseries = true;
