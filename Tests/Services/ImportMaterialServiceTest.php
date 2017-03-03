@@ -75,7 +75,7 @@ class ImportMaterialServiceTest extends WebTestCase
 
         $i18nName = array('es' => 'material', 'gl' => 'material', 'en' => '');
         $url = '/uploads/material/Video/3599/zpatron_uno.avs';
-        $mimetype = 'Avsp';
+        $mimetype = 'Avs';
 
         $this->assertEquals($i18nName, $material->getI18nName());
         $this->assertEquals($url, $material->getUrl());
