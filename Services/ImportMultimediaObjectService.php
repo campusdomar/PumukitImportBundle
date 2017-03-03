@@ -102,7 +102,7 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->importOpencastService = $importOpencastService;
         $this->repo = $this->dm->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->tagRepo = $this->dm->getRepository('PumukitSchemaBundle:Tag');
-        if(class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
+        if (class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
             $this->youtubeRepo = $this->dm->getRepository('PumukitYoutubeBundle:Youtube');
         }
     }
@@ -143,7 +143,7 @@ class ImportMultimediaObjectService extends ImportCommonService
     public function setMultimediaObjects($mmsArray, $series)
     {
         foreach ($mmsArray as $mms) {
-            if(is_array($mms)) {
+            if (is_array($mms)) {
                 if (array_key_exists('0', $mms)) {
                     foreach ($mms as $mmArray) {
                         $series = $this->setMultimediaObject($mmArray, $series);
@@ -258,10 +258,8 @@ class ImportMultimediaObjectService extends ImportCommonService
             }
         }
 
-
-
-        $aPubChannel = array('PUCHWEBTV','PUCHMOODLE','PUCHYOUTUBE');
-        if($multimediaObject->containsAnyTagWithCodes($aPubChannel)) {
+        $aPubChannel = array('PUCHWEBTV', 'PUCHMOODLE', 'PUCHYOUTUBE');
+        if ($multimediaObject->containsAnyTagWithCodes($aPubChannel)) {
             $multimediaObject->setStatus(MultimediaObject::STATUS_PUBLISHED);
         } else {
             $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
@@ -402,7 +400,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                         $multimediaObject->setProperty($key, $property);
                     }
 
-                    if(class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
+                    if (class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
                         if (strpos($key, $this->isYoutubeProperty) !== false) {
                             $this->addYoutube($key, $property, $multimediaObject);
                         }
