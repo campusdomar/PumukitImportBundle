@@ -20,7 +20,7 @@ class ImportSeriesServiceTest extends WebTestCase
     private $dataDir;
     private $bundles;
 
-    public function __construct()
+    public function setUp()
     {
         $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
@@ -42,10 +42,7 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->console = $kernel->getRootDir().'/../app/console --env=test';
         $this->dataDir = realpath(__DIR__.'/../Resources/data');
         $this->bundles = $kernel->getContainer()->getParameter('kernel.bundles');
-    }
 
-    public function setUp()
-    {
         $this->dm->getDocumentCollection('PumukitSchemaBundle:MultimediaObject')->remove(array());
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Series')->remove(array());
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Broadcast')->remove(array());
@@ -53,6 +50,23 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Person')->remove(array());
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Role')->remove(array());
         $this->dm->flush();
+    }
+
+    public function tearDown()
+    {
+        $this->dm->close();
+        $this->dm = null;
+        $this->mmobjRepo = null;
+        $this->seriesRepo = null;
+        $this->tagRepo = null;
+        $this->factoryService = null;
+        $this->importSeriesService = null;
+        $this->resourcesDir = null;
+        $this->console = null;
+        $this->dataDir = null;
+        $this->bundles = null;
+        gc_collect_cycles();
+        parent::tearDown();
     }
 
     public function testSetImportedSeries()
