@@ -51,6 +51,7 @@ class ImportTagService extends ImportCommonService
 
     private $publishingDecisionTagRenameCodes = array(
                                                       'Announce' => 'PUDENEW',
+                                                      'Anunciado' => 'PUDENEW',
                                                       'Editorial1' => 'PUDEPD1',
                                                       'Editorial2' => 'PUDEPD2',
                                                       'Editorial3' => 'PUDEPD3',
