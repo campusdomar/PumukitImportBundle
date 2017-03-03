@@ -99,7 +99,7 @@ class ImportSeriesServiceTest extends WebTestCase
         $publicDate = new \Datetime('2015-04-17 09:12:00');
         $i18nTitle = array('es' => '', 'gl' => 'Título da serie', 'en' => 'Series Title');
         $i18nSubtitle = array('es' => 'Subtítulo', 'gl' => '', 'en' => 'Subtitle');
-        $i18nKeyword = array('es' => 'llave1, llave2', 'gl' => 'chave1, chave2', 'en' => 'key1, key2');
+        $i18nKeyword = array('es' => 'llave1,llave2', 'gl' => 'chave1,chave2', 'en' => 'key1,key2');
         $i18nDescription = array(
                                  'es' => 'Descripción de la serie.',
                                  'gl' => 'Descripción da serie.',
