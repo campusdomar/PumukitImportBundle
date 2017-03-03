@@ -130,7 +130,7 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $pumukit1id = '278';
         $pumukit1rank = '1';
 
-        $this->assertEquals($copyright, $multimediaObject->getCopyright());
+        $this->assertEquals($copyright, $multimediaObject->getLicense());
         $this->assertEquals($recordDate, $multimediaObject->getRecordDate());
         $this->assertEquals($publicDate, $multimediaObject->getPublicDate());
         $this->assertEquals($i18nTitle, $multimediaObject->getI18nTitle());
