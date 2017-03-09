@@ -453,9 +453,9 @@ class ImportMultimediaObjectService extends ImportCommonService
     {
         $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
 
-        $publishedInAll = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV','PUCHMOODLE','PUCHYOUTUBE'));
-        $publishedInWebTVAndYoutube = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV','PUCHYOUTUBE'));
-        $publishedInWebTVAndMoodle = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV','PUCHMOODLE'));
+        $publishedInAll = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV', 'PUCHMOODLE', 'PUCHYOUTUBE'));
+        $publishedInWebTVAndYoutube = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV', 'PUCHYOUTUBE'));
+        $publishedInWebTVAndMoodle = $multimediaObject->containsAllTagsWithCodes(array('PUCHWEBTV', 'PUCHMOODLE'));
         $publishedOnlyInYoutube = $multimediaObject->containsAllTagsWithCodes(array('PUCHYOUTUBE'));
         $publishedOnlyInMoodle = $multimediaObject->containsAllTagsWithCodes(array('PUCHMOODLE'));
 
