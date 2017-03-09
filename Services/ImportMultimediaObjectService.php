@@ -465,4 +465,5 @@ class ImportMultimediaObjectService extends ImportCommonService
 
         return $multimediaObject;
     }
+
 }
