@@ -99,7 +99,7 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $multimediaObjects = $this->mmobjRepo->findAll();
         $multimediaObject = $multimediaObjects[1];
 
-        $this->assertEquals(MultimediaObject::STATUS_PUBLISHED, $multimediaObject->getStatus());
+        $this->assertEquals(MultimediaObject::STATUS_BLOQ, $multimediaObject->getStatus());
 
         $this->assertEquals(7, count($multimediaObject->getTags()));
         $this->assertTrue($multimediaObject->containsTagWithCod('ROOT'));
