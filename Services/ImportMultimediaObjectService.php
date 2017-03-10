@@ -259,7 +259,8 @@ class ImportMultimediaObjectService extends ImportCommonService
         }
 
 
-        $multimediaObject = $this->fixStatusWithPublicationChannel($multimediaObject);
+        //$multimediaObject = $this->fixStatusWithPublicationChannel($multimediaObject);
+        $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
 
         $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
         $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
