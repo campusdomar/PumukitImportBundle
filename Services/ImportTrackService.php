@@ -159,7 +159,7 @@ class ImportTrackService
             }
         }
 
-        return $profileName;
+        return trim($profileName);
     }
 
     private function getTrackLanguage($trackArray = array())
