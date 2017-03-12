@@ -84,6 +84,8 @@ class ImportTrackService
 
         if ($this->getProfileDisplay($profileName)) {
             $track->addTag('display');
+            $track->addTag('html5');
+            $track->addTag('podcast');
         }
 
         $track->setHide($this->getTrackHide($trackArray));
