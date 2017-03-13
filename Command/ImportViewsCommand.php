@@ -42,6 +42,9 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+
+        $cache = array();
+
         /*
           +------------+--------------+------+-----+---------+----------------+
           | Field      | Type         | Null | Key | Default | Extra          |
@@ -81,14 +84,23 @@ EOT
             }
 
             $tag = 'pumukit1id:'.$currentRow[1];
-            $multimediaObject = $this->repo->createQueryBuilder()
-                              ->field('tracks.tags')->equals($tag)
-                              ->getQuery()->getSingleResult();
 
-            if (!$multimediaObject) {
-                //TODO log eror
-                continue;
+            if (array_key_exists($tag, $cache)) {
+                $multimediaObject = $cache[$tag];
+            } else {
+                $multimediaObject = $this->repo->createQueryBuilder()
+                                  ->field('tracks.tags')->equals($tag)
+                                  ->getQuery()->getSingleResult();
+
+                if (!$multimediaObject) {
+                    //TODO log eror
+                    continue;
+                }
+
+                $cache[$tag] = $multimediaObject;
             }
+
+
 
             $track = $multimediaObject->getTrackWithTag($tag);
 
