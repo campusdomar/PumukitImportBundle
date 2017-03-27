@@ -42,7 +42,6 @@ EOT
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $cache = array();
 
         /*
@@ -99,8 +98,6 @@ EOT
 
                 $cache[$tag] = $multimediaObject;
             }
-
-
 
             $track = $multimediaObject->getTrackWithTag($tag);
 
