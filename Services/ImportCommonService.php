@@ -26,7 +26,11 @@ class ImportCommonService
                         $setLocaleField = str_replace('I18n', '', $setField);
                         foreach ($fieldValue as $locale => $value) {
                             if (null != $value) {
-                                $resource->$setLocaleField($value, $locale);
+                                if (is_array($value) && empty(trim($value[0]))) {
+                                    $resource->$setLocaleField('', $locale);
+                                } else {
+                                    $resource->$setLocaleField($value, $locale);
+                                }
                             } else {
                                 $resource->$setLocaleField('', $locale);
                             }
