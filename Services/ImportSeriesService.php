@@ -77,6 +77,9 @@ class ImportSeriesService extends ImportCommonService
         $series = $this->factoryService->createSeries();
         foreach ($xmlArray as $fieldName => $fieldValue) {
             if (array_key_exists($fieldName, $this->seriesRenameFields)) {
+                if ('announce' === $fieldName) {
+                    $fieldValue = ('false' === strtolower($fieldValue)) ? false : true;
+                }
                 $setField = $this->seriesRenameFields[$fieldName];
                 $series = $this->setFieldWithValue($setField, $fieldValue, $series);
             } else {
