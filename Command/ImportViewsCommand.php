@@ -106,8 +106,8 @@ EOT
                 continue;
             }
 
-            $host = $this->getContainer()->get('router.request_context.host');
-            $scheme = $this->getContainer()->get('router.request_context.scheme');
+            $host = $this->getContainer()->getParameter('router.request_context.host');
+            $scheme = $this->getContainer()->getParameter('router.request_context.scheme');
             $urlLog = $scheme.'://'.$host.'/video/index/uuid/XXXXXXXXXXXXX.html';
 
             $log = new ViewsLog($urlLog,
