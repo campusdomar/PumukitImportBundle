@@ -35,6 +35,8 @@ class ImportSeriesService extends ImportCommonService
                                         'copyright' => 'setCopyright',
                                         'keyword' => 'setI18nKeyword',
                                         'line2' => 'setI18nLine2',
+                                        'display' => 'setHide',
+                                        'sorting' => 'setSorting',
                                         );
 
     // NOTE 1: not set automatically (series)
@@ -79,6 +81,9 @@ class ImportSeriesService extends ImportCommonService
             if (array_key_exists($fieldName, $this->seriesRenameFields)) {
                 if ('announce' === $fieldName) {
                     $fieldValue = ('false' === strtolower($fieldValue)) ? false : true;
+                }
+                if ('display' === $fieldName) {
+                    $fieldValue = ('false' === strtolower($fieldValue)) ? true : false;
                 }
                 $setField = $this->seriesRenameFields[$fieldName];
                 $series = $this->setFieldWithValue($setField, $fieldValue, $series);

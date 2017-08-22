@@ -17,7 +17,7 @@ class ImportTrackService
                                      'mp3',
                                      'mp4',
                                      'broadcast-mp4',
-                                     'broadcast-mp4a'
+                                     'broadcast-mp4a',
                                      );
 
     private $renameLanguages = array('ls' => 'lse');
@@ -113,11 +113,12 @@ class ImportTrackService
         $onlyAudio = $this->getTrackOnlyAudio($trackArray);
         $track->setOnlyAudio($onlyAudio);
 
+        $download = $this->getDownloadTrack($trackArray);
+        $track->setAllowDownload($download);
+
         $this->inspectionService->autocompleteTrack($track);
 
         $multimediaObject->addTrack($track);
-
-        $multimediaObject->setNumview($multimediaObject->getNumview() + $this->getTrackNumview($trackArray));
 
         if (isset($trackArray['properties'])) {
             $this->setProperties($trackArray['properties'], $track);
@@ -237,6 +238,18 @@ class ImportTrackService
         }
 
         return $onlyAudio;
+    }
+
+    private function getDownloadTrack($trackArray)
+    {
+        $download = false;
+        if (array_key_exists('download', $trackArray)) {
+            if ((null != $trackArray['download']) && ('true' == $trackArray['download'])) {
+                $download = true;
+            }
+        }
+
+        return $download;
     }
 
     private function getTrackNumview($trackArray = array())
