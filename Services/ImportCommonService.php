@@ -53,7 +53,8 @@ class ImportCommonService
      * @param array  $xmlArray
      * @param array  $setFields
      * @param object $resource
-     * @param object $resource
+     *
+     * @return object $resource
      */
     protected function setFields($xmlArray, $setFields, $resource)
     {

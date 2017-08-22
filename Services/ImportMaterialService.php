@@ -10,6 +10,8 @@ class ImportMaterialService extends ImportCommonService
     private $materialRenameFields = array(
                                           'name' => 'setI18nName',
                                           'url' => 'setUrl',
+                                          'size' => 'setSize',
+                                          'language' => 'setLanguage',
                                           );
 
     private $mattypeSetFields = array(
