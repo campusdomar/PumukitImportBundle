@@ -166,7 +166,7 @@ class ImportSeriesService extends ImportCommonService
     private function setSeriesType($fieldValue, $series)
     {
         $seriesType = $this->getExistingSeriesType($fieldValue);
-        if (null == $seriesType or empty($seriesType)) {
+        if (null == $seriesType) {
             $seriesType = $this->createSeriesType($fieldValue);
         }
 
