@@ -54,6 +54,7 @@ class ImportTagService extends ImportCommonService
                                                       'Editorial1' => 'PUDEPD1',
                                                       'Editorial2' => 'PUDEPD2',
                                                       'Editorial3' => 'PUDEPD3',
+                                                      'Titular' => 'PUDEHEADLINE'
                                                       );
 
     /**
