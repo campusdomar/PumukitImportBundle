@@ -25,33 +25,11 @@ class ImportMultimediaObjectService extends ImportCommonService
     private $importPicService;
     private $importOpencastService;
 
-    private $attributesSetProperties = array(
-        'id' => 'pumukit1id',
-        'rank' => 'pumukit1rank',
-    );
+    private $attributesSetProperties = array('id' => 'pumukit1id', 'rank' => 'pumukit1rank');
 
-    private $multimediaObjectRenameFields = array(
-        'statusId' => 'setStatus',
-        'copyright' => 'setLicense',
-        'recordDate' => 'setRecordDate',
-        'publicDate' => 'setPublicDate',
-        'title' => 'setI18nTitle',
-        'subtitle' => 'setI18nSubtitle',
-        'keyword' => 'setI18nKeyword',
-        'description' => 'setI18nDescription',
-        'line2' => 'setI18nLine2',
-    );
+    private $multimediaObjectRenameFields = array('statusId' => 'setStatus', 'copyright' => 'setLicense', 'recordDate' => 'setRecordDate', 'publicDate' => 'setPublicDate', 'title' => 'setI18nTitle', 'subtitle' => 'setI18nSubtitle', 'keyword' => 'setI18nKeyword', 'description' => 'setI18nDescription', 'line2' => 'setI18nLine2', 'duration' => 'setDuration', 'numview' => 'setNumview', 'comments' => 'setComments');
 
-    private $prototypeRenameFields = array(
-        'copyright' => 'setLicense',
-        'recordDate' => 'setRecordDate',
-        'publicDate' => 'setPublicDate',
-        'title' => 'setI18nTitle',
-        'subtitle' => 'setI18nSubtitle',
-        'keyword' => 'setI18nKeyword',
-        'description' => 'setI18nDescription',
-        'line2' => 'setI18nLine2',
-    );
+    private $prototypeRenameFields = array('copyright' => 'setLicense', 'recordDate' => 'setRecordDate', 'publicDate' => 'setPublicDate', 'title' => 'setI18nTitle', 'subtitle' => 'setI18nSubtitle', 'keyword' => 'setI18nKeyword', 'description' => 'setI18nDescription', 'line2' => 'setI18nLine2');
 
     private $prefixProperty = array('dep', 'precinct_id', 'mm_person_mail');
     private $propertiesAsDateTime = array('offDate');
@@ -74,20 +52,8 @@ class ImportMultimediaObjectService extends ImportCommonService
      * @param ImportPicService               $importPicService
      * @param ImportOpencastService          $importOpencastService
      */
-    public function __construct(
-        DocumentManager $documentManager,
-        FactoryService $factoryService,
-        TagService $tagService,
-        ImportBroadcastService $importBroadcastService,
-        ImportEmbeddedBroadcastService $importEmbeddedBroadcastService,
-        ImportTagService $importTagService,
-        ImportMaterialService $importMaterialService,
-        ImportTrackService $importTrackService,
-        ImportLinkService $importLinkService,
-        ImportPeopleService $importPeopleService,
-        ImportPicService $importPicService,
-        ImportOpencastService $importOpencastService
-    ) {
+    public function __construct(DocumentManager $documentManager, FactoryService $factoryService, TagService $tagService, ImportBroadcastService $importBroadcastService, ImportEmbeddedBroadcastService $importEmbeddedBroadcastService, ImportTagService $importTagService, ImportMaterialService $importMaterialService, ImportTrackService $importTrackService, ImportLinkService $importLinkService, ImportPeopleService $importPeopleService, ImportPicService $importPicService, ImportOpencastService $importOpencastService)
+    {
         $this->dm = $documentManager;
         $this->factoryService = $factoryService;
         $this->tagService = $tagService;
@@ -102,7 +68,7 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->importOpencastService = $importOpencastService;
         $this->repo = $this->dm->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->tagRepo = $this->dm->getRepository('PumukitSchemaBundle:Tag');
-        if(class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
+        if (class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
             $this->youtubeRepo = $this->dm->getRepository('PumukitYoutubeBundle:Youtube');
         }
     }
@@ -110,7 +76,7 @@ class ImportMultimediaObjectService extends ImportCommonService
     /**
      * Set multimedia object prototype.
      *
-     * @param array  $seriesTemplatesArray
+     * @param array  $prototypesArray
      * @param Series $series
      *
      * @return Series $series
@@ -118,14 +84,16 @@ class ImportMultimediaObjectService extends ImportCommonService
     public function setMultimediaObjectPrototype($prototypesArray, $series)
     {
         foreach ($prototypesArray as $prototypes) {
-            // There should be only 1 mmTemplate
-            if (array_key_exists('0', $prototypes)) {
-                foreach ($prototypes as $prototypeArray) {
+            if (is_array($prototypes)) {
+                // There should be only 1 mmTemplate
+                if (array_key_exists('0', $prototypes)) {
+                    foreach ($prototypes as $prototypeArray) {
+                        $series = $this->updateMultimediaObjectPrototype($prototypeArray, $series);
+                    }
+                } else {
+                    $prototypeArray = $prototypes;
                     $series = $this->updateMultimediaObjectPrototype($prototypeArray, $series);
                 }
-            } else {
-                $prototypeArray = $prototypes;
-                $series = $this->updateMultimediaObjectPrototype($prototypeArray, $series);
             }
         }
 
@@ -143,7 +111,7 @@ class ImportMultimediaObjectService extends ImportCommonService
     public function setMultimediaObjects($mmsArray, $series)
     {
         foreach ($mmsArray as $mms) {
-            if(is_array($mms)) {
+            if (is_array($mms)) {
                 if (array_key_exists('0', $mms)) {
                     foreach ($mms as $mmArray) {
                         $series = $this->setMultimediaObject($mmArray, $series);
@@ -175,10 +143,7 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->dm->persist($series);
         $this->dm->flush();
         foreach ($mmArray as $fieldName => $fieldValue) {
-            if (is_array($fieldValue) && 1 == count($fieldValue) && isset($fieldValue[0]) && '' == trim(
-                    $fieldValue[0]
-                )
-            ) {
+            if (is_array($fieldValue) && 1 == count($fieldValue) && isset($fieldValue[0]) && '' == trim($fieldValue[0])) {
                 continue;
             }
 
@@ -188,11 +153,7 @@ class ImportMultimediaObjectService extends ImportCommonService
             } else {
                 switch ($fieldName) {
                     case '@attributes':
-                        $multimediaObject = $this->setAttributesProperties(
-                            $fieldValue,
-                            $this->attributesSetProperties,
-                            $multimediaObject
-                        );
+                        $multimediaObject = $this->setAttributesProperties($fieldValue, $this->attributesSetProperties, $multimediaObject);
                         break;
                     case 'broadcast':
                         $multimediaObject = $this->importBroadcastService->setBroadcast($fieldValue, $multimediaObject);
@@ -225,22 +186,13 @@ class ImportMultimediaObjectService extends ImportCommonService
                         $multimediaObject = $this->importLinkService->setLinks($fieldValue, $multimediaObject);
                         break;
                     case 'publicationChannels':
-                        $multimediaObject = $this->importTagService->setPublicationChannelTags(
-                            $fieldValue,
-                            $multimediaObject
-                        );
+                        $multimediaObject = $this->importTagService->setPublicationChannelTags($fieldValue, $multimediaObject);
                         break;
                     case 'publishingDecisions':
-                        $multimediaObject = $this->importTagService->setPublishingDecisionTags(
-                            $fieldValue,
-                            $multimediaObject
-                        );
+                        $multimediaObject = $this->importTagService->setPublishingDecisionTags($fieldValue, $multimediaObject);
                         break;
                     case 'opencast':
-                        $multimediaObject = $this->importOpencastService->setOpencastInMultimediaObject(
-                            $fieldValue,
-                            $multimediaObject
-                        );
+                        $multimediaObject = $this->importOpencastService->setOpencastInMultimediaObject($fieldValue, $multimediaObject);
                         break;
                     case 'subserialTitle':
                         $multimediaObject = $this->setSubseriesTitleProperty($fieldValue, $multimediaObject);
@@ -258,11 +210,18 @@ class ImportMultimediaObjectService extends ImportCommonService
             }
         }
 
-
         $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
 
         $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
         $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
+
+        if ($multimediaObject->isOnlyAudio()) {
+            $multimediaObject->setType(MultimediaObject::TYPE_AUDIO);
+        } elseif(0 != count($multimediaObject->getTracks())){
+            $multimediaObject->setType(MultimediaObject::TYPE_VIDEO);
+        } else {
+            $multimediaObject->setType(MultimediaObject::TYPE_UNKNOWN);
+        }
 
         $this->dm->persist($multimediaObject);
         $this->dm->flush();
@@ -290,11 +249,7 @@ class ImportMultimediaObjectService extends ImportCommonService
             } else {
                 switch ($fieldName) {
                     case '@attributes':
-                        $prototype = $this->setAttributesProperties(
-                            $fieldValue,
-                            $this->attributesSetProperties,
-                            $prototype
-                        );
+                        $prototype = $this->setAttributesProperties($fieldValue, $this->attributesSetProperties, $prototype);
                         break;
                     case 'broadcast':
                         $prototype = $this->importBroadcastService->setBroadcast($fieldValue, $prototype);
@@ -396,7 +351,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                         $multimediaObject->setProperty($key, $property);
                     }
 
-                    if(class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
+                    if (class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
                         if (strpos($key, $this->isYoutubeProperty) !== false) {
                             $this->addYoutube($key, $property, $multimediaObject);
                         }

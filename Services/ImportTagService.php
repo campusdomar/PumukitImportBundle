@@ -54,6 +54,7 @@ class ImportTagService extends ImportCommonService
                                                       'Editorial1' => 'PUDEPD1',
                                                       'Editorial2' => 'PUDEPD2',
                                                       'Editorial3' => 'PUDEPD3',
+                                                      'Titular' => 'PUDEHEADLINE'
                                                       );
 
     /**
@@ -266,7 +267,7 @@ class ImportTagService extends ImportCommonService
     private function getExistingTag($tagArray, $prefix = '')
     {
         $tagCode = $this->getTagCode($tagArray, $prefix);
-        $tag = $this->repo->findOneByCod($tagCode);
+        $tag = $this->repo->findOneByCod(trim($tagCode));
 
         return $tag;
     }
@@ -274,7 +275,7 @@ class ImportTagService extends ImportCommonService
     private function getExistingGroundTag($tagArray = array())
     {
         $tagCode = $this->getGroundTagCode($tagArray);
-        $tag = $this->repo->findOneByCod($tagCode);
+        $tag = $this->repo->findOneByCod(trim($tagCode));
 
         return $tag;
     }
@@ -282,7 +283,7 @@ class ImportTagService extends ImportCommonService
     private function getExistingPublicationChannelTag($tagArray = array())
     {
         $tagCode = $this->getPublicationChannelTagCode($tagArray);
-        $tag = $this->repo->findOneByCod($tagCode);
+        $tag = $this->repo->findOneByCod(trim($tagCode));
 
         return $tag;
     }
@@ -290,13 +291,15 @@ class ImportTagService extends ImportCommonService
     private function getExistingPublishingDecisionTag($tagArray = array())
     {
         $tagCode = $this->getPublishingDecisionTagCode($tagArray);
-        $tag = $this->repo->findOneByCod($tagCode);
+        $tag = $this->repo->findOneByCod(trim($tagCode));
 
         return $tag;
     }
 
     private function createTag($tagArray, $prefix = '', $setParent = true, $useCode = false)
     {
+        $prefix = trim($prefix);
+
         $tag = new Tag();
 
         if ($useCode) {

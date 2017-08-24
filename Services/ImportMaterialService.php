@@ -10,7 +10,10 @@ class ImportMaterialService extends ImportCommonService
     private $materialRenameFields = array(
                                           'name' => 'setI18nName',
                                           'url' => 'setUrl',
+                                          'size' => 'setSize',
                                           );
+
+    private $renameLanguages = array('ls' => 'lse');
 
     private $mattypeSetFields = array(
                       'type' => 'setMimeType',
@@ -27,7 +30,7 @@ class ImportMaterialService extends ImportCommonService
     public function setMaterials($materialsArray, $multimediaObject)
     {
         foreach ($materialsArray as $materials) {
-            if (array_key_exists('0', $materials)) {
+            if (is_array($materials) and array_key_exists('0', $materials)) {
                 foreach ($materials as $materialArray) {
                     $multimediaObject = $this->setMaterial($materialArray, $multimediaObject);
                 }
@@ -78,7 +81,27 @@ class ImportMaterialService extends ImportCommonService
             }
         }
 
+        $language = $this->getMaterialLanguage($materialArray);
+        $material->setLanguage($language);
+
         return $material;
+    }
+
+    private function getMaterialLanguage($materialArray = array())
+    {
+        $language = null;
+        if (array_key_exists('language', $materialArray)) {
+            $languageArray = $materialArray['language'];
+            if (array_key_exists('cod', $languageArray)) {
+                $code = strtolower($languageArray['cod']);
+                if (array_key_exists($code, $this->renameLanguages)) {
+                    $language = $this->renameLanguages[$code];
+                } else {
+                    $language = $code;
+                }
+            }
+        }
+        return $language;
     }
 
     private function getDisplay($materialArray)
