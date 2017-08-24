@@ -217,8 +217,10 @@ class ImportMultimediaObjectService extends ImportCommonService
 
         if ($multimediaObject->isOnlyAudio()) {
             $multimediaObject->setType(MultimediaObject::TYPE_AUDIO);
-        } else {
+        } elseif(0 != count($multimediaObject->getTracks())){
             $multimediaObject->setType(MultimediaObject::TYPE_VIDEO);
+        } else {
+            $multimediaObject->setType(MultimediaObject::TYPE_UNKNOWN);
         }
 
         $this->dm->persist($multimediaObject);
