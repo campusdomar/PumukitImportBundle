@@ -215,6 +215,12 @@ class ImportMultimediaObjectService extends ImportCommonService
         $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
         $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
 
+        if ($multimediaObject->isOnlyAudio()) {
+            $multimediaObject->setType(MultimediaObject::TYPE_AUDIO);
+        } else {
+            $multimediaObject->setType(MultimediaObject::TYPE_VIDEO);
+        }
+
         $this->dm->persist($multimediaObject);
         $this->dm->flush();
         $this->dm->clear(get_class($multimediaObject));
