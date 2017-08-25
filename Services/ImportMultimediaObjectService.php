@@ -102,7 +102,7 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->importOpencastService = $importOpencastService;
         $this->repo = $this->dm->getRepository('PumukitSchemaBundle:MultimediaObject');
         $this->tagRepo = $this->dm->getRepository('PumukitSchemaBundle:Tag');
-        if(class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
+        if (class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
             $this->youtubeRepo = $this->dm->getRepository('PumukitYoutubeBundle:Youtube');
         }
     }
@@ -143,7 +143,7 @@ class ImportMultimediaObjectService extends ImportCommonService
     public function setMultimediaObjects($mmsArray, $series)
     {
         foreach ($mmsArray as $mms) {
-            if(is_array($mms)) {
+            if (is_array($mms)) {
                 if (array_key_exists('0', $mms)) {
                     foreach ($mms as $mmArray) {
                         $series = $this->setMultimediaObject($mmArray, $series);
@@ -396,7 +396,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                         $multimediaObject->setProperty($key, $property);
                     }
 
-                    if(class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
+                    if (class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
                         if (strpos($key, $this->isYoutubeProperty) !== false) {
                             $this->addYoutube($key, $property, $multimediaObject);
                         }
@@ -443,6 +443,19 @@ class ImportMultimediaObjectService extends ImportCommonService
                 $youtube = $this->youtubeRepo->find($multimediaObject->getProperty('youtube'));
                 if ($youtube) {
                     $youtube->setStatus($property);
+                }
+                break;
+            case 'youtube_playlist':
+                $youtube = $this->youtubeRepo->find($multimediaObject->getProperty('youtube'));
+                if ($youtube) {
+                    //$youtube->setPlaylists(array($property)); // missing values
+                    $multimediaObject->setProperty('youtube_pmk1_playlist', $property);
+                }
+                break;
+            case 'youtube_force':
+                $youtube = $this->youtubeRepo->find($multimediaObject->getProperty('youtube'));
+                if ($youtube) {
+                    $youtube->setForce($property);
                 }
                 break;
         }
