@@ -16,8 +16,9 @@ class ImportEmbeddedBroadcastService extends ImportCommonService
 
     /**
      * ImportEmbeddedBroadcastService constructor.
+     *
      * @param DocumentManager $documentManager
-     * @param GroupService $groupService
+     * @param GroupService    $groupService
      */
     public function __construct(DocumentManager $documentManager, GroupService $groupService)
     {
@@ -58,7 +59,7 @@ class ImportEmbeddedBroadcastService extends ImportCommonService
 
         if (array_key_exists('groups', $aEmbeddedBroadcast)) {
             foreach ($aEmbeddedBroadcast['groups'] as $sGroup) {
-                if(!is_array($sGroup)) {
+                if (!is_array($sGroup)) {
                     $group = $this->groupRepo->findOneBy(array('key' => $sGroup));
                     if (!$group) {
                         $group = new Group();
