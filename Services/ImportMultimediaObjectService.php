@@ -25,13 +25,42 @@ class ImportMultimediaObjectService extends ImportCommonService
     private $importPicService;
     private $importOpencastService;
 
-    private $attributesSetProperties = array('id' => 'pumukit1id', 'rank' => 'pumukit1rank');
+    private $attributesSetProperties = array(
+        'id' => 'pumukit1id',
+        'rank' => 'pumukit1rank',
+    );
 
-    private $multimediaObjectRenameFields = array('statusId' => 'setStatus', 'copyright' => 'setLicense', 'recordDate' => 'setRecordDate', 'publicDate' => 'setPublicDate', 'title' => 'setI18nTitle', 'subtitle' => 'setI18nSubtitle', 'keyword' => 'setI18nKeyword', 'description' => 'setI18nDescription', 'line2' => 'setI18nLine2', 'duration' => 'setDuration', 'numview' => 'setNumview', 'comments' => 'setComments');
+    private $multimediaObjectRenameFields = array(
+        'statusId' => 'setStatus',
+        'copyright' => 'setLicense',
+        'recordDate' => 'setRecordDate',
+        'publicDate' => 'setPublicDate',
+        'title' => 'setI18nTitle',
+        'subtitle' => 'setI18nSubtitle',
+        'keyword' => 'setI18nKeyword',
+        'description' => 'setI18nDescription',
+        'line2' => 'setI18nLine2',
+        'duration' => 'setDuration',
+        'numview' => 'setNumview',
+        'comments' => 'setComments',
+    );
 
-    private $prototypeRenameFields = array('copyright' => 'setLicense', 'recordDate' => 'setRecordDate', 'publicDate' => 'setPublicDate', 'title' => 'setI18nTitle', 'subtitle' => 'setI18nSubtitle', 'keyword' => 'setI18nKeyword', 'description' => 'setI18nDescription', 'line2' => 'setI18nLine2');
+    private $prototypeRenameFields = array(
+        'copyright' => 'setLicense',
+        'recordDate' => 'setRecordDate',
+        'publicDate' => 'setPublicDate',
+        'title' => 'setI18nTitle',
+        'subtitle' => 'setI18nSubtitle',
+        'keyword' => 'setI18nKeyword',
+        'description' => 'setI18nDescription',
+        'line2' => 'setI18nLine2',
+    );
 
-    private $prefixProperty = array('dep', 'precinct_id', 'mm_person_mail');
+    private $prefixProperty = array(
+        'dep',
+        'precinct_id',
+        'mm_person_mail',
+    );
     private $propertiesAsDateTime = array('offDate');
     private $isYoutubeProperty = 'youtube';
     private $prefix = 'pumukit1';

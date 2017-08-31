@@ -8,16 +8,16 @@ use Pumukit\SchemaBundle\Document\Material;
 class ImportMaterialService extends ImportCommonService
 {
     private $materialRenameFields = array(
-                                          'name' => 'setI18nName',
-                                          'url' => 'setUrl',
-                                          'size' => 'setSize',
-                                          );
+        'name' => 'setI18nName',
+        'url' => 'setUrl',
+        'size' => 'setSize',
+    );
 
     private $renameLanguages = array('ls' => 'lse');
 
     private $mattypeSetFields = array(
-                      'type' => 'setMimeType',
-                      );
+        'type' => 'setMimeType',
+    );
 
     /**
      * Set Materials.
@@ -111,12 +111,12 @@ class ImportMaterialService extends ImportCommonService
         if (array_key_exists('display', $materialArray)) {
             $displayString = $materialArray['display'];
             switch ($displayString) {
-            case 'true':
-                $display = true;
-                break;
-            case 'false':
-                $display = false;
-                break;
+                case 'true':
+                    $display = true;
+                    break;
+                case 'false':
+                    $display = false;
+                    break;
             }
         }
 
