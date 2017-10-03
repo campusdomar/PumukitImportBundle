@@ -118,7 +118,9 @@ class ImportTrackService
 
         $multimediaObject->addTrack($track);
 
-        $multimediaObject->setNumview($multimediaObject->getNumview() + $this->getTrackNumview($trackArray));
+        $numViews = $this->getTrackNumview($trackArray);
+        $track->setNumview($numViews);
+        $multimediaObject->setNumview($multimediaObject->getNumview() + $numViews);
 
         if (isset($trackArray['properties'])) {
             $this->setProperties($trackArray['properties'], $track);
