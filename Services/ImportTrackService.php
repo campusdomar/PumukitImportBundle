@@ -80,6 +80,7 @@ class ImportTrackService
         $auxPosition = strpos(strtolower($profileName), 'master');
         if ((0 <= $auxPosition) && (false !== $auxPosition)) {
             $track->addTag('master');
+            $track->addTag('ENCODED_PUCHWEBTV');
         }
 
         if ($this->getProfileDisplay($profileName)) {
