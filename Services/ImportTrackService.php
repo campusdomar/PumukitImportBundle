@@ -61,6 +61,8 @@ class ImportTrackService
             }
         }
 
+
+        $this->updateType($multimediaObject);
         return $multimediaObject;
     }
 
@@ -280,5 +282,21 @@ class ImportTrackService
         }
 
         return $track;
+    }
+
+
+    private function updateType($multimediaObject)
+    {
+        if ($multimediaObject->getProperty('externalplayer')) {
+            $multimediaObject->setType(MultimediaObject::TYPE_EXTERNAL);
+        } elseif ($track = $multimediaObject->getMaster()) {
+            if ($track->isOnlyAudio()) {
+                $multimediaObject->setType(MultimediaObject::TYPE_AUDIO);
+            } else {
+                $multimediaObject->setType(MultimediaObject::TYPE_VIDEO);
+            }
+        } else {
+            $multimediaObject->setType(MultimediaObject::TYPE_UNKNOWN);
+        }
     }
 }
