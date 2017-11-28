@@ -13,12 +13,15 @@ class ImportTrackService
     private $inspectionService;
 
     private $displayProfiles = array(
-                                     'x264-mp4',
-                                     'mp3',
-                                     'mp4',
-                                     'broadcast-mp4',
-                                     'broadcast-mp4a',
-                                     );
+        'x264-mp4',
+        'mp3',
+        'mp4',
+        'broadcast-mp4',
+        'broadcast-mp4a',
+        'master_emitible',
+        'master_trimming_emitible',
+        'mp4_screencast',
+    );
 
     private $renameLanguages = array('ls' => 'lse');
 
