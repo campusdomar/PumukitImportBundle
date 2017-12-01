@@ -207,7 +207,12 @@ class ImportMultimediaObjectService extends ImportCommonService
                             $multimediaObject = $this->importPeopleService->setPeople($fieldValue, $multimediaObject);
                             break;
                         case 'files':
-                            $multimediaObject = $this->importTrackService->setTracks($fieldValue, $multimediaObject);
+                            try {
+                                $multimediaObject = $this->importTrackService->setTracks($fieldValue, $multimediaObject);
+                            } catch (\Exception $e) {
+                                //TODO review.
+                                //continue with other properties
+                            }
                             break;
                         case 'materials':
                             $multimediaObject = $this->importMaterialService->setMaterials($fieldValue, $multimediaObject);
@@ -240,6 +245,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                 }
             } catch (\Exception $e) {
                 //TODO review.
+                //continue with other objects
             }
         }
 
