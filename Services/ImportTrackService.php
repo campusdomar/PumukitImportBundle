@@ -16,6 +16,7 @@ class ImportTrackService
         'x264-mp4',
         'mp3',
         'mp4',
+        'm4a',
         'broadcast-mp4',
         'broadcast-mp4a',
         'master_emitible',
