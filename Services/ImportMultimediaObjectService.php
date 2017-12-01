@@ -172,70 +172,74 @@ class ImportMultimediaObjectService extends ImportCommonService
         $this->dm->persist($series);
         $this->dm->flush();
         foreach ($mmArray as $fieldName => $fieldValue) {
-            if (is_array($fieldValue) && 1 == count($fieldValue) && isset($fieldValue[0]) && '' == trim($fieldValue[0])) {
-                continue;
-            }
-
-            if (array_key_exists($fieldName, $this->multimediaObjectRenameFields)) {
-                $setField = $this->multimediaObjectRenameFields[$fieldName];
-                $multimediaObject = $this->setFieldWithValue($setField, $fieldValue, $multimediaObject);
-            } else {
-                switch ($fieldName) {
-                    case '@attributes':
-                        $multimediaObject = $this->setAttributesProperties($fieldValue, $this->attributesSetProperties, $multimediaObject);
-                        break;
-                    case 'broadcast':
-                        $multimediaObject = $this->importBroadcastService->setBroadcast($fieldValue, $multimediaObject);
-                        break;
-                    case 'embedded_broadcast':
-                        $multimediaObject = $this->importEmbeddedBroadcastService->setEmbeddedBroadcast($fieldValue, $multimediaObject);
-                        break;
-                    case 'genre':
-                        $multimediaObject = $this->importTagService->setGenreTag($fieldValue, $multimediaObject);
-                        break;
-                    case 'mmGrounds':
-                        $multimediaObject = $this->importTagService->setGroundTags($fieldValue, $multimediaObject);
-                        break;
-                    case 'announce':
-                        $multimediaObject = $this->importTagService->setAnnounceTag($fieldValue, $multimediaObject);
-                        break;
-                    case 'mmPics':
-                        $multimediaObject = $this->importPicService->setPics($fieldValue, $multimediaObject);
-                        break;
-                    case 'mmPersons':
-                        $multimediaObject = $this->importPeopleService->setPeople($fieldValue, $multimediaObject);
-                        break;
-                    case 'files':
-                        $multimediaObject = $this->importTrackService->setTracks($fieldValue, $multimediaObject);
-                        break;
-                    case 'materials':
-                        $multimediaObject = $this->importMaterialService->setMaterials($fieldValue, $multimediaObject);
-                        break;
-                    case 'links':
-                        $multimediaObject = $this->importLinkService->setLinks($fieldValue, $multimediaObject);
-                        break;
-                    case 'publicationChannels':
-                        $multimediaObject = $this->importTagService->setPublicationChannelTags($fieldValue, $multimediaObject);
-                        break;
-                    case 'publishingDecisions':
-                        $multimediaObject = $this->importTagService->setPublishingDecisionTags($fieldValue, $multimediaObject);
-                        break;
-                    case 'opencast':
-                        $multimediaObject = $this->importOpencastService->setOpencastInMultimediaObject($fieldValue, $multimediaObject);
-                        break;
-                    case 'subserialTitle':
-                        $multimediaObject = $this->setSubseriesTitleProperty($fieldValue, $multimediaObject);
-                        break;
-                    case 'subserial':
-                        $multimediaObject = $this->setSubseriesProperty($fieldValue, $multimediaObject);
-                        break;
-                    case 'mail':
-                        $multimediaObject = $this->setEmailProperty($fieldValue, $multimediaObject);
-                        break;
-                    case 'properties':
-                        $multimediaObject = $this->setProperties($fieldValue, $multimediaObject);
-                        break;
+            try {
+                if (is_array($fieldValue) && 1 == count($fieldValue) && isset($fieldValue[0]) && '' == trim($fieldValue[0])) {
+                    continue;
                 }
+
+                if (array_key_exists($fieldName, $this->multimediaObjectRenameFields)) {
+                    $setField = $this->multimediaObjectRenameFields[$fieldName];
+                    $multimediaObject = $this->setFieldWithValue($setField, $fieldValue, $multimediaObject);
+                } else {
+                    switch ($fieldName) {
+                        case '@attributes':
+                            $multimediaObject = $this->setAttributesProperties($fieldValue, $this->attributesSetProperties, $multimediaObject);
+                            break;
+                        case 'broadcast':
+                            $multimediaObject = $this->importBroadcastService->setBroadcast($fieldValue, $multimediaObject);
+                            break;
+                        case 'embedded_broadcast':
+                            $multimediaObject = $this->importEmbeddedBroadcastService->setEmbeddedBroadcast($fieldValue, $multimediaObject);
+                            break;
+                        case 'genre':
+                            $multimediaObject = $this->importTagService->setGenreTag($fieldValue, $multimediaObject);
+                            break;
+                        case 'mmGrounds':
+                            $multimediaObject = $this->importTagService->setGroundTags($fieldValue, $multimediaObject);
+                            break;
+                        case 'announce':
+                            $multimediaObject = $this->importTagService->setAnnounceTag($fieldValue, $multimediaObject);
+                            break;
+                        case 'mmPics':
+                            $multimediaObject = $this->importPicService->setPics($fieldValue, $multimediaObject);
+                            break;
+                        case 'mmPersons':
+                            $multimediaObject = $this->importPeopleService->setPeople($fieldValue, $multimediaObject);
+                            break;
+                        case 'files':
+                            $multimediaObject = $this->importTrackService->setTracks($fieldValue, $multimediaObject);
+                            break;
+                        case 'materials':
+                            $multimediaObject = $this->importMaterialService->setMaterials($fieldValue, $multimediaObject);
+                            break;
+                        case 'links':
+                            $multimediaObject = $this->importLinkService->setLinks($fieldValue, $multimediaObject);
+                            break;
+                        case 'publicationChannels':
+                            $multimediaObject = $this->importTagService->setPublicationChannelTags($fieldValue, $multimediaObject);
+                            break;
+                        case 'publishingDecisions':
+                            $multimediaObject = $this->importTagService->setPublishingDecisionTags($fieldValue, $multimediaObject);
+                            break;
+                        case 'opencast':
+                            $multimediaObject = $this->importOpencastService->setOpencastInMultimediaObject($fieldValue, $multimediaObject);
+                            break;
+                        case 'subserialTitle':
+                            $multimediaObject = $this->setSubseriesTitleProperty($fieldValue, $multimediaObject);
+                            break;
+                        case 'subserial':
+                            $multimediaObject = $this->setSubseriesProperty($fieldValue, $multimediaObject);
+                            break;
+                        case 'mail':
+                            $multimediaObject = $this->setEmailProperty($fieldValue, $multimediaObject);
+                            break;
+                        case 'properties':
+                            $multimediaObject = $this->setProperties($fieldValue, $multimediaObject);
+                            break;
+                    }
+                }
+            } catch (\Exception $e) {
+                //TODO review.
             }
         }
 
