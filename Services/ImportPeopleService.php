@@ -215,7 +215,7 @@ class ImportPeopleService extends ImportCommonService
                 $fields[$fieldName] = true;
             } elseif ('false' === $fieldValue) {
                 $fields[$fieldName] = false;
-            } elseif (null != $fieldValue) {
+            } elseif (null !== $fieldValue) {
                 if ('array' === gettype($fieldValue)) {
                     if (!empty(array_filter($fieldValue))) {
                         foreach ($fieldValue as $locale => $value) {
