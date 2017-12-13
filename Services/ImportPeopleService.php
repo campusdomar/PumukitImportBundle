@@ -16,28 +16,28 @@ class ImportPeopleService extends ImportCommonService
     private $personRepo;
 
     private $attributesSetFields = array(
-                                         'rank' => 'setRank',
-                                         );
+        'rank' => 'setRank',
+    );
 
     // NOTE 1: check unique cod
     private $roleRenameFields = array(
-                                      'cod' => 'setCod',
-                                      'xml' => 'setXml',
-                                      'display' => 'setDisplay',
-                                      'name' => 'setI18nName',
-                                      'text' => 'setI18nText',
-                                      );
+        'cod' => 'setCod',
+        'xml' => 'setXml',
+        'display' => 'setDisplay',
+        'name' => 'setI18nName',
+        'text' => 'setI18nText',
+    );
 
     private $personRenameFields = array(
-                                        'name' => 'setName',
-                                        'email' => 'setEmail',
-                                        'web' => 'setWeb',
-                                        'phone' => 'setPhone',
-                                        'honorific' => 'setI18nHonorific',
-                                        'firm' => 'setI18nFirm',
-                                        'post' => 'setI18nPost',
-                                        'bio' => 'setI18nBio',
-                                        );
+        'name' => 'setName',
+        'email' => 'setEmail',
+        'web' => 'setWeb',
+        'phone' => 'setPhone',
+        'honorific' => 'setI18nHonorific',
+        'firm' => 'setI18nFirm',
+        'post' => 'setI18nPost',
+        'bio' => 'setI18nBio',
+    );
 
     private $roleRenameOldValue = array('propi' => 'owner', 'old' => 'expired_owner');
 

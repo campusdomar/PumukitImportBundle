@@ -9,17 +9,17 @@ class ImportOpencastService extends ImportCommonService
     private $dm;
 
     private $multimediaObjectProperties = array(
-                                                'id' => 'opencast',
-                                                'link' => 'opencasturl',
-                                                'invert' => 'opencastinvert',
-                                                'language' => 'opencastlanguage',
-                                                );
+        'id' => 'opencast',
+        'link' => 'opencasturl',
+        'invert' => 'opencastinvert',
+        'language' => 'opencastlanguage',
+    );
 
     private $lowerFields = array('opencastlanguage');
 
     private $multimediaObjectSetFields = array(
-                                               'duration' => 'setDuration',
-                                               );
+        'duration' => 'setDuration',
+    );
 
     private $seriesProperties = array('id' => 'opencast');
 

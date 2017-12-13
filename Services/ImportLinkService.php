@@ -8,9 +8,9 @@ use Pumukit\SchemaBundle\Document\Link;
 class ImportLinkService extends ImportCommonService
 {
     private $linkRenameFields = array(
-                                      'name' => 'setI18nName',
-                                      'url' => 'setUrl',
-                                      );
+        'name' => 'setI18nName',
+        'url' => 'setUrl',
+    );
 
     /**
      * Set Links.

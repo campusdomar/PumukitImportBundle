@@ -12,14 +12,14 @@ class ImportBroadcastService extends ImportCommonService
     private $repo;
 
     private $broadcastRenameFields = array(
-                                           'name' => 'setName',
-                                           'passwd' => 'setPasswd',
-                                           );
+        'name' => 'setName',
+        'passwd' => 'setPasswd',
+    );
     private $broadcastTypeValues = array(
-                                         'pub' => Broadcast::BROADCAST_TYPE_PUB,
-                                         'pri' => Broadcast::BROADCAST_TYPE_PRI,
-                                         'cor' => Broadcast::BROADCAST_TYPE_COR,
-                                         );
+        'pub' => Broadcast::BROADCAST_TYPE_PUB,
+        'pri' => Broadcast::BROADCAST_TYPE_PRI,
+        'cor' => Broadcast::BROADCAST_TYPE_COR,
+    );
 
     /**
      * Constructor.

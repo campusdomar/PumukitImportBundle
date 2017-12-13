@@ -17,45 +17,45 @@ class ImportTagService extends ImportCommonService
 
     private $placesMetatagCode = 'Lugares';
     private $metatagCodes = array(
-                                  'Directriz' => 'DIRECTRIZ',
-                                  'Unesco' => 'UNESCO',
-                                  'Lugares' => 'PLACES',
-                                  );
+        'Directriz' => 'DIRECTRIZ',
+        'Unesco' => 'UNESCO',
+        'Lugares' => 'PLACES',
+    );
 
     private $directrizTagRenameCodes = array(
-                                             'Dciencia' => 'Dscience',
-                                             'Djuridicosocial' => 'Dsocial',
-                                             'Dsalud' => 'Dhealth',
-                                             'Dtecnologia' => 'Dtechnical',
-                                             'Dhumanistica' => 'Dhumanities',
-                                             );
+        'Dciencia' => 'Dscience',
+        'Djuridicosocial' => 'Dsocial',
+        'Dsalud' => 'Dhealth',
+        'Dtecnologia' => 'Dtechnical',
+        'Dhumanistica' => 'Dhumanities',
+    );
 
     private $groundTagRenameFields = array(
-                                           'cod' => 'setCod',
-                                           'name' => 'setI18nTitle',
-                                           );
+        'cod' => 'setCod',
+        'name' => 'setI18nTitle',
+    );
 
     private $publicationChannelTagRenameCodes = array(
-                                                      'WebTV' => 'PUCHWEBTV',
-                                                      'Moodle' => 'PUCHMOODLE',
-                                                      'ARCA' => 'PUCHARCA',
-                                                      'iTunesU' => 'PUCHPODCAST',
-                                                      'YouTubeEDU' => 'PUCHYOUTUBE',
-                                                      );
+        'WebTV' => 'PUCHWEBTV',
+        'Moodle' => 'PUCHMOODLE',
+        'ARCA' => 'PUCHARCA',
+        'iTunesU' => 'PUCHPODCAST',
+        'YouTubeEDU' => 'PUCHYOUTUBE',
+    );
 
     private $ignoredPublicationChannels = array(
-                                                'ARCA' => 'ignore_arca',
-                                                'GoogleVideoSiteMap' => 'ignore_google',
-                                                'iTunesU' => 'ignore_itunesu',
-                                                );
+        'ARCA' => 'ignore_arca',
+        'GoogleVideoSiteMap' => 'ignore_google',
+        'iTunesU' => 'ignore_itunesu',
+    );
 
     private $publishingDecisionTagRenameCodes = array(
-                                                      'Announce' => 'PUDENEW',
-                                                      'Editorial1' => 'PUDEPD1',
-                                                      'Editorial2' => 'PUDEPD2',
-                                                      'Editorial3' => 'PUDEPD3',
-                                                      'Titular' => 'PUDEHEADLINE',
-                                                      );
+        'Announce' => 'PUDENEW',
+        'Editorial1' => 'PUDEPD1',
+        'Editorial2' => 'PUDEPD2',
+        'Editorial3' => 'PUDEPD3',
+        'Titular' => 'PUDEHEADLINE',
+    );
 
     /**
      * Constructor.

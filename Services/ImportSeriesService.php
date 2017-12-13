@@ -25,28 +25,28 @@ class ImportSeriesService extends ImportCommonService
 
     // NOTE 1: fields not filled: secret (filled in construct function), license, locale
     private $seriesRenameFields = array(
-                                        'announce' => 'setAnnounce',
-                                        'publicDate' => 'setPublicDate',
-                                        'title' => 'setI18nTitle',
-                                        'subtitle' => 'setI18nSubtitle',
-                                        'description' => 'setI18nDescription',
-                                        'header' => 'setI18nHeader',
-                                        'footer' => 'setI18nFooter',
-                                        'copyright' => 'setCopyright',
-                                        'keyword' => 'setI18nKeyword',
-                                        'line2' => 'setI18nLine2',
-                                        'display' => 'setHide',
-                                        'sorting' => 'setSorting',
-                                        );
+        'announce' => 'setAnnounce',
+        'publicDate' => 'setPublicDate',
+        'title' => 'setI18nTitle',
+        'subtitle' => 'setI18nSubtitle',
+        'description' => 'setI18nDescription',
+        'header' => 'setI18nHeader',
+        'footer' => 'setI18nFooter',
+        'copyright' => 'setCopyright',
+        'keyword' => 'setI18nKeyword',
+        'line2' => 'setI18nLine2',
+        'display' => 'setHide',
+        'sorting' => 'setSorting',
+    );
 
     // NOTE 1: not set automatically (series)
     // NOTE 2: not set (locale, id)
     // NOTE 3: not used (defaultsel)
     private $seriesTypeRenameFields = array(
-                                            'cod' => 'setCod',
-                                            'name' => 'setI18nName',
-                                            'description' => 'setI18nDescription',
-                                            );
+        'cod' => 'setCod',
+        'name' => 'setI18nName',
+        'description' => 'setI18nDescription',
+    );
 
     /**
      * Constructor.
