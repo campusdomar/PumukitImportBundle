@@ -210,8 +210,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                             try {
                                 $multimediaObject = $this->importTrackService->setTracks($fieldValue, $multimediaObject);
                             } catch (\Exception $e) {
-                                //TODO review.
-                                //continue with other properties
+                                $multimediaObject->setProperty('pumukit1error', $e->getMessage());
                             }
                             break;
                         case 'materials':
@@ -244,8 +243,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                     }
                 }
             } catch (\Exception $e) {
-                //TODO review.
-                //continue with other objects
+                $multimediaObject->setProperty('pumukit1error', $e->getMessage());
             }
         }
 
