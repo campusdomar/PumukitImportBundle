@@ -219,7 +219,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                         $multimediaObject = $this->importTrackService->setTracks($fieldValue, $multimediaObject);
                         break;
                     case 'numView':
-                        $multimediaObject = $multimediaObject->incNumview($fieldValue);
+                        $multimediaObject->incNumview($fieldValue);
                         break;
                     case 'materials':
                         $multimediaObject = $this->importMaterialService->setMaterials($fieldValue, $multimediaObject);
