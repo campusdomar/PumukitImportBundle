@@ -218,6 +218,11 @@ class ImportMultimediaObjectService extends ImportCommonService
                     case 'files':
                         $multimediaObject = $this->importTrackService->setTracks($fieldValue, $multimediaObject);
                         break;
+                    case 'numView':
+                        $numView = $multimediaObject->getNumview();
+                        $numView += $fieldValue;
+                        $multimediaObject->setNumview($numView);
+                        break;
                     case 'materials':
                         $multimediaObject = $this->importMaterialService->setMaterials($fieldValue, $multimediaObject);
                         break;
@@ -257,7 +262,6 @@ class ImportMultimediaObjectService extends ImportCommonService
                 }
             }
         }
-
 
         $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
 
@@ -397,7 +401,7 @@ class ImportMultimediaObjectService extends ImportCommonService
                     }
 
                     if (class_exists('Pumukit\YoutubeBundle\Document\Youtube')) {
-                        if (strpos($key, $this->isYoutubeProperty) !== false) {
+                        if (false !== strpos($key, $this->isYoutubeProperty)) {
                             $this->addYoutube($key, $property, $multimediaObject);
                         }
                     }
