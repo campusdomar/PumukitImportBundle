@@ -125,6 +125,7 @@ class ImportTrackService
 
         $numViews = $this->getTrackNumview($trackArray);
         $track->setNumview($numViews);
+        $multimediaObject->setNumview($multimediaObject->getNumview() + $numViews);
 
         $this->inspectionService->autocompleteTrack($track);
 
