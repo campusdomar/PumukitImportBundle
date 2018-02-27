@@ -62,8 +62,8 @@ class ImportTrackService
             }
         }
 
-
         $this->updateType($multimediaObject);
+
         return $multimediaObject;
     }
 
@@ -122,6 +122,10 @@ class ImportTrackService
 
         $download = $this->getDownloadTrack($trackArray);
         $track->setAllowDownload($download);
+
+        $numViews = $this->getTrackNumview($trackArray);
+        $track->setNumview($numViews);
+        $multimediaObject->setNumview($multimediaObject->getNumview() + $numViews);
 
         $this->inspectionService->autocompleteTrack($track);
 
@@ -284,7 +288,6 @@ class ImportTrackService
 
         return $track;
     }
-
 
     private function updateType($multimediaObject)
     {
