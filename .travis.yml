@@ -13,4 +13,4 @@ before_script:
 
 script:
     - find . -path ./vendor -prune -o -type f -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
-    - if [[ ${TRAVIS_PHP_VERSION:0:3} == "5.6" ]]; then php vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation --rules=@Symfony --using-cache=no; fi
+    - if [[ ${TRAVIS_PHP_VERSION:0:3} == "5.6" ]]; then php vendor/bin/php-cs-fixer fix . -v --dry-run --stop-on-violation --rules=@Symfony --using-cache=no; fi
