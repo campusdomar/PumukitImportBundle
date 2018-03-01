@@ -18,7 +18,7 @@ class ImportTrackService
         'mp4',
         'broadcast-mp4',
         'broadcast-mp4a',
-        'mp4_720p'
+        'mp4_720p',
     );
 
     private $renameLanguages = array('ls' => 'lse');
