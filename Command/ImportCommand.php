@@ -20,7 +20,8 @@ class ImportCommand extends ContainerAwareCommand
           ->setDescription('Import PuMuKIT1.7 Series metadata from file to database')
           ->addOption('data', 'd', InputOption::VALUE_REQUIRED, 'Path of the XML file or directory to import')
           ->addOption('force', 'f', InputOption::VALUE_NONE, 'Set this parameter to execute this action')
-          ->setHelp(<<<'EOT'
+          ->setHelp(
+              <<<'EOT'
                     Command to import PuMuKIT1.7 Series metadata.
 
                     The --data parameter has to be used to add metadata from directory or xml file.
