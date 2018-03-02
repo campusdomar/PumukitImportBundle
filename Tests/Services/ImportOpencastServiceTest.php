@@ -97,7 +97,7 @@ class ImportOpencastServiceTest extends WebTestCase
     private function importXMLFile($filePath = null)
     {
         $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
-        if ($xml === false) {
+        if (false === $xml) {
             throw new \Exception('Not valid XML file: '.$filePath);
         }
 

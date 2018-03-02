@@ -67,14 +67,14 @@ EOT
             return;
         }
 
-        if (($file = fopen($dataPath, 'r')) === false) {
+        if (false === ($file = fopen($dataPath, 'r'))) {
             $output->writeln('<error>Error opening '.$dataPath.": fopen() returned 'false' </error>");
 
             return -1;
         }
 
         $i = 0;
-        while (($currentRow = fgetcsv($file)) !== false) {
+        while (false !== ($currentRow = fgetcsv($file))) {
             ++$i;
 
             if (6 != count($currentRow)) {

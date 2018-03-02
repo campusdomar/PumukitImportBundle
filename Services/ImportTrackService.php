@@ -22,6 +22,9 @@ class ImportTrackService
         'master_emitible',
         'master_trimming_emitible',
         'mp4_screencast',
+        'broadcast-mp4',
+        'broadcast-mp4a',
+        'mp4_720p',
     );
 
     private $renameLanguages = array('ls' => 'lse');
@@ -130,6 +133,10 @@ class ImportTrackService
         $this->inspectionService->autocompleteTrack($track);
 
         $multimediaObject->addTrack($track);
+
+        $numViews = $this->getTrackNumview($trackArray);
+        $track->setNumview($numViews);
+        $multimediaObject->setNumview($multimediaObject->getNumview() + $numViews);
 
         if (isset($trackArray['properties'])) {
             $this->setProperties($trackArray['properties'], $track);
