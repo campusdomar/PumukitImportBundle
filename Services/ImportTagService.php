@@ -104,7 +104,7 @@ class ImportTagService extends ImportCommonService
     public function setGroundTags($groundsArray, $multimediaObject)
     {
         foreach ($groundsArray as $grounds) {
-            if(is_array($grounds)) {
+            if (is_array($grounds)) {
                 if (array_key_exists('0', $grounds)) {
                     foreach ($grounds as $groundArray) {
                         $multimediaObject = $this->setGroundTag($groundArray, $multimediaObject);
