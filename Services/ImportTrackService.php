@@ -47,10 +47,12 @@ class ImportTrackService
     /**
      * Set Tracks.
      *
-     * @param array            $tracksArray
-     * @param MultimediaObject $multimediaObject
+     * @param $tracksArray
+     * @param $multimediaObject
      *
-     * @return MultimediaObject
+     * @return mixed
+     *
+     * @throws \Exception
      */
     public function setTracks($tracksArray, $multimediaObject)
     {
@@ -126,17 +128,13 @@ class ImportTrackService
         $download = $this->getDownloadTrack($trackArray);
         $track->setAllowDownload($download);
 
-        $numViews = $this->getTrackNumview($trackArray);
-        $track->setNumview($numViews);
-        $multimediaObject->setNumview($multimediaObject->getNumview() + $numViews);
-
         $this->inspectionService->autocompleteTrack($track);
 
-        $multimediaObject->addTrack($track);
-
         $numViews = $this->getTrackNumview($trackArray);
         $track->setNumview($numViews);
         $multimediaObject->setNumview($multimediaObject->getNumview() + $numViews);
+
+        $multimediaObject->addTrack($track);
 
         if (isset($trackArray['properties'])) {
             $this->setProperties($trackArray['properties'], $track);
@@ -204,7 +202,8 @@ class ImportTrackService
         $description = array();
         if (array_key_exists('description', $trackArray)) {
             $descriptionArray = $trackArray['description'];
-            if (!empty(array_filter($descriptionArray))) {
+            $descriptionArray = array_filter($descriptionArray);
+            if (!empty($descriptionArray)) {
                 $description = $descriptionArray;
             }
         }

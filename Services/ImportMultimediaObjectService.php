@@ -240,11 +240,11 @@ class ImportMultimediaObjectService extends ImportCommonService
                                 $multimediaObject->setProperty('pumukit1error', $e->getMessage());
                             }
                             break;
-                        case 'numView':
+                        /*case 'numView':
                             $numView = $multimediaObject->getNumview();
                             $numView += $fieldValue;
                             $multimediaObject->setNumview($numView);
-                            break;
+                            break;*/
                         case 'materials':
                             $multimediaObject = $this->importMaterialService->setMaterials(
                                 $fieldValue,
