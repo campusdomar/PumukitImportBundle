@@ -82,9 +82,11 @@ class ImportSeriesService extends ImportCommonService
                 if ('announce' === $fieldName) {
                     $fieldValue = ('false' === strtolower($fieldValue)) ? false : true;
                 }
+
                 if ('display' === $fieldName) {
                     $fieldValue = ('false' === strtolower($fieldValue)) ? true : false;
                 }
+
                 $setField = $this->seriesRenameFields[$fieldName];
                 $series = $this->setFieldWithValue($setField, $fieldValue, $series);
             } else {

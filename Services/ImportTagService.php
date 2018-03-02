@@ -153,6 +153,7 @@ class ImportTagService extends ImportCommonService
      * @param MultimediaObject $multimediaObject
      *
      * @return mixed
+     *
      * @throws \Exception
      */
     public function setAnnounceTag($announce, $multimediaObject)
@@ -204,6 +205,7 @@ class ImportTagService extends ImportCommonService
      * @param MultimediaObject $multimediaObject
      *
      * @return mixed
+     *
      * @throws \Exception
      */
     public function setPublicationChannelTag($publicationChannelArray, $multimediaObject)
@@ -253,6 +255,7 @@ class ImportTagService extends ImportCommonService
      * @param MultimediaObject $multimediaObject
      *
      * @return mixed
+     *
      * @throws \Exception
      */
     public function setPublishingDecisionTag($publishingDecisionArray, $multimediaObject)
