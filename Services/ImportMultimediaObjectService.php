@@ -245,6 +245,9 @@ class ImportMultimediaObjectService extends ImportCommonService
                             $numView += $fieldValue;
                             $multimediaObject->setNumview($numView);
                             break;*/
+                        case 'propertiesTracksIds':
+                            $multimediaObject->setProperty('pumukit1_tracks_ids', $fieldValue);
+                            break;
                         case 'materials':
                             $multimediaObject = $this->importMaterialService->setMaterials(
                                 $fieldValue,
