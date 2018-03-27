@@ -380,7 +380,14 @@ class ImportMultimediaObjectService extends ImportCommonService
     {
         if (!empty(array_filter($subseriesTitleArray))) {
             foreach ($subseriesTitleArray as $locale => $value) {
-                if (null == $value) {
+                if (is_array($value)) {
+                    if (isset($value[0])) {
+                        $value = trim($value[0]);
+                    } else {
+                        $value = '';
+                    }
+                }
+                if ('' == trim($value)) {
                     $subseriesTitleArray[$locale] = '';
                 }
             }
