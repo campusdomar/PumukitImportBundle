@@ -48,6 +48,8 @@ class ImportSeriesService extends ImportCommonService
         'description' => 'setI18nDescription',
     );
 
+    private $prefix = 'pumukit1_';
+
     /**
      * Constructor.
      *
@@ -121,6 +123,8 @@ class ImportSeriesService extends ImportCommonService
                     case 'mail':
                         $series = $this->setEmailProperty($fieldValue, $series);
                         break;
+                    case 'properties':
+                        $series = $this->setProperties($fieldValue, $series);
                 }
             }
         }
@@ -129,6 +133,20 @@ class ImportSeriesService extends ImportCommonService
         $this->dm->persist($series);
         $this->dm->flush();
         $this->dm->clear(get_class($series));
+
+        return $series;
+    }
+
+    private function setProperties($properties, $series)
+    {
+        if (is_array($properties)) {
+            foreach ($properties as $key => $property) {
+                if (!empty($property)) {
+                    $key = $this->prefix.$key;
+                    $series->setProperty($key, $property);
+                }
+            }
+        }
 
         return $series;
     }
