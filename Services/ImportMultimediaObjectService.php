@@ -299,13 +299,7 @@ class ImportMultimediaObjectService extends ImportCommonService
         $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
         $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
 
-        if ($multimediaObject->isOnlyAudio()) {
-            $multimediaObject->setType(MultimediaObject::TYPE_AUDIO);
-        } elseif (0 != count($multimediaObject->getTracks())) {
-            $multimediaObject->setType(MultimediaObject::TYPE_VIDEO);
-        } else {
-            $multimediaObject->setType(MultimediaObject::TYPE_UNKNOWN);
-        }
+        self::updateType($multimediaObject);
 
         $this->dm->persist($multimediaObject);
         $this->dm->flush();
@@ -512,4 +506,32 @@ class ImportMultimediaObjectService extends ImportCommonService
 
         return $multimediaObject;
     }
+
+    private static function getTracksType($tracks)
+    {
+        foreach ($tracks as $track) {
+            if (!$track->isOnlyAudio()) {
+                return MultimediaObject::TYPE_VIDEO;
+            }
+        }
+
+        return MultimediaObject::TYPE_AUDIO;
+    }
+
+    public static function updateType($multimediaObject)
+    {
+        if ($multimediaObject->getProperty('opencast')) {
+            $multimediaObject->setType(MultimediaObject::TYPE_VIDEO);
+        } elseif ($multimediaObject->getProperty('externalplayer')) {
+            $multimediaObject->setType(MultimediaObject::TYPE_EXTERNAL);
+        } elseif ($displayTracks = $multimediaObject->getTracksWithTag('display')) {
+            $multimediaObject->setType(self::getTracksType($displayTracks));
+        } elseif ($masterTracks = $multimediaObject->getTracksWithTag('master')) {
+            $multimediaObject->setType(self::getTracksType($masterTracks));
+        } elseif ($otherTracks = $multimediaObject->getTracks()) {
+            $multimediaObject->setType(self::getTracksType($otherTracks));
+        } else {
+            $multimediaObject->setType(MultimediaObject::TYPE_UNKNOWN);
+        }
+    }    
 }
