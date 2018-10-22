@@ -12,7 +12,7 @@ class ImportMaterialServiceTest extends WebTestCase
     private $factoryService;
     private $resourcesDir;
 
-    public function __construct()
+    public function setUp()
     {
         $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
@@ -27,13 +27,23 @@ class ImportMaterialServiceTest extends WebTestCase
         $this->factoryService = $kernel->getContainer()
             ->get('pumukitschema.factory');
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
-    }
 
-    public function setUp()
-    {
         $this->dm->getDocumentCollection('PumukitSchemaBundle:MultimediaObject')->remove(array());
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Series')->remove(array());
         $this->dm->flush();
+    }
+
+    public function tearDown()
+    {
+        $this->dm->close();
+        $this->dm = null;
+        $this->mmobjRepo = null;
+        $this->broadcastRepo = null;
+        $this->importMaterialService = null;
+        $this->factoryService = null;
+        $this->resourcesDir = null;
+        gc_collect_cycles();
+        parent::tearDown();
     }
 
     public function testSetMaterials()
@@ -65,7 +75,7 @@ class ImportMaterialServiceTest extends WebTestCase
 
         $i18nName = array('es' => 'material', 'gl' => 'material', 'en' => '');
         $url = '/uploads/material/Video/3599/zpatron_uno.avs';
-        $mimetype = 'Avsp';
+        $mimetype = 'Avs';
 
         $this->assertEquals($i18nName, $material->getI18nName());
         $this->assertEquals($url, $material->getUrl());

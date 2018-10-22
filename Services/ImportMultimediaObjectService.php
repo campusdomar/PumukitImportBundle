@@ -295,7 +295,6 @@ class ImportMultimediaObjectService extends ImportCommonService
         }
 
         $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
-
         $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
         $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
 
@@ -533,5 +532,5 @@ class ImportMultimediaObjectService extends ImportCommonService
         } else {
             $multimediaObject->setType(MultimediaObject::TYPE_UNKNOWN);
         }
-    }    
+    }
 }

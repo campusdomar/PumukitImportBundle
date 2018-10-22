@@ -17,7 +17,7 @@ class ImportTagServiceTest extends WebTestCase
     private $console;
     private $bundles;
 
-    public function __construct()
+    public function setUp()
     {
         $options = array('environment' => 'test');
         $kernel = static::createKernel($options);
@@ -36,14 +36,26 @@ class ImportTagServiceTest extends WebTestCase
         $this->resourcesDir = realpath(__DIR__.'/../Resources/data/xmlfiles');
         $this->console = $kernel->getRootDir().'/../app/console --env=test';
         $this->bundles = $kernel->getContainer()->getParameter('kernel.bundles');
-    }
 
-    public function setUp()
-    {
         $this->dm->getDocumentCollection('PumukitSchemaBundle:MultimediaObject')->remove(array());
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Series')->remove(array());
         $this->dm->getDocumentCollection('PumukitSchemaBundle:Tag')->remove(array());
         $this->dm->flush();
+    }
+
+    public function tearDown()
+    {
+        $this->dm->close();
+        $this->dm = null;
+        $this->mmobjRepo = null;
+        $this->tagRepo = null;
+        $this->importTagService = null;
+        $this->factoryService = null;
+        $this->resourcesDir = null;
+        $this->console = null;
+        $this->bundles = null;
+        gc_collect_cycles();
+        parent::tearDown();
     }
 
     public function testSetGenreTag()
