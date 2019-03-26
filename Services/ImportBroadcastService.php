@@ -94,7 +94,7 @@ class ImportBroadcastService extends ImportCommonService
                         $broadcastTypeId = $this->broadcastTypeValues[$typeId];
                         $broadcast->setBroadcastTypeId($broadcastTypeId);
                     } else {
-                        throw new \Exception('Not valid Broadcast type id '.$value);
+                        throw new \Exception('Not valid Broadcast type id '.$typeId);
                     }
                 }
                 if (array_key_exists('defaultsel', $broadcastType)) {

@@ -24,6 +24,9 @@ class ImportMultimediaObjectService extends ImportCommonService
     private $importPeopleService;
     private $importPicService;
     private $importOpencastService;
+    private $youtubeRepo;
+
+    private $importEmbeddedBroadcastService;
 
     private $attributesSetProperties = array(
         'id' => 'pumukit1id',
@@ -295,8 +298,8 @@ class ImportMultimediaObjectService extends ImportCommonService
         }
 
         $multimediaObject->setStatus(intval($multimediaObject->getStatus()));
-        $multimediaObject->setRecordDate(new \Datetime($multimediaObject->getRecordDate()));
-        $multimediaObject->setPublicDate(new \Datetime($multimediaObject->getPublicDate()));
+        $multimediaObject->setRecordDate(new \DateTime($multimediaObject->getRecordDate()));
+        $multimediaObject->setPublicDate(new \DateTime($multimediaObject->getPublicDate()));
 
         self::updateType($multimediaObject);
 
@@ -360,8 +363,8 @@ class ImportMultimediaObjectService extends ImportCommonService
             }
         }
 
-        $prototype->setRecordDate(new \Datetime($prototype->getRecordDate()));
-        $prototype->setPublicDate(new \Datetime($prototype->getPublicDate()));
+        $prototype->setRecordDate(new \DateTime($prototype->getRecordDate()));
+        $prototype->setPublicDate(new \DateTime($prototype->getPublicDate()));
 
         $this->dm->persist($prototype);
         $this->dm->flush();

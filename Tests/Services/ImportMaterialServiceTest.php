@@ -11,6 +11,7 @@ class ImportMaterialServiceTest extends WebTestCase
     private $importMaterialService;
     private $factoryService;
     private $resourcesDir;
+    private $broadcastRepo;
 
     public function setUp()
     {

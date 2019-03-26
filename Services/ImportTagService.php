@@ -11,9 +11,9 @@ class ImportTagService extends ImportCommonService
 {
     private $dm;
     private $repo;
-    private $opencastTag;
     private $tagService;
     private $locales;
+    private $publicationChannelsToIgnore;
 
     private $placesMetatagCode = 'Lugares';
     private $metatagCodes = array(
@@ -28,11 +28,6 @@ class ImportTagService extends ImportCommonService
         'Dsalud' => 'Dhealth',
         'Dtecnologia' => 'Dtechnical',
         'Dhumanistica' => 'Dhumanities',
-    );
-
-    private $groundTagRenameFields = array(
-        'cod' => 'setCod',
-        'name' => 'setI18nTitle',
     );
 
     private $publicationChannelTagRenameCodes = array(
@@ -336,7 +331,7 @@ class ImportTagService extends ImportCommonService
             }
             $tag->setParent($metaTag);
         }
-        $tag->setCreated(new \Datetime('now'));
+        $tag->setCreated(new \DateTime());
 
         $this->dm->persist($tag);
         $this->dm->flush();
@@ -361,7 +356,7 @@ class ImportTagService extends ImportCommonService
             $metaTag->setTitle($code, $locale);
             $metaTag->setDescription($code, $locale);
         }
-        $metaTag->setCreated(new \Datetime('now'));
+        $metaTag->setCreated(new \DateTime());
 
         $this->dm->persist($metaTag);
         $this->dm->flush();

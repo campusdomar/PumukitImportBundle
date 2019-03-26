@@ -13,8 +13,6 @@ class ImportOpencastServiceTest extends WebTestCase
     private $factoryService;
     private $importOpencastService;
     private $resourcesDir;
-    private $console;
-    private $dataDir;
 
     public function setUp()
     {
@@ -61,9 +59,9 @@ class ImportOpencastServiceTest extends WebTestCase
         $this->dm->flush();
 
         $xmlFile = $this->resourcesDir.'/opencastinmultimediaobject.xml';
-        $xmlArray = $this->importXMLFile($xmlFile, $series, false);
+        $xmlArray = $this->importXMLFile($xmlFile);
 
-        $multimediaObject = $this->importOpencastService->setOpencastInMultimediaObject($xmlArray, $multimediaObject);
+        $this->importOpencastService->setOpencastInMultimediaObject($xmlArray, $multimediaObject);
 
         $allMultimediaObjects = $this->mmobjRepo->findAll();
         $this->assertEquals(2, count($allMultimediaObjects));
@@ -91,7 +89,7 @@ class ImportOpencastServiceTest extends WebTestCase
         $series = $this->factoryService->createSeries();
 
         $xmlFile = $this->resourcesDir.'/opencastinseries.xml';
-        $xmlArray = $this->importXMLFile($xmlFile, $series, false);
+        $xmlArray = $this->importXMLFile($xmlFile);
 
         $series = $this->importOpencastService->setOpencastInSeries($xmlArray, $series);
 

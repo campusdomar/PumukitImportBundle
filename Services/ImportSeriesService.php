@@ -128,7 +128,7 @@ class ImportSeriesService extends ImportCommonService
                 }
             }
         }
-        $series->setPublicDate(new \Datetime($series->getPublicDate()));
+        $series->setPublicDate(new \DateTime($series->getPublicDate()));
 
         $this->dm->persist($series);
         $this->dm->flush();
@@ -162,7 +162,7 @@ class ImportSeriesService extends ImportCommonService
 
     private function setImportInfo($fieldValue, $series)
     {
-        $date = new \Datetime('now');
+        $date = new \DateTime();
         $value = 'Imported with XML version '.$fieldValue.' on date '.$date->format('d-m-Y H:i:s');
         $series = $this->setFieldProperty('import', $value, $series);
 

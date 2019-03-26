@@ -118,8 +118,8 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $this->assertEquals($broadcast, $multimediaObject->getBroadcast());
 
         $copyright = 'UVIGO-Tv';
-        $recordDate = new \Datetime('2011-07-19 14:43:00');
-        $publicDate = new \Datetime('2011-07-19 14:43:00');
+        $recordDate = new \DateTime('2011-07-19 14:43:00');
+        $publicDate = new \DateTime('2011-07-19 14:43:00');
         $i18nTitle = array('es' => '', 'gl' => 'novo', 'en' => 'new');
         $i18nSubtitle = array('es' => 'subtítulo', 'gl' => 'subtítulo', 'en' => '');
         $i18nKeyword = array('es' => 'llave1,llave2', 'gl' => 'chave1,chave2', 'en' => '');

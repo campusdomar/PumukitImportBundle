@@ -36,10 +36,10 @@ class ImportOpencastService extends ImportCommonService
     /**
      * Set Opencast in MultimediaObject.
      *
-     * @param array            $opencastArray
-     * @param MultimediaObject $multimediaObject
+     * @param $opencastArray
+     * @param $multimediaObject
      *
-     * @return MultimediaObject
+     * @return object
      */
     public function setOpencastInMultimediaObject($opencastArray, $multimediaObject)
     {
@@ -54,10 +54,10 @@ class ImportOpencastService extends ImportCommonService
     /**
      * Set Opencast in Series.
      *
-     * @param array  $opencastArray
-     * @param Series $series
+     * @param $opencastArray
+     * @param $series
      *
-     * @return Series
+     * @return mixed
      */
     public function setOpencastInSeries($opencastArray, $series)
     {
