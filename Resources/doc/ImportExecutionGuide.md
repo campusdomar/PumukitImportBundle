@@ -1,14 +1,14 @@
 # Import Execution Guide
 
-*This page is updated to the PuMuKIT-import-bundle 2.0.x and to the PuMuKIT 2.4.0*
+*This page is updated to the pumukit-import-bundle 2.0.x and to the PuMuKIT 2.4.0 or higher*
 
 Follow the next steps to import into PuMuKIT2.1 the metadata exported from PuMuKIT1.7
 
 ## System requirements
 
-Make sure your PuMuKIT2 server achieve the system requirements
+Make sure your PuMuKIT server achieve the system requirements
 
-Configure your `web/storage/` and `web/uploads/` directories to be mounted on your PuMuKIT share in a way PuMuKIT1 and PuMuKIT2 servers have access to the multimedia files.
+Configure your `web/storage/` and `web/uploads/` directories to be mounted on your PuMuKIT share in a way PuMuKIT1 and PuMuKIT servers have access to the multimedia files.
 
 ## PuMuKIT1.7 metadata exportation
 
@@ -34,10 +34,10 @@ $ mongo
 
 ## Init Tags of all installed bundles
 
-Go to root Pumukit2 folder
+Go to root Pumukit folder
 
 ```
-$ cd /path/to/pumukit2
+$ cd /path/to/pumukit
 $ php app/console pumukit:init:repo tag --force
 ```
 
@@ -56,10 +56,10 @@ If you want to activate one of these publication channels for importing data, fo
 
 ## Exec command
 
-Go to root PuMuKIT2 folder and execute the import command, changing ROUTE by the route path where the XML files are (the PuMuKIT1.7 exported files).
+Go to root PuMuKIT folder and execute the import command, changing ROUTE by the route path where the XML files are (the PuMuKIT1.7 exported files).
 
 ```
-$ cd /path/to/pumukit2
+$ cd /path/to/pumukit
 $ time php app/console import:pumukit:series --data="ROUTE" --force --env=prod | sudo tee app/logs/import.log
 ```
 
@@ -69,10 +69,10 @@ Steps to do manually after the import is done.
 
 ### Create Users
 
-Go to root PuMuKIT2 folder and create the same users you had in PuMuKIT1.7.
+Go to root PuMuKIT folder and create the same users you had in PuMuKIT1.7.
 
 ```
-$ cd /path/to/pumukit2
+$ cd /path/to/pumukit
 $ php app/console fos:user:create
 $ php app/console fos:user:activate
 ```

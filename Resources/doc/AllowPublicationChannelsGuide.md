@@ -1,6 +1,6 @@
 # Allow Publication Channels Guide
 
-*This page is updated to the PuMuKIT-import-bundle 2.0.x and to the PuMuKIT 2.4.0*
+*This page is updated to the pumukit-import-bundle 3.0.x and to the PuMuKIT 2.4.0 or higher*
 
 If you have used ARCA, GoogleVideoSiteMap, iTunesU or YouTubeEDU channels in your PuMuKIT1.7 server, you can still use them in PuMuKIT2.1, except for GoogleVideoSiteMap.
 
@@ -8,7 +8,7 @@ If you have used ARCA, GoogleVideoSiteMap, iTunesU or YouTubeEDU channels in you
 
 1.- Install the ArcaBundle:
 
-Follow the steps at its [Installation guide](https://github.com/campusdomar/PuMuKIT2/blob/2.1.x/src/Pumukit/ArcaBundle/Resources/doc/InstallationGuide.md).
+Follow the steps at its [Installation guide](https://github.com/pumukit/pumukit/blob/2.1.x/src/Pumukit/ArcaBundle/Resources/doc/InstallationGuide.md).
 
 2.- Enable the import data of the ARCA Channel at `app/config/parameters.yml` file of your PuMuKIT2.1 project:
 
@@ -21,7 +21,7 @@ pumukit_import:
 
 1.- Install the PodcastBundle:
 
-Follow the steps at its [Installation guide](https://github.com/campusdomar/PuMuKIT2/blob/2.1.x/src/Pumukit/PodcastBundle/Resources/doc/InstallationGuide.md).
+Follow the steps at its [Installation guide](https://github.com/pumukit/pumukit/blob/2.1.x/src/Pumukit/PodcastBundle/Resources/doc/InstallationGuide.md).
 
 2.- Enable the import data of the iTunesU Channel at `app/config/parameters.yml` file of your PuMuKIT2.1 project:
 

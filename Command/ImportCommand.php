@@ -111,7 +111,7 @@ EOT
     {
         $errors = array();
         try {
-            $output->writeln("Trying to import Series file '".$filePath."' into Pumukit2 ...");
+            $output->writeln("Trying to import Series file '".$filePath."' into Pumukit ...");
 
             set_error_handler(function ($errno, $errstr, $errfile, $errline) {
                 throw new \Exception($errstr, $errno);

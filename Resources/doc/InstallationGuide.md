@@ -1,7 +1,7 @@
 Installation Guide
 ==================
 
-*This page is updated to the PuMuKIT-import-bundle 2.0.x and to the PuMuKIT 2.4.0 or higher*
+*This page is updated to the pumukit-import-bundle 2.0.x and to the PuMuKIT 2.4.0 or higher*
 
 Before installing any bundle is necessary to login to your GitHub account. You have different ways of doing it. We recommend to use:
 
@@ -23,7 +23,7 @@ Open a command console, enter your project directory and execute the
 following command to add this repo:
 
 ```bash
-$ composer config repositories.pumukitimportbundle vcs https://github.com/campusdomar/PuMuKIT2-import-bundle
+$ composer config repositories.pumukitimportbundle vcs https://github.com/campusdomar/pumukit-import-bundle
 ```
 
 Step 2: Download the Bundle
@@ -33,7 +33,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
 
 ```bash
-$ composer require campusdomar/pmk2-import-bundle 2.0.x-dev
+$ composer require campusdomar/pumukit-import-bundle 3.0.x-dev
 ```
 
 Step 3: Install the Bundle
@@ -43,7 +43,7 @@ Install the bundle by executing the following line command. This command updates
 .
 
 ```bash
-$ cd /path/to/pumukit2/
+$ cd /path/to/pumukit/
 $ php app/console pumukit:install:bundle Pumukit/ImportBundle/PumukitImportBundle
 ```
 
