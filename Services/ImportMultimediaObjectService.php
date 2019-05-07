@@ -5,6 +5,7 @@ namespace Pumukit\ImportBundle\Services;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Pumukit\SchemaBundle\Document\Series;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
+use Pumukit\SchemaBundle\Utils\Mongo\TextIndexUtils;
 use Pumukit\YoutubeBundle\Document\Youtube;
 use Pumukit\SchemaBundle\Services\FactoryService;
 use Pumukit\SchemaBundle\Services\TagService;
@@ -302,6 +303,7 @@ class ImportMultimediaObjectService extends ImportCommonService
         $multimediaObject->setPublicDate(new \DateTime($multimediaObject->getPublicDate()));
 
         self::updateType($multimediaObject);
+        self::updateTextIndex($multimediaObject);
 
         $this->dm->persist($multimediaObject);
         $this->dm->flush();
@@ -365,6 +367,7 @@ class ImportMultimediaObjectService extends ImportCommonService
 
         $prototype->setRecordDate(new \DateTime($prototype->getRecordDate()));
         $prototype->setPublicDate(new \DateTime($prototype->getPublicDate()));
+        self::updateTextIndex($prototype);
 
         $this->dm->persist($prototype);
         $this->dm->flush();
@@ -535,5 +538,35 @@ class ImportMultimediaObjectService extends ImportCommonService
         } else {
             $multimediaObject->setType(MultimediaObject::TYPE_UNKNOWN);
         }
+    }
+
+    /**
+     * @param $multimediaObject
+     */
+    public static function updateTextIndex($multimediaObject)
+    {
+        $textIndex = array();
+        $secondaryTextIndex = array();
+        $title = $multimediaObject->getI18nTitle();
+        foreach (array_keys($title) as $lang) {
+            $text = '';
+            $secondaryText = '';
+            $mongoLang = TextIndexUtils::getCloseLanguage($lang);
+
+            $text .= $multimediaObject->getTitle($lang);
+            $text .= ' | '.$multimediaObject->getKeyword($lang);
+            $text .= ' | '.$multimediaObject->getSeriesTitle($lang);
+            $secondaryText .= $multimediaObject->getDescription($lang);
+
+            $persons = $multimediaObject->getPeopleByRole();
+            foreach ($persons as $key => $person) {
+                $secondaryText .= ' | '.$person->getName();
+            }
+
+            $textIndex[] = array('indexlanguage' => $mongoLang, 'text' => TextIndexUtils::cleanTextIndex($text));
+            $secondaryTextIndex[] = array('indexlanguage' => $mongoLang, 'text' => TextIndexUtils::cleanTextIndex($secondaryText));
+        }
+        $multimediaObject->setTextIndex($textIndex);
+        $multimediaObject->setSecondaryTextIndex($secondaryTextIndex);
     }
 }
