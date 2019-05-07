@@ -114,7 +114,7 @@ EOT
             $output->writeln("Trying to import Series file '".$filePath."' into Pumukit ...");
 
             set_error_handler(function ($errno, $errstr, $errfile, $errline) {
-                if($errno !== E_USER_DEPRECATED) {
+                if (E_USER_DEPRECATED !== $errno) {
                     throw new \Exception($errstr, $errno);
                 }
             });
