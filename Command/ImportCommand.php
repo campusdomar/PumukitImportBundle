@@ -114,7 +114,9 @@ EOT
             $output->writeln("Trying to import Series file '".$filePath."' into Pumukit ...");
 
             set_error_handler(function ($errno, $errstr, $errfile, $errline) {
-                throw new \Exception($errstr, $errno);
+                if($errno !== E_USER_DEPRECATED) {
+                    throw new \Exception($errstr, $errno);
+                }
             });
             $xml = simplexml_load_file($filePath, 'SimpleXMLElement', LIBXML_NOCDATA);
             $xmlArray = $this->arrayClean($xml);
