@@ -4,7 +4,7 @@ namespace Pumukit\ImportBundle\Tests\Services;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Process\Process;
-use Pumukit\SchemaBundle\Document\Broadcast;
+use Pumukit\ImportBundle\Document\Broadcast;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
 
 class ImportMultimediaObjectServiceTest extends WebTestCase
@@ -99,7 +99,7 @@ class ImportMultimediaObjectServiceTest extends WebTestCase
         $multimediaObjects = $this->mmobjRepo->findAll();
         $multimediaObject = $multimediaObjects[1];
 
-        $this->assertEquals(MultimediaObject::STATUS_BLOQ, $multimediaObject->getStatus());
+        $this->assertEquals(MultimediaObject::STATUS_BLOCKED, $multimediaObject->getStatus());
 
         $this->assertEquals(7, count($multimediaObject->getTags()));
         $this->assertTrue($multimediaObject->containsTagWithCod('ROOT'));

@@ -66,7 +66,7 @@ class ImportOpencastServiceTest extends WebTestCase
         $allMultimediaObjects = $this->mmobjRepo->findAll();
         $this->assertEquals(2, count($allMultimediaObjects));
 
-        $multimediaObject = $this->mmobjRepo->findOneByStatus(MultimediaObject::STATUS_BLOQ);
+        $multimediaObject = $this->mmobjRepo->findOneByStatus(MultimediaObject::STATUS_BLOCKED);
 
         $opencastId = 'a93f5411-822b-4a84-a4e4-d6619fe86fbe';
         $this->assertEquals($opencastId, $multimediaObject->getProperty('opencast'));

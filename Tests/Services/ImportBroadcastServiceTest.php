@@ -3,7 +3,7 @@
 namespace Pumukit\ImportBundle\Tests\Services;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Pumukit\SchemaBundle\Document\Broadcast;
+use Pumukit\ImportBundle\Document\Broadcast;
 
 class ImportBroadcastServiceTest extends WebTestCase
 {

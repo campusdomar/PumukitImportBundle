@@ -4,7 +4,7 @@ namespace Pumukit\ImportBundle\Tests\Services;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Process\Process;
-use Pumukit\SchemaBundle\Document\Broadcast;
+use Pumukit\ImportBundle\Document\Broadcast;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
 
 class ImportSeriesServiceTest extends WebTestCase
@@ -144,9 +144,9 @@ class ImportSeriesServiceTest extends WebTestCase
         $this->assertEquals(3, count($prototype->getRoles()));
         $this->assertEquals(2, count($prototype->getPeople()));
 
-        $multimediaObject = $this->mmobjRepo->findOneByStatus(MultimediaObject::STATUS_BLOQ);
+        $multimediaObject = $this->mmobjRepo->findOneByStatus(MultimediaObject::STATUS_BLOCKED);
 
-        $this->assertEquals(MultimediaObject::STATUS_BLOQ, $multimediaObject->getStatus());
+        $this->assertEquals(MultimediaObject::STATUS_BLOCKED, $multimediaObject->getStatus());
 
         $this->assertEquals(7, count($multimediaObject->getTags()));
         $this->assertTrue($multimediaObject->containsTagWithCod('ROOT'));

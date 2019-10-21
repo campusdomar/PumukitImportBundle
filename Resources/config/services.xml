@@ -18,7 +18,7 @@
         <service id="pumukit_import.tag" class="Pumukit\ImportBundle\Services\ImportTagService">
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />
             <argument type="service" id="pumukitschema.tag" />
-            <argument>%pumukit2.locales%</argument>
+            <argument>%pumukit.locales%</argument>
             <argument>%pumukit_import.ignore%</argument>
         </service>
         <service id="pumukit_import.pic" class="Pumukit\ImportBundle\Services\ImportPicService">
