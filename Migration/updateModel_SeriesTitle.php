@@ -10,13 +10,9 @@ require_once __DIR__.'/../app/AppKernel.php';
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Debug\Debug;
-use Pumukit\SchemaBundle\Document\Person;
 
 class UpdateModelSeriesTitleCommand extends ContainerAwareCommand
 {
@@ -54,10 +50,9 @@ class UpdateModelSeriesTitleCommand extends ContainerAwareCommand
     }
 }
 
-
 $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');
-$debug = getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption(array('--no-debug', '')) && $env !== 'prod';
+$debug = '0' !== getenv('SYMFONY_DEBUG') && !$input->hasParameterOption(array('--no-debug', '')) && 'prod' !== $env;
 
 if ($debug) {
     Debug::enable();

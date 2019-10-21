@@ -10,9 +10,7 @@ require_once __DIR__.'/../app/AppKernel.php';
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Debug\Debug;
@@ -27,6 +25,7 @@ class MyLocalCommand extends ContainerAwareCommand
             ->setDescription('Update the documents (from 2.1) to match the 2.2 version.')
         ;
     }
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->updateViewsLog();
@@ -49,24 +48,22 @@ class MyLocalCommand extends ContainerAwareCommand
           ->getQuery()
           ->execute();
 
-        foreach($seriesAux as $s){
-          
-          $dm->createQueryBuilder('PumukitStatsBundle:ViewsLog')
+        foreach ($seriesAux as $s) {
+            $dm->createQueryBuilder('PumukitStatsBundle:ViewsLog')
             ->update()
             ->multiple(true)
             ->field('series')->set($s['series'])
-            ->field('multimediaObject')->equals((string)$s['_id'])
+            ->field('multimediaObject')->equals((string) $s['_id'])
             ->getQuery()
             ->execute();
 
-          $dm->createQueryBuilder('PumukitStatsBundle:ViewsLog')
+            $dm->createQueryBuilder('PumukitStatsBundle:ViewsLog')
             ->update()
             ->multiple(true)
             ->field('multimediaObject')->set($s['_id'])
-            ->field('multimediaObject')->equals((string)$s['_id'])
+            ->field('multimediaObject')->equals((string) $s['_id'])
             ->getQuery()
             ->execute();
-
         }
     }
 
@@ -76,13 +73,13 @@ class MyLocalCommand extends ContainerAwareCommand
         $personRepo = $dm->getRepository('PumukitSchemaBundle:Person');
         $permProfRepo = $dm->getRepository('PumukitSchemaBundle:PermissionProfile');
         $userService = $this->getContainer()->get('pumukitschema.user');
-        
+
         $permPublisher = $permProfRepo->findOneByName('Publisher');
         $permViewer = $permProfRepo->findOneByName('Viewer');
-        if(!$permPublisher) {
+        if (!$permPublisher) {
             throw new \RuntimeException('The "Publisher" Permision Profile is not set. Did you initialize the Permission Profiles repo? (pumukit:init:repo permissionprofile --force)');
         }
-        if(!$permViewer) {
+        if (!$permViewer) {
             throw new \RuntimeException('The "Viewer" Permision Profile is not set. Did you initialize the Permission Profiles repo? (pumukit:init:repo permissionprofile --force)');
         }
 
@@ -90,8 +87,8 @@ class MyLocalCommand extends ContainerAwareCommand
                   ->getQuery()
                   ->execute();
 
-        foreach($allUsers as $user) {
-            if($user->getPermissionProfile()) {
+        foreach ($allUsers as $user) {
+            if ($user->getPermissionProfile()) {
                 continue;
             }
             $people = $personRepo->createQueryBuilder()
@@ -101,13 +98,12 @@ class MyLocalCommand extends ContainerAwareCommand
                     ->toArray();
 
             //Prepare person
-            if(isset($people[0])) {
+            if (isset($people[0])) {
                 $person = $people[0];
-            }
-            else {
+            } else {
                 $person = new Person();
                 $person->setName($user->getFullname());
-                if('' == trim($user->getFullname()) && $user->hasRole('ROLE_SUPER_ADMIN')) {
+                if ('' == trim($user->getFullname()) && $user->hasRole('ROLE_SUPER_ADMIN')) {
                     $person->setName('Administrator');
                 }
                 $person->setEmail($user->getEmail());
@@ -115,17 +111,15 @@ class MyLocalCommand extends ContainerAwareCommand
             //Set the person user
             $person->setUser($user);
             $dm->persist($person);
-            
+
             //Set the user person and find the permission profile.
             $user->setPerson($person);
             $userRoles = $user->getRoles();
-            if(in_array('ROLE_SUPER_ADMIN', $userRoles)) {
+            if (in_array('ROLE_SUPER_ADMIN', $userRoles)) {
                 continue;
-            }
-            else if(in_array('ROLE_ADMIN', $userRoles)){
+            } elseif (in_array('ROLE_ADMIN', $userRoles)) {
                 $permissionProfile = $permPublisher;
-            }
-            else {
+            } else {
                 $permissionProfile = $permViewer;
             }
             $user->setPermissionProfile($permissionProfile);
@@ -137,7 +131,7 @@ class MyLocalCommand extends ContainerAwareCommand
     }
 
     /**
-     * Adds new tags
+     * Adds new tags.
      *
      * This function executes the pumukit:init:repo tag command to re-init PUDEUNI particularly.
      * Instead of running a command within another command, a better approach could be to separate the tags functionality
@@ -146,9 +140,10 @@ class MyLocalCommand extends ContainerAwareCommand
     protected function addNewTags($output = null)
     {
         $command = $this->getApplication()->find('pumukit:init:repo');
-        if(!$output)
+        if (!$output) {
             $output = new BufferedOutput();
-        $input = new ArrayInput(array('command' => 'pumukit:init:repo','repo' => 'tag'));
+        }
+        $input = new ArrayInput(array('command' => 'pumukit:init:repo', 'repo' => 'tag'));
         $command->run($input, $output);
     }
 
@@ -172,10 +167,9 @@ class MyLocalCommand extends ContainerAwareCommand
     }
 }
 
-
 $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');
-$debug = getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption(array('--no-debug', '')) && $env !== 'prod';
+$debug = '0' !== getenv('SYMFONY_DEBUG') && !$input->hasParameterOption(array('--no-debug', '')) && 'prod' !== $env;
 
 if ($debug) {
     Debug::enable();

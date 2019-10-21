@@ -87,7 +87,7 @@ class UpgradePumukitCommand extends ContainerAwareCommand
 
 $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');
-$debug = getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption(array('--no-debug', '')) && $env !== 'prod';
+$debug = '0' !== getenv('SYMFONY_DEBUG') && !$input->hasParameterOption(array('--no-debug', '')) && 'prod' !== $env;
 
 if ($debug) {
     Debug::enable();
