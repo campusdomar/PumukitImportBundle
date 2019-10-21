@@ -6,7 +6,6 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use Pumukit\SchemaBundle\Document\Series;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
 use Pumukit\SchemaBundle\Utils\Mongo\TextIndexUtils;
-use Pumukit\YoutubeBundle\Document\Youtube;
 use Pumukit\SchemaBundle\Services\FactoryService;
 use Pumukit\SchemaBundle\Services\TagService;
 
@@ -207,12 +206,12 @@ class ImportMultimediaObjectService extends ImportCommonService
                                 $multimediaObject
                             );
                             break;
-                        case 'broadcast':
-                            $multimediaObject = $this->importBroadcastService->setBroadcast(
-                                $fieldValue,
-                                $multimediaObject
-                            );
-                            break;
+//                        case 'broadcast':
+//                            $multimediaObject = $this->importBroadcastService->setBroadcast(
+//                                $fieldValue,
+//                                $multimediaObject
+//                            );
+//                            break;
                         case 'embedded_broadcast':
                             $multimediaObject = $this->importEmbeddedBroadcastService->setEmbeddedBroadcast(
                                 $fieldValue,
@@ -337,9 +336,9 @@ class ImportMultimediaObjectService extends ImportCommonService
                             $prototype
                         );
                         break;
-                    case 'broadcast':
-                        $prototype = $this->importBroadcastService->setBroadcast($fieldValue, $prototype);
-                        break;
+//                    case 'broadcast':
+//                        $prototype = $this->importBroadcastService->setBroadcast($fieldValue, $prototype);
+//                        break;
                     case 'genre':
                         $prototype = $this->importTagService->setGenreTag($fieldValue, $prototype);
                         break;

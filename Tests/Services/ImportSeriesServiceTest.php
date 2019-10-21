@@ -4,7 +4,7 @@ namespace Pumukit\ImportBundle\Tests\Services;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Process\Process;
-use Pumukit\SchemaBundle\Document\Broadcast;
+use Pumukit\ImportBundle\Document\Broadcast;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
 
 class ImportSeriesServiceTest extends WebTestCase

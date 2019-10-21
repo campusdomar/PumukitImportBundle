@@ -1,8 +1,13 @@
 {
     "name": "campusdomar/pumukit-import-bundle",
     "type": "symfony-bundle",
-    "description": "Import bundle for Symfony2 to import Series data from PuMuKIT v1.7, exported previously in XML files",
-    "keywords": ["import", "symfony2", "bundle", "pumukit", "campusdomar"],
+    "description": "Import bundle for Symfony to import Series data from PuMuKIT v1.7, exported previously in XML files",
+    "keywords": [
+        "import",
+        "symfony",
+        "bundle",
+        "pumukit",
+    ],
     "homepage": "https://github.com/campusdomar/PumukitImportBundle",
     "license": "proprietary",
     "authors": [
@@ -12,8 +17,8 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "pumukit/pumukit": ">=3.0"
+        "php": "^7.2",
+        "pumukit/pumukit": "^3.1"
     },
     "autoload": {
         "psr-4": {

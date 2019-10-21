@@ -4,7 +4,7 @@ namespace Pumukit\ImportBundle\Services;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Pumukit\SchemaBundle\Document\MultimediaObject;
-use Pumukit\SchemaBundle\Document\Broadcast;
+use Pumukit\ImportBundle\Document\Broadcast;
 
 class ImportBroadcastService extends ImportCommonService
 {
@@ -29,7 +29,7 @@ class ImportBroadcastService extends ImportCommonService
     public function __construct(DocumentManager $documentManager)
     {
         $this->dm = $documentManager;
-        $this->repo = $this->dm->getRepository('PumukitSchemaBundle:Broadcast');
+        $this->repo = $this->dm->getRepository(Broadcast::class);
     }
 
     /**
