@@ -9,6 +9,7 @@ require __DIR__.'../../../../../app/autoload.php';
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,18 +21,20 @@ class UpgradePumukitCommand extends ContainerAwareCommand
 {
     private $dm;
     private $typeLoginName = 'Private (LDAP)';
+    private $dbs;
 
     protected function configure()
     {
         $this
             ->setName('update:model:2.2to2.3')
+            ->addArgument('mongodb_database', InputArgument::REQUIRED, 'mongodb_database')
             ->setDescription('Update the documents (from 2.2) to match the 2.3 version.')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->initParameters();
+        $this->initParameters($input);
 
         $output->writeln(' ***** Updating PuMuKIT 2.2 to PuMuKIT 2.3 ***** ');
 
@@ -42,9 +45,10 @@ class UpgradePumukitCommand extends ContainerAwareCommand
         $output->writeln('MultimediaObject collection updated (broadcasts)');
     }
 
-    private function initParameters()
+    private function initParameters(InputInterface $input)
     {
         $this->dm = $this->getContainer()->get('doctrine_mongodb')->getManager();
+        $this->dbs = $input->getArgument('mongodb_database');
     }
 
     private function updateKeywords()
@@ -71,7 +75,7 @@ class UpgradePumukitCommand extends ContainerAwareCommand
                                             db.MultimediaObject.save(u);
                                         })";
 
-        $dbs = $this->getContainer()->getParameter('mongodb_database');
+        $dbs = $this->dbs;
         try {
             $this->dm->getConnection()->getMongoClient()->$dbs->execute($addKeywordsSeries);
             $this->dm->getConnection()->getMongoClient()->$dbs->execute($addKeywordsMMO);
@@ -89,7 +93,7 @@ class UpgradePumukitCommand extends ContainerAwareCommand
      */
     private function updateBroadcast(OutputInterface $output)
     {
-        $dbs = $this->getContainer()->getParameter('mongodb_database');
+        $dbs = $this->dbs;
         try {
             $addEmbeddedBroadcast = 'db.MultimediaObject.update({},{$set: {"embeddedBroadcast": {"_id": new ObjectId(), "name" : "Public", "type" : "public"}}},{multi:true})';
             $this->dm->getConnection()->getMongoClient()->$dbs->execute($addEmbeddedBroadcast);
@@ -121,7 +125,7 @@ class UpgradePumukitCommand extends ContainerAwareCommand
             $progress = new \Symfony\Component\Console\Helper\ProgressBar($output, count($aMultimediaObjects));
             $iElements = 0;
             foreach ($aMultimediaObjects as $oMultimedia) {
-                if ($oMultimedia->getBroadcast()) {
+                if (method_exists($oMultimedia, 'getBroadcast')) {
                     if (Broadcast::BROADCAST_TYPE_PUB == $oMultimedia->getBroadcast()->getBroadcastTypeId()) {
                         $progress->advance();
                         continue;
