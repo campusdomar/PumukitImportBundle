@@ -6,7 +6,7 @@
         "import",
         "symfony",
         "bundle",
-        "pumukit",
+        "pumukit"
     ],
     "homepage": "https://github.com/campusdomar/PumukitImportBundle",
     "license": "proprietary",
