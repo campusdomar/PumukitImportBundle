@@ -4,7 +4,7 @@
 
 set_time_limit(0);
 
-require __DIR__.'/../app/autoload.php';
+require __DIR__.'../../../../../app/autoload.php';
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
