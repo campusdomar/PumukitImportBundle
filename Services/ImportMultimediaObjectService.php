@@ -460,7 +460,7 @@ class ImportMultimediaObjectService extends ImportCommonService
     {
         switch ($key) {
             case 'youtube_id':
-                $youtube = new Youtube();
+                $youtube = new Pumukit\YoutubeBundle\Document\Youtube();
                 $youtube->setMultimediaObjectId($multimediaObject->getId());
                 $youtube->setYoutubeId($property);
                 $youtube->setPlaylists(array());
